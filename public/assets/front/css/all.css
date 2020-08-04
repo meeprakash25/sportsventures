@@ -5724,7 +5724,7 @@ Breadcrumb Area Start
     Top Header Area Start
 --------------------------*/
 .top-header {
-  background: #0f78f2;
+  /*background: #0f78f2;*/
   padding: 3px 0px 3px;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
   }
@@ -13029,7 +13029,7 @@ margin-bottom: 15px;
 
 
  .top-header ul li.my-dropdown.profilearea .my-dropdown-menu{
-    top: 22px;
+    top: 16px;
     right: 0px;
     left: auto;
     padding: 10px 15px 12px;
@@ -13490,7 +13490,7 @@ input.form-control.card-elements {
   height: auto;
   padding: 0px;
   font-size: 13px;
-  color: #fff;
+  color: #000000;
   width: 100%;
   margin-left: 15px;
 }
@@ -15162,7 +15162,7 @@ div#myInputautocomplete-list {
 @media only screen and (max-width: 414px) {
     .logo-header .search-box .search-form button {
         font-size: 12px;
-        width: 24px;
+        width: 35px;
     }
     .logo-header .search-box .search-form input {
         padding: 0px 3px 0px 4px;

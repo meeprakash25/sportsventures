@@ -734,9 +734,13 @@ if (isset($gs->menu_hover_color)) {
         background: <?php echo $color; ?>;
     }
 
-    .top-header {
-        background: <?php echo $color; ?>;
+    {{--.top-header {--}}
+    {{--    background: <?php echo $color; ?>;--}}
 
+    {{--}--}}
+
+    .top-header a:hover {
+        color: <?php echo $color; ?>;
     }
 
     .logo-header .search-box .search-form button {

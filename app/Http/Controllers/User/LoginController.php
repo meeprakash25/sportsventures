@@ -76,7 +76,7 @@ class LoginController extends Controller
       }
 
       // if unsuccessful, then redirect back to the login with the form data
-          return response()->json(array('errors' => [ 0 => 'Credentials Doesn\'t Match !' ]));     
+          return response()->json(array('errors' => [ 0 => 'Credentials Don\'t Match !' ]));
     }
 
     public function logout()
@@ -100,7 +100,7 @@ class LoginController extends Controller
         }
 
         $font = $actual_path.'assets/front/fonts/NotoSans-Bold.ttf';
-        $allowed_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        $allowed_letters = 'abcdefghijklmnopqrstuvwxyz0123456789';
         $length = strlen($allowed_letters);
         $letter = $allowed_letters[rand(0, $length-1)];
         $word='';

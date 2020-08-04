@@ -212,7 +212,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 col-12 remove-padding order-last order-sm-2 order-md-2">
+			<div class="col-lg-7 col-md-4 col-sm-12 col-xs-12 col-12 remove-padding order-last order-sm-2 order-md-2">
 				<div class="search-box-wrapper">
 					<div class="search-box">
 						<div class="categori-container" id="catSelectForm">
@@ -247,7 +247,7 @@
 			<div class="col-lg-2 col-md-3 col-sm-6 col-xs-5 col-5 remove-padding order-md-2">
 				<div class="helpful-links">
 					<ul class="helpful-links-inner">
-						<li class="my-dropdown" data-toggle="tooltip" data-placement="top" title="{{ $langg->lang3 }}">
+						<li class="my-dropdown" data-toggle="tooltip" data-placement="left" title="{{ $langg->lang3 }}">
 							<a href="javascript:;" class="cart carticon">
 								<div class="icon">
 									<i class="icofont-cart"></i>
@@ -259,7 +259,7 @@
 								@include('load.cart')
 							</div>
 							</li>
-							<li class="wishlist"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang9 }}">
+							<li class="wishlist"  data-toggle="tooltip" data-placement="left" title="{{ $langg->lang9 }}">
 								@if(Auth::guard('web')->check())
 									<a href="{{ route('user-wishlists') }}" class="wish">
 										<i class="far fa-heart"></i>
@@ -272,7 +272,7 @@
 									</a>
 								@endif
 							</li>
-						<li class="compare" data-toggle="tooltip" data-placement="top" title="{{ $langg->lang10 }}">
+						<li class="compare" data-toggle="tooltip" data-placement="left" title="{{ $langg->lang10 }}">
 							<a href="{{ route('product.compare') }}" class="wish compare-product">
 								<div class="icon">
 									<i class="fas fa-exchange-alt"></i>
@@ -283,8 +283,8 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-lg-1 col-sm-6 col-xs-4 col-4 remove-padding order-md-last text-right my-auto">
-				<div class="list">
+			<div class="col-lg-1 col-md-2 col-sm-6 col-xs-4 col-4 remove-padding order-md-last text-right my-auto">
+				<div class="top-header">
 					<ul>
 						@if(!Auth::guard('web')->check())
 							<li class="login">
@@ -295,10 +295,10 @@
 								</a>
 							</li>
 						@else
-							<li class="profilearea my-dropdown">
+							<li class="profilearea my-dropdown text-left text-nowrap my-auto my-sm-0">
 								<a href="javascript: ;" id="profile-icon" class="profile carticon">
-									<span class="text">
-										<i class="far fa-user"></i>	{{ $langg->lang11 }} <i class="fas fa-chevron-down"></i>
+									<span class="text-bold">
+										<i class="far fa-user"></i> Account {{--{{ $langg->lang11 }}--}} <i class="fas fa-chevron-down"></i>
 									</span>
 								</a>
 								<div class="my-dropdown-menu profile-dropdown">
@@ -917,14 +917,14 @@
                            </div>
 
                            <div class="col-lg-6">
- <div class="form-input">
+ 								<div class="form-input">
                                 <input type="email" class="User Name" name="email" placeholder="{{ $langg->lang183 }}" required="">
                                 <i class="icofont-email"></i>
                             </div>
 
                            	</div>
                            <div class="col-lg-6">
-    <div class="form-input">
+  								<div class="form-input">
                                 <input type="text" class="User Name" name="phone" placeholder="{{ $langg->lang184 }}" required="">
                                 <i class="icofont-phone"></i>
                             </div>
@@ -932,14 +932,14 @@
                            	</div>
                            <div class="col-lg-6">
 
-<div class="form-input">
+								<div class="form-input">
                                 <input type="text" class="User Name" name="address" placeholder="{{ $langg->lang185 }}" required="">
                                 <i class="icofont-location-pin"></i>
                             </div>
                            	</div>
 
                            <div class="col-lg-6">
- <div class="form-input">
+ 								<div class="form-input">
                                 <input type="text" class="User Name" name="shop_name" placeholder="{{ $langg->lang238 }}" required="">
                                 <i class="icofont-cart-alt"></i>
                             </div>
@@ -947,42 +947,42 @@
                            	</div>
                            <div class="col-lg-6">
 
- <div class="form-input">
+ 								<div class="form-input">
                                 <input type="text" class="User Name" name="owner_name" placeholder="{{ $langg->lang239 }}" required="">
                                 <i class="icofont-cart"></i>
                             </div>
                            	</div>
                            <div class="col-lg-6">
 
-<div class="form-input">
+								<div class="form-input">
                                 <input type="text" class="User Name" name="shop_number" placeholder="{{ $langg->lang240 }}" required="">
                                 <i class="icofont-shopping-cart"></i>
                             </div>
                            	</div>
                            <div class="col-lg-6">
 
- <div class="form-input">
+ 								<div class="form-input">
                                 <input type="text" class="User Name" name="shop_address" placeholder="{{ $langg->lang241 }}" required="">
                                 <i class="icofont-opencart"></i>
                             </div>
                            	</div>
                            <div class="col-lg-6">
 
-<div class="form-input">
+								<div class="form-input">
                                 <input type="text" class="User Name" name="reg_number" placeholder="{{ $langg->lang242 }}" required="">
                                 <i class="icofont-ui-cart"></i>
                             </div>
                            	</div>
                            <div class="col-lg-6">
 
- <div class="form-input">
+ 								<div class="form-input">
                                 <input type="text" class="User Name" name="shop_message" placeholder="{{ $langg->lang243 }}" required="">
                                 <i class="icofont-envelope"></i>
                             </div>
                            	</div>
 
                            <div class="col-lg-6">
-  <div class="form-input">
+  								<div class="form-input">
                                 <input type="password" class="Password" name="password" placeholder="{{ $langg->lang186 }}" required="">
                                 <i class="icofont-ui-password"></i>
                             </div>
@@ -997,7 +997,7 @@
 
                             @if($gs->is_capcha == 1)
 
-<div class="col-lg-6">
+							<div class="col-lg-6">
 
 
                             <ul class="captcha-area">
@@ -1010,11 +1010,11 @@
                             </ul>
 
 
-</div>
+							</div>
 
-<div class="col-lg-6">
+							<div class="col-lg-6">
 
- <div class="form-input">
+							 <div class="form-input">
                                 <input type="text" class="Password" name="codes" placeholder="{{ $langg->lang51 }}" required="">
                                 <i class="icofont-refresh"></i>
 

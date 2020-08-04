@@ -253,7 +253,7 @@ class ProductController extends Controller
         list(, $image)      = explode(',', $image);
         $image = base64_decode($image);
         $image_name = time().str_random(8).'.png';
-        $path = 'assets/images/products/'.$image_name;
+        $path = 'public/assets/images/products/'.$image_name;
         file_put_contents($path, $image);
                 if($data->photo != null)
                 {

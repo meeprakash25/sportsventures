@@ -158,24 +158,24 @@
 								<a href="{{ route('admin.dashboard') }}" class="wave-effect"><i class="fa fa-home mr-2"></i>{{ __('Dashboard') }}</a>
 							</li>
 							@if(Auth::guard('admin')->user()->IsSuper())
-							@include('includes.admin.roles.super')
+								@include('includes.admin.roles.super')
 							@else
-							@include('includes.admin.roles.normal')
+								@include('includes.admin.roles.normal')
 							@endif
 
 						</ul>
-					@if(Auth::guard('admin')->user()->IsSuper())
-					<p class="version-name"> Version: 1.7.4</p>
-					@endif
+						@if(Auth::guard('admin')->user()->IsSuper())
+							<p class="version-name"> Version: 1.0.0</p>
+						@endif
 					</nav>
 					<!-- Main Content Area Start -->
-					@yield('content')
-					<!-- Main Content Area End -->
-					</div>
+				@yield('content')
+				<!-- Main Content Area End -->
 				</div>
 			</div>
+		</div>
 
-			@php
+		@php
 				$curr = \App\Models\Currency::where('is_default','=',1)->first();
 			@endphp
 			<script type="text/javascript">
@@ -189,7 +189,7 @@
 
 		<!-- Dashboard Core -->
 		<script src="{{asset('assets/admin/js/vendors/jquery-1.12.4.min.js')}}"></script>
-    <script src="{{asset('assets/admin/js/vendors/vue.js')}}"></script>
+    	<script src="{{asset('assets/admin/js/vendors/vue.js')}}"></script>
 		<script src="{{asset('assets/admin/js/vendors/bootstrap.min.js')}}"></script>
 		<script src="{{asset('assets/admin/js/jqueryui.min.js')}}"></script>
 		<!-- Fullside-menu Js-->
@@ -211,18 +211,14 @@
 		<!-- AJAX Js-->
 		<script src="{{asset('assets/admin/js/myscript.js')}}"></script>
 
-
-
 		@yield('scripts')
 
-@if($gs->is_admin_loader == 0)
-<style>
-	div#geniustable_processing {
-		display: none !important;
-	}
-</style>
-@endif
-
+	@if($gs->is_admin_loader == 0)
+	<style>
+		div#geniustable_processing {
+			display: none !important;
+		}
+	</style>
+	@endif
 	</body>
-
 </html>

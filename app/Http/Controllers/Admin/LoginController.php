@@ -47,7 +47,7 @@ class LoginController extends Controller
       }
 
       // if unsuccessful, then redirect back to the login with the form data
-          return response()->json(array('errors' => [ 0 => 'Credentials Doesn\'t Match !' ]));     
+          return response()->json(array('errors' => [ 0 => 'Credentials Don\'t Match !' ]));
     }
 
     public function showForgotForm()

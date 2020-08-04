@@ -292,36 +292,45 @@
             </li>
         </ul>
     </li>
-    <li>
-        <a href="#emails" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-at"></i>{{ __('Email Settings') }}
-        </a>
-        <ul class="collapse list-unstyled" id="emails" data-parent="#accordion">
-            <li><a href="{{route('admin-mail-index')}}"><span>{{ __('Email Template') }}</span></a></li>
-            <li><a href="{{route('admin-mail-config')}}"><span>{{ __('Email Configurations') }}</span></a></li>
-            <li><a href="{{route('admin-group-show')}}"><span>{{ __('Group Email') }}</span></a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#payments" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-file-code"></i>{{ __('Payment Settings') }}
-        </a>
-        <ul class="collapse list-unstyled" id="payments" data-parent="#accordion">
-            <li><a href="{{route('admin-gs-payments')}}"><span>{{__('Payment Information')}}</span></a></li>
-            <li><a href="{{route('admin-payment-index')}}"><span>{{ __('Payment Gateways') }}</span></a></li>
-            <li><a href="{{route('admin-currency-index')}}"><span>{{ __('Currencies') }}</span></a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#socials" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-paper-plane"></i>{{ __('Social Settings') }}
-        </a>
-        <ul class="collapse list-unstyled" id="socials" data-parent="#accordion">
-                <li><a href="{{route('admin-social-index')}}"><span>{{ __('Social Links') }}</span></a></li>
-                <li><a href="{{route('admin-social-facebook')}}"><span>{{ __('Facebook Login') }}</span></a></li>
-                <li><a href="{{route('admin-social-google')}}"><span>{{ __('Google Login') }}</span></a></li>
-        </ul>
-    </li>
+<li>
+    <a href="#emails" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+        <i class="fas fa-at"></i>{{ __('Email Settings') }}
+    </a>
+    <ul class="collapse list-unstyled" id="emails" data-parent="#accordion">
+        <li><a href="{{route('admin-mail-index')}}"><span>{{ __('Email Template') }}</span></a></li>
+        <li><a href="{{route('admin-mail-config')}}"><span>{{ __('Email Configurations') }}</span></a></li>
+        <li><a href="{{route('admin-group-show')}}"><span>{{ __('Group Email') }}</span></a></li>
+    </ul>
+</li>
+<li>
+    <a href="#sms" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+        <i class="fas fa-at"></i>{{ __('SMS Settings') }}
+    </a>
+    <ul class="collapse list-unstyled" id="sms" data-parent="#accordion">
+        <li><a href="{{route('admin-sms-config')}}"><span>{{ __('SMS Configurations') }}</span></a></li>
+        <li><a href="{{route('admin-group-sms-show')}}"><span>{{ __('Group SMS') }}</span></a></li>
+    </ul>
+</li>
+<li>
+    <a href="#payments" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+        <i class="fas fa-file-code"></i>{{ __('Payment Settings') }}
+    </a>
+    <ul class="collapse list-unstyled" id="payments" data-parent="#accordion">
+        <li><a href="{{route('admin-gs-payments')}}"><span>{{__('Payment Information')}}</span></a></li>
+        <li><a href="{{route('admin-payment-index')}}"><span>{{ __('Payment Gateways') }}</span></a></li>
+        <li><a href="{{route('admin-currency-index')}}"><span>{{ __('Currencies') }}</span></a></li>
+    </ul>
+</li>
+<li>
+    <a href="#socials" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+        <i class="fas fa-paper-plane"></i>{{ __('Social Settings') }}
+    </a>
+    <ul class="collapse list-unstyled" id="socials" data-parent="#accordion">
+        <li><a href="{{route('admin-social-index')}}"><span>{{ __('Social Links') }}</span></a></li>
+        <li><a href="{{route('admin-social-facebook')}}"><span>{{ __('Facebook Login') }}</span></a></li>
+        <li><a href="{{route('admin-social-google')}}"><span>{{ __('Google Login') }}</span></a></li>
+    </ul>
+</li>
     <li>
         <a href="#langs" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
             <i class="fas fa-language"></i>{{ __('Language Settings') }}

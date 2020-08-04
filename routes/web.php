@@ -658,6 +658,20 @@ Route::prefix('admin')->group(function () {
     //------------ ADMIN EMAIL SETTINGS SECTION ENDS ------------
 
 
+    //------------ ADMIN SMS SETTINGS SECTION ------------
+
+    Route::group(['middleware' => 'permissions:sms_settings'], function () {
+
+        Route::get('/sms-config', 'Admin\SMSController@config')->name('admin-sms-config');
+        Route::get('/groupsms', 'Admin\SMSController@groupsms')->name('admin-group-sms-show');
+        Route::post('/groupsmspost', 'Admin\SMSController@groupsmspost')->name('admin-group-sms-submit');
+        Route::get('/issms/{status}', 'Admin\GeneralSettingController@issms')->name('admin-gs-issms');
+
+    });
+
+    //------------ ADMIN SMS SETTINGS SECTION ENDS ------------
+
+
     //------------ ADMIN PAYMENT SETTINGS SECTION ------------
 
     Route::group(['middleware' => 'permissions:payment_settings'], function () {

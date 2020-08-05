@@ -208,7 +208,7 @@
 			<div class="col-lg-2 col-md-3 col-sm-6 col-xs-3 col-3 remove-padding">
 				<div class="logo">
 					<a href="{{ route('front.index') }}">
-						<img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
+						<img src="{{asset('assets/images/'.$gs->logo)}}" alt="" class="logo-img" style="max-height: 50px">
 					</a>
 				</div>
 			</div>

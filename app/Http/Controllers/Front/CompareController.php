@@ -78,7 +78,7 @@ class CompareController extends Controller
         }
 
         $font = $actual_path.'assets/front/fonts/NotoSans-Bold.ttf';
-        $allowed_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        $allowed_letters = 'abcdefghijklmnopqrstuvwxyz0123456789';
         $length = strlen($allowed_letters);
         $letter = $allowed_letters[rand(0, $length-1)];
         $word='';

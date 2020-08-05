@@ -14502,27 +14502,31 @@ top: 20px;
 .logo-header .search-box .search-form input {
   padding: 0px 30px 0px 0px;
 }
-.logo-header .helpful-links ul li[data-toggle="tooltip"], .logo-header .helpful-links ul li[data-toggle="tooltip"] {
-  margin-top: 10px;
-}
-.logo-header  .nice-select .option{
-  padding: 0px 10px;
-  line-height: 30px;
-  min-height: 30px;
-}
-.logo-header .logo{
-  position: relative;
-  top: -4px
-}
-.logo-header {
-  padding: 10px 0px 7px;
-}
-.mainmenu-area .container{
-  padding: 0px;
-  margin: 0px;
-}
-.logo-header .helpful-links ul li {
-  margin-right: 10px;
+    .logo-header .helpful-links ul li[data-toggle="tooltip"], .logo-header .helpful-links ul li[data-toggle="tooltip"] {
+        margin-top: 10px;
+    }
+
+    .logo-header .nice-select .option {
+        padding: 0px 10px;
+        line-height: 30px;
+        min-height: 30px;
+    }
+
+    .logo-header .logo {
+        position: relative;
+    }
+
+    .logo-header {
+        padding: 10px 0px 7px;
+    }
+
+    .mainmenu-area .container {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .logo-header .helpful-links ul li {
+        margin-right: 10px;
   }
   .logo-header .helpful-links ul li:last-child{
     margin-right: 0px;

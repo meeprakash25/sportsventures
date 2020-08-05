@@ -484,4 +484,88 @@ class GeneralSettingController extends Controller
         $data->update();
     }
 
+    public function create_customer_email_alert($status)
+    {
+        $data                        = Generalsetting::findOrFail(1);
+        $data->create_customer_email = $status;
+        $data->update();
+    }
+
+    public function create_customer_sms_alert($status)
+    {
+        $data                      = Generalsetting::findOrFail(1);
+        $data->create_customer_sms = $status;
+        $data->update();
+    }
+
+    public function order_status_email_alert($status)
+    {
+        $data                     = Generalsetting::findOrFail(1);
+        $data->order_status_email = $status;
+        $data->update();
+    }
+
+    public function order_status_sms_alert($status)
+    {
+        $data                   = Generalsetting::findOrFail(1);
+        $data->order_status_sms = $status;
+        $data->update();
+    }
+
+    public function new_product_email_alert($status)
+    {
+        $data                    = Generalsetting::findOrFail(1);
+        $data->new_product_email = $status;
+        $data->update();
+    }
+
+    public function new_product_sms_alert($status)
+    {
+        $data                  = Generalsetting::findOrFail(1);
+        $data->new_product_sms = $status;
+        $data->update();
+    }
+
+    public function news_email_alert($status)
+    {
+        $data             = Generalsetting::findOrFail(1);
+        $data->news_email = $status;
+        $data->update();
+    }
+
+    public function news_sms_alert($status)
+    {
+        $data           = Generalsetting::findOrFail(1);
+        $data->news_sms = $status;
+        $data->update();
+    }
+
+    public function order_email_alert($status)
+    {
+        $data              = Generalsetting::findOrFail(1);
+        $data->order_email = $status;
+        $data->update();
+    }
+
+    public function order_sms_alert($status)
+    {
+        $data            = Generalsetting::findOrFail(1);
+        $data->order_sms = $status;
+        $data->update();
+    }
+
+    public function order_track_email_alert($status)
+    {
+        $data                    = Generalsetting::findOrFail(1);
+        $data->order_track_email = $status;
+        $data->update();
+    }
+
+    public function order_track_sms_alert($status)
+    {
+        $data                  = Generalsetting::findOrFail(1);
+        $data->order_track_sms = $status;
+        $data->update();
+    }
+
 }

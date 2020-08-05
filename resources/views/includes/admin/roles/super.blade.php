@@ -304,12 +304,15 @@
 </li>
 <li>
     <a href="#sms" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-        <i class="fas fa-at"></i>{{ __('SMS Settings') }}
+        <i class="fas fa-sms"></i>{{ __('SMS Settings') }}
     </a>
     <ul class="collapse list-unstyled" id="sms" data-parent="#accordion">
         <li><a href="{{route('admin-sms-config')}}"><span>{{ __('SMS Configurations') }}</span></a></li>
         <li><a href="{{route('admin-group-sms-show')}}"><span>{{ __('Group SMS') }}</span></a></li>
     </ul>
+</li>
+<li>
+    <a href="{{ route('admin-alert-config') }}" class=" wave-effect"><i class="fas fa-exclamation-triangle"></i>{{ __('Alert Settings') }}</a>
 </li>
 <li>
     <a href="#payments" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">

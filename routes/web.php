@@ -671,6 +671,27 @@ Route::prefix('admin')->group(function () {
 
     //------------ ADMIN SMS SETTINGS SECTION ENDS ------------
 
+    //------------ ADMIN ALERT SETTINGS SECTION ------------
+
+    Route::group(['middleware' => 'permissions:sms_settings'], function () {
+        Route::get('/alert-config', 'Admin\AlertController@config')->name('admin-alert-config');
+        Route::get('/create-customer-email/{status}', 'Admin\GeneralSettingController@create_customer_email_alert')->name('admin-gs-create-customer-email');
+        Route::get('/create-customer-sms/{status}', 'Admin\GeneralSettingController@create_customer_sms_alert')->name('admin-gs-create-customer-sms');
+        Route::get('/order-status-email/{status}', 'Admin\GeneralSettingController@order_status_email_alert')->name('admin-gs-order-status-email');
+        Route::get('/order-status-sms/{status}', 'Admin\GeneralSettingController@order_status_sms_alert')->name('admin-gs-order-status-sms');
+        Route::get('/new-product-email/{status}', 'Admin\GeneralSettingController@new_product_email_alert')->name('admin-gs-new-product-email');
+        Route::get('/new-product-sms/{status}', 'Admin\GeneralSettingController@new_product_sms_alert')->name('admin-gs-new-product-sms');
+        Route::get('/news-email/{status}', 'Admin\GeneralSettingController@news_email_alert')->name('admin-gs-news-email');
+        Route::get('/news-sms/{status}', 'Admin\GeneralSettingController@news_sms_alert')->name('admin-gs-news-sms');
+        Route::get('/order-email/{status}', 'Admin\GeneralSettingController@order_email_alert')->name('admin-gs-order-email');
+        Route::get('/order-sms/{status}', 'Admin\GeneralSettingController@order_sms_alert')->name('admin-gs-order-sms');
+        Route::get('/order-track-email/{status}', 'Admin\GeneralSettingController@order_track_email_alert')->name('admin-gs-order-track-email');
+        Route::get('/order-track-sms/{status}', 'Admin\GeneralSettingController@order_track_sms_alert')->name('admin-gs-order-track-sms');
+
+    });
+
+    //------------ ADMIN ALERT SETTINGS SECTION ENDS ------------
+
 
     //------------ ADMIN PAYMENT SETTINGS SECTION ------------
 

@@ -662,9 +662,9 @@ Route::prefix('admin')->group(function () {
 
     Route::group(['middleware' => 'permissions:sms_settings'], function () {
 
-        Route::get('/sms-config', 'Admin\SMSController@config')->name('admin-sms-config');
-        Route::get('/groupsms', 'Admin\SMSController@groupsms')->name('admin-group-sms-show');
-        Route::post('/groupsmspost', 'Admin\SMSController@groupsmspost')->name('admin-group-sms-submit');
+        Route::get('/sms-config', 'Admin\SmsController@config')->name('admin-sms-config');
+        Route::get('/groupsms', 'Admin\SmsController@groupsms')->name('admin-group-sms-show');
+        Route::post('/groupsmspost', 'Admin\SmsController@groupsmspost')->name('admin-group-sms-submit');
         Route::get('/issms/{status}', 'Admin\GeneralSettingController@issms')->name('admin-gs-issms');
 
     });

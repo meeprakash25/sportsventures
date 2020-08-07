@@ -399,7 +399,7 @@ class ProductController extends Controller
 
         //--- Validation Section
         $rules = [
-               'photo'      => 'required|mimes:jpeg,jpg,png,svg',
+               'photo'      => 'required|mimes:jpeg,jpg,png,svg,gif',
                'file'       => 'mimes:zip'
                 ];
 
@@ -743,7 +743,7 @@ class ProductController extends Controller
 
         //--- Validation Section
         $rules = [
-               'photo'      => 'mimes:jpeg,jpg,png,svg',
+               'photo'      => 'mimes:jpeg,jpg,png,svg,gif',
                'file'       => 'mimes:zip'
                 ];
 
@@ -1074,7 +1074,7 @@ class ProductController extends Controller
 
         //--- Validation Section
         $rules = [
-            'photo'      => 'mimes:jpeg,jpg,png,svg',
+            'photo'      => 'mimes:jpeg,jpg,png,svg,gif',
             'file'       => 'mimes:zip'
              ];
 

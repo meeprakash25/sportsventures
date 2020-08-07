@@ -53,7 +53,7 @@ class VendorController extends Controller
     {
         //--- Validation Section
         $rules = [
-               'shop_image'  => 'mimes:jpeg,jpg,png,svg',
+               'shop_image'  => 'mimes:jpeg,jpg,png,svg,gif',
                 ];
 
         $validator = Validator::make(Input::all(), $rules);
@@ -177,7 +177,7 @@ class VendorController extends Controller
     {
         //--- Validation Section
         $rules = [
-          'attachments.*'  => 'mimes:jpeg,jpg,png,svg|max:10000'
+          'attachments.*'  => 'mimes:jpeg,jpg,png,svg,gif|max:10000'
            ];
         $customs = [
             'attachments.*.mimes' => 'Only jpeg, jpg, png and svg images are allowed',

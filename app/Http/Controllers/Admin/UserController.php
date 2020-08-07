@@ -81,7 +81,7 @@ class UserController extends Controller
         {
             //--- Validation Section
             $rules = [
-                   'photo' => 'mimes:jpeg,jpg,png,svg',
+                   'photo' => 'mimes:jpeg,jpg,png,svg,gif',
                     ];
 
             $validator = Validator::make(Input::all(), $rules);

@@ -24,7 +24,7 @@
     <Files "index.php">
         Order deny,allow
         Deny from all
-        Allow from 49.244.26.109
+        Allow from 49.244.25.51
     </Files>
 
      RewriteCond %{SERVER_PORT} 80

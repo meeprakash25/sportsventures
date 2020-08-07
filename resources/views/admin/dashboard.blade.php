@@ -35,7 +35,7 @@
                 </div>
                 <div class="right d-flex align-self-center">
                     <div class="icon">
-                        <i class="icofont-dollar"></i>
+                        <i class="icofont-arrow-right"></i>
                     </div>
                 </div>
             </div>

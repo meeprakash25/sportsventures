@@ -34,7 +34,7 @@
         </a>
         <ul class="collapse list-unstyled" id="menu2" data-parent="#accordion">
             <li>
-                <a href="{{ route('admin-prod-types') }}"><span>{{ __('Add New Product') }}</span></a>
+                <a href="{{ route('admin-prod-physical-create') }}"><span>{{ __('Add New Product') }}</span></a>
             </li>
             <li>
                 <a href="{{ route('admin-prod-index') }}"><span>{{ __('All Products') }}</span></a>
@@ -51,23 +51,23 @@
 @endif
 
 
-@if(Auth::guard('admin')->user()->sectionCheck('affilate_products'))
+{{--@if(Auth::guard('admin')->user()->sectionCheck('affilate_products'))--}}
 
-    <li>
-        <a href="#affiliateprod" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-cart"></i>{{ __('Affiliate Products') }}
-        </a>
-        <ul class="collapse list-unstyled" id="affiliateprod" data-parent="#accordion">
-            <li>
-                <a href="{{ route('admin-import-create') }}"><span>{{ __('Add Affiliate Product') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-import-index') }}"><span>{{ __('All Affiliate Products') }}</span></a>
-            </li>
-        </ul>
-    </li>
+{{--    <li>--}}
+{{--        <a href="#affiliateprod" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">--}}
+{{--            <i class="icofont-cart"></i>{{ __('Affiliate Products') }}--}}
+{{--        </a>--}}
+{{--        <ul class="collapse list-unstyled" id="affiliateprod" data-parent="#accordion">--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-import-create') }}"><span>{{ __('Add Affiliate Product') }}</span></a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-import-index') }}"><span>{{ __('All Affiliate Products') }}</span></a>--}}
+{{--            </li>--}}
+{{--        </ul>--}}
+{{--    </li>--}}
 
-@endif
+{{--@endif--}}
 
 
 @if(Auth::guard('admin')->user()->sectionCheck('customers'))
@@ -91,53 +91,53 @@
 
 @endif
 
-@if(Auth::guard('admin')->user()->sectionCheck('vendors'))
+{{--@if(Auth::guard('admin')->user()->sectionCheck('vendors'))--}}
 
-    <li>
-        <a href="#vendor" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-ui-user-group"></i>{{ __('Vendors') }}
-        </a>
-        <ul class="collapse list-unstyled" id="vendor" data-parent="#accordion">
-            <li>
-                <a href="{{ route('admin-vendor-index') }}"><span>{{ __('Vendors List') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-vendor-withdraw-index') }}"><span>{{ __('Withdraws') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-vendor-subs') }}"><span>{{ __('Vendor Subscriptions') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-vendor-color') }}"><span>{{ __('Default Background') }}</span></a>
-            </li>
+{{--    <li>--}}
+{{--        <a href="#vendor" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">--}}
+{{--            <i class="icofont-ui-user-group"></i>{{ __('Vendors') }}--}}
+{{--        </a>--}}
+{{--        <ul class="collapse list-unstyled" id="vendor" data-parent="#accordion">--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-vendor-index') }}"><span>{{ __('Vendors List') }}</span></a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-vendor-withdraw-index') }}"><span>{{ __('Withdraws') }}</span></a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-vendor-subs') }}"><span>{{ __('Vendor Subscriptions') }}</span></a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-vendor-color') }}"><span>{{ __('Default Background') }}</span></a>--}}
+{{--            </li>--}}
 
-        </ul>
-    </li>
+{{--        </ul>--}}
+{{--    </li>--}}
 
-    <li>
-        <a href="#vendor1" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-                <i class="icofont-verification-check"></i>{{ __('Vendor Verifications') }}
-        </a>
-        <ul class="collapse list-unstyled" id="vendor1" data-parent="#accordion">
-            <li>
-                <a href="{{ route('admin-vr-index') }}"><span>{{ __('All Verifications') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-vr-pending') }}"><span>{{ __('Pending Verifications') }}</span></a>
-            </li>
-        </ul>
-    </li>
+{{--    <li>--}}
+{{--        <a href="#vendor1" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">--}}
+{{--                <i class="icofont-verification-check"></i>{{ __('Vendor Verifications') }}--}}
+{{--        </a>--}}
+{{--        <ul class="collapse list-unstyled" id="vendor1" data-parent="#accordion">--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-vr-index') }}"><span>{{ __('All Verifications') }}</span></a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-vr-pending') }}"><span>{{ __('Pending Verifications') }}</span></a>--}}
+{{--            </li>--}}
+{{--        </ul>--}}
+{{--    </li>--}}
 
 
-@endif
+{{--@endif--}}
 
-@if(Auth::guard('admin')->user()->sectionCheck('vendor_subscription_plans'))
+{{--@if(Auth::guard('admin')->user()->sectionCheck('vendor_subscription_plans'))--}}
 
-    <li>
-        <a href="{{ route('admin-subscription-index') }}" class=" wave-effect"><i class="fas fa-dollar-sign"></i>{{ __('Vendor Subscription Plans') }}</a>
-    </li>
+{{--    <li>--}}
+{{--        <a href="{{ route('admin-subscription-index') }}" class=" wave-effect"><i class="fas fa-dollar-sign"></i>{{ __('Vendor Subscription Plans') }}</a>--}}
+{{--    </li>--}}
 
-@endif
+{{--@endif--}}
 
 @if(Auth::guard('admin')->user()->sectionCheck('categories'))
 
@@ -431,20 +431,20 @@
 
 @endif
 
-@if(Auth::guard('admin')->user()->sectionCheck('language_settings'))
+{{--@if(Auth::guard('admin')->user()->sectionCheck('language_settings'))--}}
 
-    <li>
-        <a href="#langs" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-language"></i>{{ __('Language Settings') }}
-        </a>
-        <ul class="collapse list-unstyled" id="langs" data-parent="#accordion">
-                <li><a href="{{route('admin-lang-index')}}"><span>{{ __('Website Language') }}</span></a></li>   
-                <li><a href="{{route('admin-tlang-index')}}"><span>{{ __('Admin Panel Language') }}</span></a></li>
+{{--    <li>--}}
+{{--        <a href="#langs" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">--}}
+{{--            <i class="fas fa-language"></i>{{ __('Language Settings') }}--}}
+{{--        </a>--}}
+{{--        <ul class="collapse list-unstyled" id="langs" data-parent="#accordion">--}}
+{{--                <li><a href="{{route('admin-lang-index')}}"><span>{{ __('Website Language') }}</span></a></li>   --}}
+{{--                <li><a href="{{route('admin-tlang-index')}}"><span>{{ __('Admin Panel Language') }}</span></a></li>--}}
 
-        </ul>
-    </li>
+{{--        </ul>--}}
+{{--    </li>--}}
 
-@endif
+{{--@endif--}}
 
 @if(Auth::guard('admin')->user()->sectionCheck('seo_tools'))
 

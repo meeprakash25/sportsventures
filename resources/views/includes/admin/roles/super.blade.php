@@ -61,9 +61,9 @@
             <li>
                 <a href="{{ route('admin-user-index') }}"><span>{{ __('Customers List') }}</span></a>
             </li>
-            <li>
-                <a href="{{ route('admin-withdraw-index') }}"><span>{{ __('Withdraws') }}</span></a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-withdraw-index') }}"><span>{{ __('Withdraws') }}</span></a>--}}
+{{--            </li>--}}
             <li>
                 <a href="{{ route('admin-user-image') }}"><span>{{ __('Customer Default Image') }}</span></a>
             </li>

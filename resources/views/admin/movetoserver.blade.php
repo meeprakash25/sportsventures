@@ -5,7 +5,7 @@
 							<div class="mr-breadcrumb">
 								<div class="row">
 									<div class="col-lg-12">
-											<h4 class="heading">{{ __('System Purchase Activation') }}</h4>
+											<h4 class="heading">{{ __('Generate Backup') }}</h4>
 											<ul class="links">
 												<li>
 													<a href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }} </a>

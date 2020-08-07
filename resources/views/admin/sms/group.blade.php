@@ -54,6 +54,7 @@
                                             <option value=""> {{ __('Choose User Type') }} </option>
                                             <option value="0">{{ __('Customers') }}</option>
                                             <option value="2">{{ __('Subscribers') }}</option>
+                                            <option value="3">{{ __('Staffs') }}</option>
                                         </select>
                                     </div>
                                 </div>

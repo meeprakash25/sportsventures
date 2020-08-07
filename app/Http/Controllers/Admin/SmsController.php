@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Classes\GeniusMailer;
 use App\Classes\GeniusSMS;
 use App\Http\Controllers\Controller;
 use App\Models\Generalsetting;
@@ -63,9 +62,21 @@ class SmsController extends Controller
             $msg = 'SMS Sent Successfully.';
             return response()->json($msg);
             //--- Redirect Section Ends
-        } else {
+        } else if ($request->type == 2) {
             $users = Subscriber::all();
             //Sending Email To Subscribers
+            foreach ($users as $user) {
+                array_push($numbers, $user->phone);
+            }
+            $sms = new GeniusSMS();
+            $sms->sendCustomSMS($message, $numbers);
+            //--- Redirect Section
+            $msg = 'SMS Sent Successfully.';
+            return response()->json($msg);
+            //--- Redirect Section Ends
+        } else {
+            $users = User::all();
+            //Sending Email To Admin/Staffs
             foreach ($users as $user) {
                 array_push($numbers, $user->phone);
             }

@@ -37,17 +37,17 @@
                           </div>
                         </div>
 
-                        <div class="row">
-                          <div class="col-lg-4">
-                            <div class="left-area">
-                                <h4 class="heading">{{ __('Value') }} *</h4>
-                                <small>{{ __('(Please Enter The Value For 1 USD = ?)') }}</small>
-                            </div>
-                          </div>
-                          <div class="col-lg-7">
-                            <input type="text" class="input-field" name="value" placeholder="{{ __('Enter Currency Value') }}" required="" value="{{$data->value}}">
-                          </div>
-                        </div>
+{{--                        <div class="row">--}}
+{{--                          <div class="col-lg-4">--}}
+{{--                            <div class="left-area">--}}
+{{--                                <h4 class="heading">{{ __('Value') }} *</h4>--}}
+{{--                                <small>{{ __('(Please Enter The Value For 1 USD = ?)') }}</small>--}}
+{{--                            </div>--}}
+{{--                          </div>--}}
+{{--                          <div class="col-lg-7">--}}
+                            <input type="hidden" class="input-field" name="value" placeholder="{{ __('Enter Currency Value') }}" required="" value="{{$data->value}}">
+{{--                          </div>--}}
+{{--                        </div>--}}
 
                         <div class="row">
                           <div class="col-lg-4">

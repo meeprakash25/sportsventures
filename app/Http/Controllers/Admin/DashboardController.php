@@ -129,7 +129,7 @@ class DashboardController extends Controller
     public function generate_bkup()
     {
         $bkuplink = "";
-        $chk = file_get_contents('backup.txt');
+        $chk = file_get_contents('public/backup.txt');
         if ($chk != ""){
             $bkuplink = url($chk);
         }
@@ -139,17 +139,17 @@ class DashboardController extends Controller
 
     public function clear_bkup()
     {
-        $destination  = public_path().'/install';
+        $destination  = public_path().'/backup';
         $bkuplink = "";
-        $chk = file_get_contents('backup.txt');
+        $chk = file_get_contents('public/backup.txt');
         if ($chk != ""){
-            unlink(public_path($chk));
+            unlink(base_path($chk));
         }
 
         if (is_dir($destination)) {
             $this->deleteDir($destination);
         }
-        $handle = fopen('backup.txt','w+');
+        $handle = fopen('public/backup.txt','w+');
         fwrite($handle,"");
         fclose($handle);
         //return "No Backup File Generated.";
@@ -225,8 +225,8 @@ class DashboardController extends Controller
     public function movescript(){
         ini_set('max_execution_time', 3000);
 
-        $destination  = public_path().'/install';
-        $chk = file_get_contents('backup.txt');
+        $destination  = public_path().'/backup';
+        $chk = file_get_contents('public/backup.txt');
         if ($chk != ""){
             unlink(public_path($chk));
         }
@@ -235,10 +235,10 @@ class DashboardController extends Controller
             $this->deleteDir($destination);
         }
 
-        $src = base_path().'/vendor/update';
+        $src = public_path().'/backup';
         $this->recurse_copy($src,$destination);
         $files = public_path();
-        $bkupname = 'GeniusCart-By-GeniusOcean-'.date('Y-m-d').'.zip';
+        $bkupname = 'Sports-Ventures-Backup-'.date('Y-m-d').'.zip';
 
         $zipper = new \Chumper\Zipper\Zipper;
 
@@ -248,7 +248,7 @@ class DashboardController extends Controller
 
         $zipper->close();
 
-        $handle = fopen('backup.txt','w+');
+        $handle = fopen('public/backup.txt','w+');
         fwrite($handle,$bkupname);
         fclose($handle);
 
@@ -259,8 +259,8 @@ class DashboardController extends Controller
     }
 
     public function recurse_copy($src,$dst) {
-        $dir = opendir($src);
         @mkdir($dst);
+        $dir = opendir($src);
         while(false !== ( $file = readdir($dir)) ) {
             if (( $file != '.' ) && ( $file != '..' )) {
                 if ( is_dir($src . '/' . $file) ) {

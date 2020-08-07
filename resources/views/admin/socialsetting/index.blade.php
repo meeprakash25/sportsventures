@@ -43,18 +43,6 @@
                   </div>
                 </div>
 
-                <div class="row">
-                  <label class="control-label col-sm-3" for="gplus">{{ __('Google Plus') }} *</label>
-                  <div class="col-sm-6">
-                    <input class="form-control" name="gplus" id="gplus" placeholder="{{ __('http://google.com/') }}" required="" type="text" value="{{$data->gplus}}">
-                  </div>
-                  <div class="col-sm-3">
-                    <label class="switch">
-                      <input type="checkbox" name="g_status" value="1" {{$data->g_status==1?"checked":""}}>
-                      <span class="slider round"></span>
-                    </label>
-                  </div>
-                </div>
 
                 <div class="row">
                   <label class="control-label col-sm-3" for="twitter">{{ __('Twitter') }} *</label>
@@ -70,9 +58,22 @@
                 </div>
 
                 <div class="row">
-                  <label class="control-label col-sm-3" for="linkedin">{{ __('Linkedin') }} *</label>
+                  <label class="control-label col-sm-3" for="gplus">{{ __('Instagram') }} *</label>
                   <div class="col-sm-6">
-                    <input class="form-control" name="linkedin" id="linkedin" placeholder="{{ __('http://linkedin.com/') }}" required="" type="text" value="{{$data->linkedin}}">
+                    <input class="form-control" name="gplus" id="gplus" placeholder="{{ __('http://instagram.com/') }}" required="" type="text" value="{{$data->gplus}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label class="switch">
+                      <input type="checkbox" name="g_status" value="1" {{$data->g_status==1?"checked":""}}>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <label class="control-label col-sm-3" for="linkedin">{{ __('Youtube') }} *</label>
+                  <div class="col-sm-6">
+                    <input class="form-control" name="linkedin" id="linkedin" placeholder="{{ __('http://youtube.com/') }}" required="" type="text" value="{{$data->linkedin}}">
                   </div>
                   <div class="col-sm-3">
                     <label class="switch">
@@ -83,18 +84,18 @@
                 </div>
 
 
-                <div class="row">
-                  <label class="control-label col-sm-3" for="dribble">{{ __('Dribble') }} *</label>
-                  <div class="col-sm-6">
-                    <input class="form-control" name="dribble" id="dribble" placeholder="{{ __('https://dribbble.com/') }}" required="" type="text" value="{{$data->dribble}}">
-                  </div>
-                  <div class="col-sm-3">
-                    <label class="switch">
-                      <input type="checkbox" name="d_status" value="1" {{$data->d_status==1?"checked":""}}>
-                      <span class="slider round"></span>
-                    </label>
-                  </div>
-                </div>
+                {{--                <div class="row">--}}
+                {{--                  <label class="control-label col-sm-3" for="dribble">{{ __('Dribble') }} *</label>--}}
+                {{--                  <div class="col-sm-6">--}}
+                <input class="form-control" name="dribble" id="dribble" placeholder="{{ __('https://dribbble.com/') }}" required="" type="hidden" value="{{$data->dribble}}">
+                {{--                  </div>--}}
+                {{--                  <div class="col-sm-3">--}}
+                {{--                    <label class="switch">--}}
+                {{--                      <input type="checkbox" name="d_status" value="1" {{$data->d_status==1?"checked":""}}>--}}
+                {{--                      <span class="slider round"></span>--}}
+                {{--                    </label>--}}
+                {{--                  </div>--}}
+                {{--                </div>--}}
 
                 <div class="row justify-content-center">
                   <div class="col-lg-3">

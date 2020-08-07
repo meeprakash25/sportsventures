@@ -42,17 +42,17 @@
                 </a>
               </li>
 
-              @if($gs->is_affilate == 1)
+{{--              @if($gs->is_affilate == 1)--}}
 
-                <li class="{{ $link == route('user-affilate-code') ? 'active':'' }}">
-                    <a href="{{ route('user-affilate-code') }}">{{ $langg->lang202 }}</a>
-                </li>
+{{--                <li class="{{ $link == route('user-affilate-code') ? 'active':'' }}">--}}
+{{--                    <a href="{{ route('user-affilate-code') }}">{{ $langg->lang202 }}</a>--}}
+{{--                </li>--}}
 
-                <li class="{{ $link == route('user-wwt-index') ? 'active':'' }}">
-                    <a href="{{route('user-wwt-index')}}">{{ $langg->lang203 }}</a>
-                </li>
+{{--                <li class="{{ $link == route('user-wwt-index') ? 'active':'' }}">--}}
+{{--                    <a href="{{route('user-wwt-index')}}">{{ $langg->lang203 }}</a>--}}
+{{--                </li>--}}
 
-              @endif
+{{--              @endif--}}
 
 
               <li class="{{ $link == route('user-order-track') ? 'active':'' }}">
@@ -71,9 +71,9 @@
                   <a href="{{route('user-message-index')}}">{{ $langg->lang204 }}</a>
               </li>
 
-              <li class="{{ $link == route('user-dmessage-index') ? 'active':'' }}">
-                  <a href="{{route('user-dmessage-index')}}">{{ $langg->lang250 }}</a>
-              </li>
+{{--              <li class="{{ $link == route('user-dmessage-index') ? 'active':'' }}">--}}
+{{--                  <a href="{{route('user-dmessage-index')}}">{{ $langg->lang250 }}</a>--}}
+{{--              </li>--}}
 
               <li class="{{ $link == route('user-profile') ? 'active':'' }}">
                 <a href="{{ route('user-profile') }}">

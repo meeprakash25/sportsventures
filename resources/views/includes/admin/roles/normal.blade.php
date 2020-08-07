@@ -157,21 +157,21 @@
                 <li class="@if(request()->is('admin/attribute/*/manage') && request()->input('type')=='subcategory') active @endif">
                     <a href="{{ route('admin-subcat-index') }}"><span>{{ __('Sub Category') }}</span></a>
                 </li>
-                <li class="@if(request()->is('admin/attribute/*/manage') && request()->input('type')=='childcategory') active @endif">
-                    <a href="{{ route('admin-childcat-index') }}"><span>{{ __('Child Category') }}</span></a>
-                </li>
+            <li class="@if(request()->is('admin/attribute/*/manage') && request()->input('type')=='childcategory') active @endif">
+                <a href="{{ route('admin-childcat-index') }}"><span>{{ __('Child Category') }}</span></a>
+            </li>
         </ul>
     </li>
 
 @endif
 
-@if(Auth::guard('admin')->user()->sectionCheck('bulk_product_upload'))
+{{--@if(Auth::guard('admin')->user()->sectionCheck('bulk_product_upload'))--}}
 
-    <li>
-        <a href="{{ route('admin-prod-import') }}"><i class="fas fa-upload"></i>{{ __('Bulk Product Upload') }}</a>
-    </li>
+{{--    <li>--}}
+{{--        <a href="{{ route('admin-prod-import') }}"><i class="fas fa-upload"></i>{{ __('Bulk Product Upload') }}</a>--}}
+{{--    </li>--}}
 
-@endif
+{{--@endif--}}
 
 @if(Auth::guard('admin')->user()->sectionCheck('product_discussion'))
 
@@ -224,18 +224,18 @@
 @if(Auth::guard('admin')->user()->sectionCheck('messages'))
 
     <li>
-        <a href="#msg" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-fw fa-newspaper"></i>{{ __('Messages') }}
-        </a>
-        <ul class="collapse list-unstyled" id="msg" data-parent="#accordion">
-            <li>
-                <a href="{{ route('admin-message-index') }}"><span>{{ __('Tickets') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-message-dispute') }}"><span>{{ __('Disputes') }}</span></a>
-            </li>
-        </ul>
+        <a href="{{ route('admin-message-index') }}" class=" wave-effect"><i class="fas fa-ticket"></i>{{ __('Tickets') }}</a>
     </li>
+    {{--    <li>--}}
+    {{--        <a href="#msg" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">--}}
+    {{--            <i class="fas fa-fw fa-newspaper"></i>{{ __('Messages') }}--}}
+    {{--        </a>--}}
+    {{--        <ul class="collapse list-unstyled" id="msg" data-parent="#accordion">--}}
+    {{--            <li>--}}
+    {{--                <a href="{{ route('admin-message-dispute') }}"><span>{{ __('Disputes') }}</span></a>--}}
+    {{--            </li>--}}
+    {{--        </ul>--}}
+    {{--    </li>--}}
 
 @endif
 
@@ -266,14 +266,14 @@
                 <a href="{{ route('admin-pick-index') }}"><span>{{ __('Pickup Locations') }}</span></a>
             </li>
             <li>
-            <a href="{{ route('admin-gs-contents') }}"><span>{{ __('Website Contents') }}</span></a>
+                <a href="{{ route('admin-gs-contents') }}"><span>{{ __('Website Contents') }}</span></a>
             </li>
             <li>
                 <a href="{{ route('admin-gs-footer') }}"><span>{{ __('Footer') }}</span></a>
             </li>
-            <li>
-                <a href="{{ route('admin-gs-affilate') }}"><span>{{__('Affiliate Information')}}</span></a>
-            </li>
+            {{--            <li>--}}
+            {{--                <a href="{{ route('admin-gs-affilate') }}"><span>{{__('Affiliate Information')}}</span></a>--}}
+            {{--            </li>--}}
 
             <li>
                 <a href="{{ route('admin-gs-popup') }}"><span>{{ __('Popup Banner') }}</span></a>

@@ -1,15 +1,15 @@
 <li>
-        <a href="#order" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fas fa-hand-holding-usd"></i>{{ __('Orders') }}</a>
-        <ul class="collapse list-unstyled" id="order" data-parent="#accordion" >
-               <li>
-                <a href="{{route('admin-order-index')}}"> {{ __('All Orders') }}</a>
-            </li>
-            <li>
-                <a href="{{route('admin-order-pending')}}"> {{ __('Pending Orders') }}</a>
-            </li>
-            <li>
-                <a href="{{route('admin-order-processing')}}"> {{ __('Processing Orders') }}</a>
-            </li>
+    <a href="#order" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fas fa-arrow-right"></i>{{ __('Orders') }}</a>
+    <ul class="collapse list-unstyled" id="order" data-parent="#accordion">
+        <li>
+            <a href="{{route('admin-order-index')}}"> {{ __('All Orders') }}</a>
+        </li>
+        <li>
+            <a href="{{route('admin-order-pending')}}"> {{ __('Pending Orders') }}</a>
+        </li>
+        <li>
+            <a href="{{route('admin-order-processing')}}"> {{ __('Processing Orders') }}</a>
+        </li>
             <li>
                 <a href="{{route('admin-order-completed')}}"> {{ __('Completed Orders') }}</a>
             </li>
@@ -123,28 +123,28 @@
                 <li class="@if(request()->is('admin/attribute/*/manage') && request()->input('type')=='category') active @endif">
                     <a href="{{ route('admin-cat-index') }}"><span>{{ __('Main Category') }}</span></a>
                 </li>
-                <li class="@if(request()->is('admin/attribute/*/manage') && request()->input('type')=='subcategory') active @endif">
-                    <a href="{{ route('admin-subcat-index') }}"><span>{{ __('Sub Category') }}</span></a>
-                </li>
-                <li class="@if(request()->is('admin/attribute/*/manage') && request()->input('type')=='childcategory') active @endif">
-                    <a href="{{ route('admin-childcat-index') }}"><span>{{ __('Child Category') }}</span></a>
-                </li>
+            <li class="@if(request()->is('admin/attribute/*/manage') && request()->input('type')=='subcategory') active @endif">
+                <a href="{{ route('admin-subcat-index') }}"><span>{{ __('Sub Category') }}</span></a>
+            </li>
+            <li class="@if(request()->is('admin/attribute/*/manage') && request()->input('type')=='childcategory') active @endif">
+                <a href="{{ route('admin-childcat-index') }}"><span>{{ __('Child Category') }}</span></a>
+            </li>
         </ul>
     </li>
 
-    <li>
-        <a href="{{ route('admin-prod-import') }}"><i class="fas fa-upload"></i>{{ __('Bulk Product Upload') }}</a>
-    </li>
+{{--    <li>--}}
+{{--        <a href="{{ route('admin-prod-import') }}"><i class="fas fa-upload"></i>{{ __('Bulk Product Upload') }}</a>--}}
+{{--    </li>--}}
 
-    <li>
-        <a href="#menu4" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-speech-comments"></i>{{ __('Product Discussion') }}
-        </a>
-        <ul class="collapse list-unstyled" id="menu4" data-parent="#accordion">
-            <li>
-                <a href="{{ route('admin-rating-index') }}"><span>{{ __('Product Reviews') }}</span></a>
-            </li>
-            <li>
+<li>
+    <a href="#menu4" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+        <i class="icofont-speech-comments"></i>{{ __('Product Discussion') }}
+    </a>
+    <ul class="collapse list-unstyled" id="menu4" data-parent="#accordion">
+        <li>
+            <a href="{{ route('admin-rating-index') }}"><span>{{ __('Product Reviews') }}</span></a>
+        </li>
+        <li>
                 <a href="{{ route('admin-comment-index') }}"><span>{{ __('Comments') }}</span></a>
             </li>
             <li>
@@ -170,26 +170,29 @@
         </ul>
     </li>
 
-    <li>
-        <a href="#msg" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-fw fa-newspaper"></i>{{ __('Messages') }}
-        </a>
-        <ul class="collapse list-unstyled" id="msg" data-parent="#accordion">
-            <li>
-                <a href="{{ route('admin-message-index') }}"><span>{{ __('Tickets') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-message-dispute') }}"><span>{{ __('Disputes') }}</span></a>
-            </li>
-        </ul>
-    </li>
+{{--    <li>--}}
+{{--        <a href="#msg" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">--}}
+{{--            <i class="fas fa-fw fa-newspaper"></i>{{ __('Messages') }}--}}
+{{--        </a>--}}
+{{--        <ul class="collapse list-unstyled" id="msg" data-parent="#accordion">--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-message-index') }}"><span>{{ __('Tickets') }}</span></a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="{{ route('admin-message-dispute') }}"><span>{{ __('Disputes') }}</span></a>--}}
+{{--            </li>--}}
+{{--        </ul>--}}
+{{--    </li>--}}
+<li>
+    <a href="{{ route('admin-message-index') }}" class=" wave-effect"><i class="fas fa-ticket-alt"></i>{{ __('Tickets') }}</a>
+</li>
 
-    <li>
-        <a href="#general" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-cogs"></i>{{ __('General Settings') }}
-        </a>
-        <ul class="collapse list-unstyled" id="general" data-parent="#accordion">
-            <li>
+<li>
+    <a href="#general" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+        <i class="fas fa-cogs"></i>{{ __('General Settings') }}
+    </a>
+    <ul class="collapse list-unstyled" id="general" data-parent="#accordion">
+        <li>
                 <a href="{{ route('admin-gs-logo') }}"><span>{{ __('Logo') }}</span></a>
             </li>
             <li>
@@ -198,36 +201,36 @@
             <li>
                 <a href="{{ route('admin-gs-load') }}"><span>{{ __('Loader') }}</span></a>
             </li>
-            <li>
-                <a href="{{ route('admin-shipping-index') }}"><span>{{ __('Shipping Methods') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-package-index') }}"><span>{{ __('Packagings') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-pick-index') }}"><span>{{ __('Pickup Locations') }}</span></a>
-            </li>
-            <li>
+        <li>
+            <a href="{{ route('admin-shipping-index') }}"><span>{{ __('Shipping Methods') }}</span></a>
+        </li>
+        <li>
+            <a href="{{ route('admin-package-index') }}"><span>{{ __('Packagings') }}</span></a>
+        </li>
+        <li>
+            <a href="{{ route('admin-pick-index') }}"><span>{{ __('Pickup Locations') }}</span></a>
+        </li>
+        <li>
             <a href="{{ route('admin-gs-contents') }}"><span>{{ __('Website Contents') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-gs-footer') }}"><span>{{ __('Footer') }}</span></a>
-            </li>
-            <li>
-                <a href="{{ route('admin-gs-affilate') }}"><span>{{__('Affiliate Information')}}</span></a>
-            </li>
+        </li>
+        <li>
+            <a href="{{ route('admin-gs-footer') }}"><span>{{ __('Footer') }}</span></a>
+        </li>
+        {{--            <li>--}}
+        {{--                <a href="{{ route('admin-gs-affilate') }}"><span>{{__('Affiliate Information')}}</span></a>--}}
+        {{--            </li>--}}
 
-            <li>
-                <a href="{{ route('admin-gs-popup') }}"><span>{{ __('Popup Banner') }}</span></a>
-            </li>
-
-
-            <li>
-                <a href="{{ route('admin-gs-error-banner') }}"><span>{{ __('Error Banner') }}</span></a>
-            </li>
+        <li>
+            <a href="{{ route('admin-gs-popup') }}"><span>{{ __('Popup Banner') }}</span></a>
+        </li>
 
 
-            <li>
+        <li>
+            <a href="{{ route('admin-gs-error-banner') }}"><span>{{ __('Error Banner') }}</span></a>
+        </li>
+
+
+        <li>
                 <a href="{{ route('admin-gs-maintenance') }}"><span>{{ __('Website Maintenance') }}</span></a>
             </li>
 

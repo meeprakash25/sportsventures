@@ -875,7 +875,8 @@ Route::prefix('admin')->group(function () {
         })->name('admin-cache-clear');
 
         Route::get('/check/movescript', 'Admin\DashboardController@movescript')->name('admin-move-script');
-        Route::get('/generate/backup', 'Admin\DashboardController@generate_bkup')->name('admin-generate-backup');
+        //Route::get('/generate/backup', 'Admin\DashboardController@generate_bkup')->name('admin-generate-backup');
+        Route::get('/generate/backup', 'Admin\DashboardController@backup_database')->name('admin-generate-backup');
         Route::get('/activation', 'Admin\DashboardController@activation')->name('admin-activation-form');
         Route::post('/activation', 'Admin\DashboardController@activation_submit')->name('admin-activate-purchase');
         Route::get('/clear/backup', 'Admin\DashboardController@clear_bkup')->name('admin-clear-backup');

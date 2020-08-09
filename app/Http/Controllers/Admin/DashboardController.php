@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\Counter;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use InvalidArgumentException;
 use Validator;
-use Illuminate\Support\Facades\Hash;
-use App\Models\Order;
-use App\Models\Blog;
-use App\Models\User;
-use App\Models\Product;
-use App\Models\Counter;
 
 class DashboardController extends Controller
 {
@@ -25,36 +26,36 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $pending = Order::where('status','=','pending')->get();
-        $processing = Order::where('status','=','processing')->get();
-        $completed = Order::where('status','=','completed')->get();
-        $days = "";
-        $sales = "";
-        for($i = 0; $i < 30; $i++) {
-            $days .= "'".date("d M", strtotime('-'. $i .' days'))."',";
+        $pending    = Order::where('status', '=', 'pending')->get();
+        $processing = Order::where('status', '=', 'processing')->get();
+        $completed  = Order::where('status', '=', 'completed')->get();
+        $days       = "";
+        $sales      = "";
+        for ($i = 0; $i < 30; $i++) {
+            $days .= "'" . date("d M", strtotime('-' . $i . ' days')) . "',";
 
-            $sales .=  "'".Order::where('status','=','completed')->whereDate('created_at', '=', date("Y-m-d", strtotime('-'. $i .' days')))->count()."',";
+            $sales .= "'" . Order::where('status', '=', 'completed')->whereDate('created_at', '=', date("Y-m-d", strtotime('-' . $i . ' days')))->count() . "',";
         }
-        $users = User::all();
-        $products = Product::all();
-        $blogs = Blog::all();
-        $pproducts = Product::orderBy('id','desc')->take(5)->get();
-        $rorders = Order::orderBy('id','desc')->take(5)->get();
-        $poproducts = Product::orderBy('views','desc')->take(5)->get();
-        $rusers = User::orderBy('id','desc')->take(5)->get();
-        $referrals = Counter::where('type','referral')->orderBy('total_count','desc')->take(5)->get();
-        $browsers = Counter::where('type','browser')->orderBy('total_count','desc')->take(5)->get();
+        $users      = User::all();
+        $products   = Product::all();
+        $blogs      = Blog::all();
+        $pproducts  = Product::orderBy('id', 'desc')->take(5)->get();
+        $rorders    = Order::orderBy('id', 'desc')->take(5)->get();
+        $poproducts = Product::orderBy('views', 'desc')->take(5)->get();
+        $rusers     = User::orderBy('id', 'desc')->take(5)->get();
+        $referrals  = Counter::where('type', 'referral')->orderBy('total_count', 'desc')->take(5)->get();
+        $browsers   = Counter::where('type', 'browser')->orderBy('total_count', 'desc')->take(5)->get();
 
         $activation_notify = "";
-        if (file_exists(public_path().'/rooted.txt')){
-            $rooted = file_get_contents(public_path().'/rooted.txt');
-            if ($rooted < date('Y-m-d', strtotime("+10 days"))){
-                $activation_notify = "<i class='icofont-warning-alt icofont-4x'></i><br>Please activate your system.<br> If you do not activate your system now, it will be inactive on ".$rooted."!!<br><a href='".url('/admin/activation')."' class='btn btn-success'>Activate Now</a>";
+        if (file_exists(public_path() . '/rooted.txt')) {
+            $rooted = file_get_contents(public_path() . '/rooted.txt');
+            if ($rooted < date('Y-m-d', strtotime("+10 days"))) {
+                $activation_notify = "<i class='icofont-warning-alt icofont-4x'></i><br>Please activate your system.<br> If you do not activate your system now, it will be inactive on " . $rooted . "!!<br><a href='" . url('/admin/activation') . "' class='btn btn-success'>Activate Now</a>";
             }
         }
 
 
-        return view('admin.dashboard',compact('pending','activation_notify','processing','completed','products','users','blogs','days','sales','pproducts','rorders','poproducts','rusers','referrals','browsers'));
+        return view('admin.dashboard', compact('pending', 'activation_notify', 'processing', 'completed', 'products', 'users', 'blogs', 'days', 'sales', 'pproducts', 'rorders', 'poproducts', 'rusers', 'referrals', 'browsers'));
     }
 
     public function profile()
@@ -68,32 +69,30 @@ class DashboardController extends Controller
         //--- Validation Section
 
         $rules =
-        [
-            'photo' => 'mimes:jpeg,jpg,png,svg,gif',
-            'email' => 'unique:admins,email,'.Auth::guard('admin')->user()->id
-        ];
+            [
+                'photo' => 'mimes:jpeg,jpg,png,svg,gif',
+                'email' => 'unique:admins,email,' . Auth::guard('admin')->user()->id
+            ];
 
 
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-          return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
+            return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
         }
         //--- Validation Section Ends
         $input = $request->all();
-        $data = Auth::guard('admin')->user();
-            if ($file = $request->file('photo'))
-            {
-                $name = time().$file->getClientOriginalName();
-                $file->move('assets/images/admins/',$name);
-                if($data->photo != null)
-                {
-                    if (file_exists(public_path().'/assets/images/admins/'.$data->photo)) {
-                        unlink(public_path().'/assets/images/admins/'.$data->photo);
-                    }
+        $data  = Auth::guard('admin')->user();
+        if ($file = $request->file('photo')) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('assets/images/admins/', $name);
+            if ($data->photo != null) {
+                if (file_exists(public_path() . '/assets/images/admins/' . $data->photo)) {
+                    unlink(public_path() . '/assets/images/admins/' . $data->photo);
                 }
-            $input['photo'] = $name;
             }
+            $input['photo'] = $name;
+        }
         $data->update($input);
         $msg = 'Successfully updated your profile';
         return response()->json($msg);
@@ -125,11 +124,10 @@ class DashboardController extends Controller
     }
 
 
-
     public function generate_bkup()
     {
         $bkuplink = "";
-        $chk = file_get_contents('public/backup.txt');
+        $chk      = file_get_contents('public/backup.txt');
         if ($chk != ""){
             $bkuplink = url($chk);
         }
@@ -139,21 +137,21 @@ class DashboardController extends Controller
 
     public function clear_bkup()
     {
-        $destination  = public_path().'/backup';
-        $bkuplink = "";
-        $chk = file_get_contents('public/backup.txt');
-        if ($chk != ""){
+        $destination = public_path() . '/backup';
+        $bkuplink    = "";
+        $chk         = file_get_contents('public/backup.txt');
+        if ($chk != "") {
             unlink(base_path($chk));
         }
 
         if (is_dir($destination)) {
             $this->deleteDir($destination);
         }
-        $handle = fopen('public/backup.txt','w+');
-        fwrite($handle,"");
+        $handle = fopen('public/backup.txt', 'w+');
+        fwrite($handle, "");
         fclose($handle);
         //return "No Backup File Generated.";
-        return redirect()->back()->with('success','Backup file Deleted Successfully!');
+        return redirect()->back()->with('success', 'Backup file Deleted Successfully!');
     }
 
 
@@ -173,39 +171,38 @@ class DashboardController extends Controller
     public function activation_submit(Request $request)
     {
         //return config('services.genius.ocean');
-        $purchase_code =  $request->pcode;
-        $my_script =  'GeniusCart';
-        $my_domain = url('/');
+        $purchase_code = $request->pcode;
+        $my_script     = 'GeniusCart';
+        $my_domain     = url('/');
 
-        $varUrl = str_replace (' ', '%20', config('services.genius.ocean').'purchase112662activate.php?code='.$purchase_code.'&domain='.$my_domain.'&script='.$my_script);
+        $varUrl = str_replace(' ', '%20', config('services.genius.ocean') . 'purchase112662activate.php?code=' . $purchase_code . '&domain=' . $my_domain . '&script=' . $my_script);
 
-        if( ini_get('allow_url_fopen') ) {
+        if (ini_get('allow_url_fopen')) {
             $contents = file_get_contents($varUrl);
-        }else{
+        } else {
             $ch = curl_init();
-            curl_setopt ($ch, CURLOPT_URL, $varUrl);
-            curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_URL, $varUrl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             $contents = curl_exec($ch);
             curl_close($ch);
         }
 
         $chk = json_decode($contents,true);
 
-        if($chk['status'] != "success")
-        {
+        if ($chk['status'] != "success") {
 
             $msg = $chk['message'];
             return response()->json($msg);
             //return redirect()->back()->with('unsuccess',$chk['message']);
 
-        }else{
-            $this->setUp($chk['p2'],$chk['lData']);
+        } else {
+            $this->setUp($chk['p2'], $chk['lData']);
 
-            if (file_exists(public_path().'/rooted.txt')){
-                unlink(public_path().'/rooted.txt');
+            if (file_exists(public_path() . '/rooted.txt')) {
+                unlink(public_path() . '/rooted.txt');
             }
 
-            $fpbt = fopen(public_path().'/project/license.txt', 'w');
+            $fpbt = fopen(public_path() . '/project/license.txt', 'w');
             fwrite($fpbt, $purchase_code);
             fclose($fpbt);
 
@@ -216,18 +213,20 @@ class DashboardController extends Controller
         //return config('services.genius.ocean');
     }
 
-    function setUp($mtFile,$goFileData){
-        $fpa = fopen(public_path().$mtFile, 'w');
+    function setUp($mtFile, $goFileData)
+    {
+        $fpa = fopen(public_path() . $mtFile, 'w');
         fwrite($fpa, $goFileData);
         fclose($fpa);
     }
 
-    public function movescript(){
+    public function movescript()
+    {
         ini_set('max_execution_time', 3000);
 
-        $destination  = public_path().'/backup';
-        $chk = file_get_contents('public/backup.txt');
-        if ($chk != ""){
+        $destination = public_path() . '/backup';
+        $chk         = file_get_contents('public/backup.txt');
+        if ($chk != "") {
             unlink(public_path($chk));
         }
 
@@ -235,10 +234,10 @@ class DashboardController extends Controller
             $this->deleteDir($destination);
         }
 
-        $src = public_path().'/backup';
-        $this->recurse_copy($src,$destination);
-        $files = public_path();
-        $bkupname = 'Sports-Ventures-Backup-'.date('Y-m-d').'.zip';
+        $src = public_path() . '/backup';
+        $this->recurse_copy($src, $destination);
+        $files    = public_path();
+        $bkupname = 'Sports-Ventures-Backup-' . date('Y-m-d') . '.zip';
 
         $zipper = new \Chumper\Zipper\Zipper;
 
@@ -248,26 +247,25 @@ class DashboardController extends Controller
 
         $zipper->close();
 
-        $handle = fopen('public/backup.txt','w+');
+        $handle = fopen('public/backup.txt', 'w+');
         fwrite($handle,$bkupname);
         fclose($handle);
 
         if (is_dir($destination)) {
             $this->deleteDir($destination);
         }
-        return response()->json(['status' => 'success','backupfile' => url($bkupname),'filename' => $bkupname],200);
+        return response()->json(['status' => 'success', 'backupfile' => url($bkupname), 'filename' => $bkupname],200);
     }
 
-    public function recurse_copy($src,$dst) {
+    public function recurse_copy($src, $dst) {
         @mkdir($dst);
         $dir = opendir($src);
         while(false !== ( $file = readdir($dir)) ) {
-            if (( $file != '.' ) && ( $file != '..' )) {
-                if ( is_dir($src . '/' . $file) ) {
-                    $this->recurse_copy($src . '/' . $file,$dst . '/' . $file);
-                }
-                else {
-                    copy($src . '/' . $file,$dst . '/' . $file);
+            if (($file != '.') && ($file != '..')) {
+                if (is_dir($src . '/' . $file)) {
+                    $this->recurse_copy($src . '/' . $file, $dst . '/' . $file);
+                } else {
+                    copy($src . '/' . $file, $dst . '/' . $file);
                 }
             }
         }
@@ -292,6 +290,53 @@ class DashboardController extends Controller
         rmdir($dirPath);
     }
 
+    public function backup_database()
+    {
+        @ini_set('max_execution_time', 0);
+        @set_time_limit(0);
+
+        $return   = "";
+        $database = 'Tables_in_' . DB::getDatabaseName();
+        $tables   = array();
+        $result   = DB::select("SHOW TABLES");
+
+        foreach ($result as $table) {
+            $tables[] = $table->$database;
+        }
+
+
+        //loop through the tables
+        foreach ($tables as $table) {
+            $return .= "DROP TABLE IF EXISTS $table;";
+
+            $result2 = DB::select("SHOW CREATE TABLE $table");
+            $row2    = $result2[0]->{'Create Table'};
+
+            $return .= "\n\n" . $row2 . ";\n\n";
+
+            $result = DB::select("SELECT * FROM $table");
+
+            foreach ($result as $row) {
+                $return .= "INSERT INTO $table VALUES(";
+                foreach ($row as $key => $val) {
+                    $return .= "'" . addslashes($val) . "',";
+                }
+                $return = substr_replace($return, "", -1);
+                $return .= ");\n";
+            }
+
+            $return .= "\n\n\n";
+        }
+
+        //save file
+        $file   = 'public/backup/DB-BACKUP-' . time() . '.sql';
+        $handle = fopen($file, 'w+');
+        fwrite($handle, $return);
+        fclose($handle);
+
+        return response()->download($file);
+        return redirect()->back()->with('success', _lang('Backup Created Sucessfully'));
+    }
 
 
 }

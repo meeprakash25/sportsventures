@@ -13245,7 +13245,7 @@ border: 1px solid #fff;
     top: 50%;
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
+    background-size: auto;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
 }

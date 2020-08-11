@@ -17,7 +17,7 @@
         <div class="mr-breadcrumb">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="heading">{{ __('Bottom Small Banners') }}</h4>
+                    <h4 class="heading">{{ __('Banners Below Sliders') }}</h4>
                     <ul class="links">
                         <li>
                             <a href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
@@ -26,7 +26,7 @@
                             <a href="javascript:;">{{ __('Home Page Settings') }} </a>
                         </li>
                         <li>
-                            <a href="javascript:;">{{ __('Bottom Small Banners') }}</a>
+                            <a href="javascript:;">{{ __('Banners Below Sliders') }}</a>
                         </li>
                     </ul>
                 </div>

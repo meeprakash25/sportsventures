@@ -321,7 +321,7 @@
                 <a href="{{ route('admin-sb-large') }}"><span>{{ __('Large Banners') }}</span></a>
             </li>
             <li>
-                <a href="{{ route('admin-sb-bottom') }}"><span>{{ __('Bottom Small Banners') }}</span></a>
+                <a href="{{ route('admin-sb-bottom') }}"><span>{{ __('Banners Below SLiders') }}</span></a>
             </li>
 
             <li>

@@ -329,7 +329,7 @@ class DashboardController extends Controller
         }
 
         //save file
-        $file   = 'public/backup/DB-BACKUP-' . time() . '.sql';
+        $file   = 'backup/DB-BACKUP-' . time() . '.sql';
         $handle = fopen($file, 'w+');
         fwrite($handle, $return);
         fclose($handle);

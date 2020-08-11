@@ -25,7 +25,7 @@
                                     <label for="image-upload" class="img-label" id="image-label"><i class="icofont-upload-alt"></i>{{ __('Upload Image') }}</label>
                                     <input type="file" name="photo" class="img-upload" id="image-upload">
                                   </div>
-                                  <p class="text">{{ __('Prefered Size: (1280x600) or Square Sized Image') }}</p>
+                              <p class="text">First Image (372x550), Second Image (770x259), Third Image (770x259)</p>
                             </div>
 
                           </div>

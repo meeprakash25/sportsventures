@@ -45,43 +45,39 @@
                             <div class="col-lg-6">
                                 <div class="action-list">
                                     <select class="process select droplinks {{ $gs->is_popup  == 1 ? 'drop-success' : 'drop-danger' }}">
-                                      <option data-val="1" value="{{route('admin-gs-ispopup',1)}}" {{ $gs->is_popup == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>
-                                      <option data-val="0" value="{{route('admin-gs-ispopup',0)}}" {{ $gs->is_popup == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>
+                                        <option data-val="1" value="{{route('admin-gs-ispopup',1)}}" {{ $gs->is_popup == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>
+                                        <option data-val="0" value="{{route('admin-gs-ispopup',0)}}" {{ $gs->is_popup == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>
                                     </select>
-                                  </div>
+                                </div>
                             </div>
-                          </div>
-
-
-                        <div class="row justify-content-center">
-                          <div class="col-lg-3">
-                            <div class="left-area">
-                                <h4 class="heading">{{ __('Current Background Image') }} *</h4>
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="img-upload full-width-img">
-                                <div id="image-preview" class="img-preview" style="background: url({{ $gs->popup_background ? asset('assets/images/'.$gs->popup_background):asset('assets/images/noimage.png') }});">
-                                    <label for="image-upload" class="img-label" id="image-label"><i class="icofont-upload-alt"></i>{{ __('Upload Image') }}</label>
-                                    <input type="file" name="popup_background" class="img-upload" id="image-upload">
-                                  </div>
-                            </div>
-
-                          </div>
                         </div>
 
-                        <br>
 
+                            {{--<div class="row justify-content-center">--}}
+                            {{--  <div class="col-lg-3">--}}
+                            {{--    <div class="left-area">--}}
+                            {{--        <h4 class="heading">{{ __('Current Background Image') }} *</h4>--}}
+                            {{--    </div>--}}
+                            {{--  </div>--}}
+                            {{--  <div class="col-lg-6">--}}
+                            {{--    <div class="img-upload full-width-img">--}}
+                            {{--        <div id="image-preview" class="img-preview" style="background: url({{ $gs->popup_background ? asset('assets/images/'.$gs->popup_background):asset('assets/images/noimage.png') }});">--}}
+                            {{--            <label for="image-upload" class="img-label" id="image-label"><i class="icofont-upload-alt"></i>{{ __('Upload Image') }}</label>--}}
+                            {{--            <input type="file" name="popup_background" class="img-upload" id="image-upload">--}}
+                            {{--          </div>--}}
+                            {{--    </div>--}}
+                            {{--  </div>--}}
+                            {{--</div>--}}
 
-                        <div class="row justify-content-center">
-                          <div class="col-lg-3">
-                            <div class="left-area">
-                                <h4 class="heading">{{ __('Popup Title') }} *
-                                  </h4>
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <input type="text" class="input-field" placeholder="{{ __('Popup Title') }}" name="popup_title" value="{{ $gs->popup_title }}" required="">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3">
+                                    <div class="left-area">
+                                        <h4 class="heading">{{ __('Popup Title') }} *
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" class="input-field" placeholder="{{ __('Popup Title') }}" name="popup_title" value="{{ $gs->popup_title }}" required="">
                           </div>
                         </div>
 

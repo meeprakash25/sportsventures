@@ -135,9 +135,9 @@ class FrontendController extends Controller
         $sliders = DB::table('sliders')->get();
         $top_small_banners = DB::table('banners')->where('type','=','TopSmall')->get();
         $ps = DB::table('pagesettings')->find(1);
-        $feature_products =  Product::where('featured','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(8)->get();
+        //$feature_products =  Product::where('featured','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(8)->get();
 
-	    return view('front.index',compact('ps','sliders','top_small_banners','feature_products'));
+	    return view('front.index',compact('ps','sliders','top_small_banners'));
 	}
 
     public function extraIndex()
@@ -157,7 +157,9 @@ class FrontendController extends Controller
         $latest_products =  Product::where('latest','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(9)->get();
         $trending_products =  Product::where('trending','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(9)->get();
         $sale_products =  Product::where('sale','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(9)->get();
-        return view('front.extraindex',compact('ps','services','reviews','large_banners','bottom_small_banners','best_products','top_products','hot_products','latest_products','big_products','trending_products','sale_products','discount_products','partners'));
+        $feature_products =  Product::where('featured','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(8)->get();
+
+        return view('front.extraindex',compact('ps','services','reviews','large_banners','bottom_small_banners','best_products','top_products','hot_products','latest_products','big_products','trending_products','sale_products','discount_products','partners','feature_products'));
     }
 
 // -------------------------------- HOME PAGE SECTION ENDS ----------------------------------------

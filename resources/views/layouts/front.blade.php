@@ -445,16 +445,16 @@
                         <button class="toggle-bar"><span class="fa fa-bars"></span></button>
                     </div>
                     <ul class="menu">
-                        @if($gs->is_home == 1)
+                        {{--                        @if($gs->is_home == 1)--}}
                             <li><a href="{{ route('front.index') }}">{{ $langg->lang17 }}</a></li>
-                        @endif
+                        {{--                        @endif--}}
+                        @foreach(DB::table('pages')->where('header','=',1)->get() as $data)
+                            <li><a href="{{ route('front.page',$data->slug) }}">{{ $data->title }}</a></li>
+                        @endforeach
                         <li><a href="{{ route('front.blog') }}">{{ $langg->lang18 }}</a></li>
                         @if($gs->is_faq == 1)
                             <li><a href="{{ route('front.faq') }}">{{ $langg->lang19 }}</a></li>
                         @endif
-                        @foreach(DB::table('pages')->where('header','=',1)->get() as $data)
-                            <li><a href="{{ route('front.page',$data->slug) }}">{{ $data->title }}</a></li>
-                        @endforeach
                         @if($gs->is_contact == 1)
                             <li><a href="{{ route('front.contact') }}">{{ $langg->lang20 }}</a></li>
                         @endif

@@ -28,22 +28,22 @@
                 <div class="col-12 col-md-4 remove-padding">
                     <figure class="banner-image " style="margin-right: 20px;">
                         <a class="banner-effect" href="{{ $bottom_small_banners[0]->link }}" target="_blank">
-                            <img src="{{asset('assets/images/banners/'.$bottom_small_banners[0]->photo)}}" alt="">
-                            {{--                        <img src="http://via.placeholder.com/372x550" alt="">--}}
+{{--                            <img src="{{asset('assets/images/banners/'.$bottom_small_banners[0]->photo)}}" alt="">--}}
+                                                    <img src="http://via.placeholder.com/350x400" alt="">
                         </a>
                     </figure>
                 </div>
                 <div class="col-12 col-md-8 remove-padding">
                     <figure class="banner-image " style="margin-bottom: 20px;">
                         <a class="banner-effect" href="{{ $bottom_small_banners[1]->link }}" target="_blank">
-                            <img src="{{asset('assets/images/banners/'.$bottom_small_banners[1]->photo)}}" alt="">
-                            {{--                        <img src="http://via.placeholder.com/770x259" alt="">--}}
+{{--                            <img src="{{asset('assets/images/banners/'.$bottom_small_banners[1]->photo)}}" alt="">--}}
+                                                    <img src="http://via.placeholder.com/770x197" alt="">
                         </a>
                     </figure>
                     <figure class="banner-image">
                         <a class="banner-effect" href="{{ $bottom_small_banners[2]->link }}" target="_blank">
-                            {{--                        <img src="http://via.placeholder.com/770x259" alt="">--}}
-                            <img src="{{asset('assets/images/banners/'.$bottom_small_banners[2]->photo)}}" alt="">
+                                                    <img src="http://via.placeholder.com/770x197" alt="">
+{{--                            <img src="{{asset('assets/images/banners/'.$bottom_small_banners[2]->photo)}}" alt="">--}}
                         </a>
                     </figure>
                 </div>

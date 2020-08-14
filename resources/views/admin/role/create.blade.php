@@ -67,12 +67,20 @@
 
 
                         <div class="row justify-content-center">
+{{--                            <div class="col-lg-4 d-flex justify-content-between">--}}
+{{--                              <label class="control-label">{{ __('Affiliate Products') }} *</label>--}}
+{{--                              <label class="switch">--}}
+{{--                                <input type="checkbox" name="section[]" value="affilate_products" >--}}
+{{--                                <span class="slider round"></span>--}}
+{{--                              </label>--}}
+{{--                            </div>--}}
+
                             <div class="col-lg-4 d-flex justify-content-between">
-                              <label class="control-label">{{ __('Affiliate Products') }} *</label>
-                              <label class="switch">
-                                <input type="checkbox" name="section[]" value="affilate_products" >
-                                <span class="slider round"></span>
-                              </label>
+                                <label class="control-label">{{ __('Categories') }} *</label>
+                                <label class="switch">
+                                    <input type="checkbox" name="section[]" value="categories" >
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
                             <div class="col-lg-2"></div>
                             <div class="col-lg-4 d-flex justify-content-between">
@@ -84,41 +92,34 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center">
-                            <div class="col-lg-4 d-flex justify-content-between">
-                              <label class="control-label">{{ __('Vendors & Vendor Verifications') }} *</label>
-                              <label class="switch">
-                                <input type="checkbox" name="section[]" value="vendors" >
-                                <span class="slider round"></span>
-                              </label>
-                            </div>
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg-4 d-flex justify-content-between">
-                              <label class="control-label">{{ __('Vendor Subscription Plans') }} *</label>
-                              <label class="switch">
-                                <input type="checkbox" name="section[]" value="vendor_subscription_plans">
-                                <span class="slider round"></span>
-                              </label>
-                            </div>
-                        </div>
+{{--                        <div class="row justify-content-center">--}}
+{{--                            <div class="col-lg-4 d-flex justify-content-between">--}}
+{{--                              <label class="control-label">{{ __('Vendors & Vendor Verifications') }} *</label>--}}
+{{--                              <label class="switch">--}}
+{{--                                <input type="checkbox" name="section[]" value="vendors" >--}}
+{{--                                <span class="slider round"></span>--}}
+{{--                              </label>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-2"></div>--}}
+{{--                            <div class="col-lg-4 d-flex justify-content-between">--}}
+{{--                              <label class="control-label">{{ __('Vendor Subscription Plans') }} *</label>--}}
+{{--                              <label class="switch">--}}
+{{--                                <input type="checkbox" name="section[]" value="vendor_subscription_plans">--}}
+{{--                                <span class="slider round"></span>--}}
+{{--                              </label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="row justify-content-center">
-                            <div class="col-lg-4 d-flex justify-content-between">
-                              <label class="control-label">{{ __('Categories') }} *</label>
-                              <label class="switch">
-                                <input type="checkbox" name="section[]" value="categories" >
-                                <span class="slider round"></span>
-                              </label>
-                            </div>
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg-4 d-flex justify-content-between">
-                              <label class="control-label">{{ __('Bulk Product Upload') }} *</label>
-                              <label class="switch">
-                                <input type="checkbox" name="section[]" value="bulk_product_upload">
-                                <span class="slider round"></span>
-                              </label>
-                            </div>
-                        </div>
+{{--                        <div class="row justify-content-center">--}}
+{{--                            <div class="col-lg-2"></div>--}}
+{{--                            <div class="col-lg-4 d-flex justify-content-between">--}}
+{{--                              <label class="control-label">{{ __('Bulk Product Upload') }} *</label>--}}
+{{--                              <label class="switch">--}}
+{{--                                <input type="checkbox" name="section[]" value="bulk_product_upload">--}}
+{{--                                <span class="slider round"></span>--}}
+{{--                              </label>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="row justify-content-center">
                             <div class="col-lg-4 d-flex justify-content-between">
@@ -242,6 +243,24 @@
                               <label class="control-label">{{ __('Subscribers') }} *</label>
                               <label class="switch">
                                 <input type="checkbox" name="section[]" value="subscribers">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 d-flex justify-content-between">
+                              <label class="control-label">{{ __('SMS Settings') }} *</label>
+                              <label class="switch">
+                                <input type="checkbox" name="section[]" value="sms_settings" >
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-4 d-flex justify-content-between">
+                              <label class="control-label">{{ __('Alert Settings') }} *</label>
+                              <label class="switch">
+                                <input type="checkbox" name="section[]" value="alert_settings">
                                 <span class="slider round"></span>
                               </label>
                             </div>

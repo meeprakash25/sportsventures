@@ -47,7 +47,6 @@
                                 <tr>
                                     <th>{{ __('Name') }}</th>
                                     <th>{{ __('Sign') }}</th>
-                                    <th>{{ __('Value') }}</th>
                                     <th>{{ __('Options') }}</th>
                                 </tr>
                                 </thead>
@@ -137,7 +136,6 @@
             columns: [
                 {data: 'name', name: 'name'},
                 {data: 'sign', name: 'sign'},
-                {data: 'value', name: 'value'},
                 {data: 'action', searchable: false, orderable: false}
 
             ],

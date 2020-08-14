@@ -48,12 +48,19 @@
                 </div>
                 <div class="col-lg-2"></div>
                 <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="featured_category">{{ __('Featured Category') }} *</label>
+                  <label class="control-label" for="large_banner">{{ __('Large Banner') }} *</label>
                   <label class="switch">
-                    <input type="checkbox" name="featured_category" value="1" {{$data->featured_category==1?"checked":""}}>
+                    <input type="checkbox" name="large_banner" value="1" {{$data->large_banner==1?"checked":""}}>
                     <span class="slider round"></span>
                   </label>
                 </div>
+                {{--                <div class="col-lg-4 d-flex justify-content-between">--}}
+                {{--                  <label class="control-label" for="featured_category">{{ __('Featured Category') }} *</label>--}}
+                {{--                  <label class="switch">--}}
+                {{--                    <input type="checkbox" name="featured_category" value="1" {{$data->featured_category==1?"checked":""}}>--}}
+                {{--                    <span class="slider round"></span>--}}
+                {{--                  </label>--}}
+                {{--                </div>--}}
               </div>
 
               <div class="row justify-content-center">
@@ -94,47 +101,25 @@
               </div>
 
 
+              {{--              <div class="row justify-content-center">--}}
+              {{--                <div class="col-lg-4 d-flex justify-content-between">--}}
+              {{--                  <label class="control-label" for="large_banner">{{ __('Large Banner') }} *</label>--}}
+              {{--                  <label class="switch">--}}
+              {{--                    <input type="checkbox" name="large_banner" value="1" {{$data->large_banner==1?"checked":""}}>--}}
+              {{--                    <span class="slider round"></span>--}}
+              {{--                  </label>--}}
+              {{--                </div>--}}
+              {{--                <div class="col-lg-2"></div>--}}
 
-              <div class="row justify-content-center">
-                <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="large_banner">{{ __('Large Banner') }} *</label>
-                  <label class="switch">
-                    <input type="checkbox" name="large_banner" value="1" {{$data->large_banner==1?"checked":""}}>
-                    <span class="slider round"></span>
-                  </label>
-                </div>
-                <div class="col-lg-2"></div>
+              {{--                <div class="col-lg-4 d-flex justify-content-between">--}}
+              {{--                  <label class="control-label" for="top_rated">{{ __('Top Rated') }} *</label>--}}
+              {{--                  <label class="switch">--}}
+              {{--                    <input type="checkbox" name="top_rated" value="1" {{$data->top_rated==1?"checked":""}}>--}}
+              {{--                    <span class="slider round"></span>--}}
+              {{--                  </label>--}}
+              {{--                </div>--}}
 
-                <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="top_rated">{{ __('Top Rated') }} *</label>
-                  <label class="switch">
-                    <input type="checkbox" name="top_rated" value="1" {{$data->top_rated==1?"checked":""}}>
-                    <span class="slider round"></span>
-                  </label>
-                </div>
-
-              </div>
-
-              <div class="row justify-content-center">
-                <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="bottom_small">{{ __('Bottom Small Banner') }} *</label>
-                  <label class="switch">
-                    <input type="checkbox" name="bottom_small" value="1" {{$data->bottom_small == 1 ? "checked":""}}>
-                    <span class="slider round"></span>
-                  </label>
-                </div> 
-
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="big">{{ __('Big Save') }} *</label>
-                  <label class="switch">
-                    <input type="checkbox" name="big" value="1" {{$data->big==1?"checked":""}}>
-                    <span class="slider round"></span>
-                  </label>
-                </div>
-
-              </div>
-
+              {{--              </div>--}}
 
               <div class="row justify-content-center">
 
@@ -160,7 +145,7 @@
               <div class="row justify-content-center">
 
                 <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="partners">{{ __('Partners') }} *</label>
+                  <label class="control-label" for="partners">{{ __('Brands') }} *</label>
                   <label class="switch">
                     <input type="checkbox" name="partners" value="1" {{$data->partners==1?"checked":""}}>
                     <span class="slider round"></span>
@@ -168,15 +153,38 @@
                 </div>
                 <div class="col-lg-2"></div>
                 <div class="col-lg-4 d-flex justify-content-between">
-                    <label class="control-label" for="service">{{ __('Service') }} *</label>
-                    <label class="switch">
-                      <input type="checkbox" name="service" value="1" {{$data->service==1?"checked":""}}>
+                  <label class="control-label" for="service">{{ __('Service') }} *</label>
+                  <label class="switch">
+                    <input type="checkbox" name="service" value="1" {{$data->service==1?"checked":""}}>
                       <span class="slider round"></span>
                     </label>
 
                 </div>
 
               </div>
+
+
+              <div class="row justify-content-center">
+                <div class="col-lg-4 d-flex justify-content-between">
+                  <label class="control-label" for="bottom_small">{{ __('Bottom Small Banner') }} *</label>
+                  <label class="switch">
+                    <input type="checkbox" name="bottom_small" value="1" {{$data->bottom_small == 1 ? "checked":""}}>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+
+                <div class="col-lg-2"></div>
+                <div class="col-lg-4 d-flex justify-content-between">
+                  {{--                  <label class="control-label" for="big">{{ __('Big Save') }} *</label>--}}
+                  {{--                  <label class="switch">--}}
+                  {{--                    <input type="checkbox" name="big" value="1" {{$data->big==1?"checked":""}}>--}}
+                  {{--                    <span class="slider round"></span>--}}
+                  {{--                  </label>--}}
+                </div>
+
+              </div>
+
+
 
               <br>
 

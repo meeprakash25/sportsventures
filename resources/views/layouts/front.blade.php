@@ -445,9 +445,9 @@
                         <button class="toggle-bar"><span class="fa fa-bars"></span></button>
                     </div>
                     <ul class="menu">
-                        {{--                        @if($gs->is_home == 1)--}}
+                        @if($gs->is_home == 1)
                             <li><a href="{{ route('front.index') }}">{{ $langg->lang17 }}</a></li>
-                        {{--                        @endif--}}
+                        @endif
                         @foreach(DB::table('pages')->where('header','=',1)->get() as $data)
                             <li><a href="{{ route('front.page',$data->slug) }}">{{ $data->title }}</a></li>
                         @endforeach

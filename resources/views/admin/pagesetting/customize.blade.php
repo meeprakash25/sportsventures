@@ -166,7 +166,7 @@
 
               <div class="row justify-content-center">
                 <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="bottom_small">{{ __('Banners Below SLiders') }} *</label>
+                  <label class="control-label" for="bottom_small">{{ __('Banners Below Sliders') }} *</label>
                   <label class="switch">
                     <input type="checkbox" name="bottom_small" value="1" {{$data->bottom_small == 1 ? "checked":""}}>
                     <span class="slider round"></span>

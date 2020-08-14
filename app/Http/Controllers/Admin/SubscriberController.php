@@ -38,7 +38,7 @@ class SubscriberController extends Controller
         header('Content-Type: text/csv; charset=utf-8');
         header('Content-Disposition: attachment; filename=subscribers.csv');
         $output = fopen('php://output', 'w');
-        fputcsv($output, array('Subscribers Emails'));
+        fputcsv($output, array('SN.','Subscriber Emails'));
         $result = Subscriber::all();
         foreach ($result as $row){
             fputcsv($output, $row->toArray());

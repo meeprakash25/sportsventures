@@ -196,86 +196,86 @@
 
                             <hr>
 
-                            <div class="row justify-content-center">
-                                <div class="col-lg-3">
-                                    <div class="left-area">
-                                        <h4 class="heading">
-                                            {{ __('New Product') }} ({{__('Email')}})
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="action-list">
-                                        <select class="process select droplinks {{ $gs->new_product_email == 1 ? 'drop-success' : 'drop-danger' }}">
-                                            <option data-val="1"
-                                                    value="{{route('admin-gs-new-product-email',1)}}" {{ $gs->new_product_email == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>
-                                            <option data-val="0"
-                                                    value="{{route('admin-gs-new-product-email',0)}}" {{ $gs->new_product_email == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="row justify-content-center">--}}
+{{--                                <div class="col-lg-3">--}}
+{{--                                    <div class="left-area">--}}
+{{--                                        <h4 class="heading">--}}
+{{--                                            {{ __('New Product') }} ({{__('Email')}})--}}
+{{--                                        </h4>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="action-list">--}}
+{{--                                        <select class="process select droplinks {{ $gs->new_product_email == 1 ? 'drop-success' : 'drop-danger' }}">--}}
+{{--                                            <option data-val="1"--}}
+{{--                                                    value="{{route('admin-gs-new-product-email',1)}}" {{ $gs->new_product_email == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>--}}
+{{--                                            <option data-val="0"--}}
+{{--                                                    value="{{route('admin-gs-new-product-email',0)}}" {{ $gs->new_product_email == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="row justify-content-center">
-                                <div class="col-lg-3">
-                                    <div class="left-area">
-                                        <h4 class="heading">
-                                            {{ __('New Product') }} ({{__('SMS')}})
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="action-list">
-                                        <select class="process select droplinks {{ $gs->new_product_sms == 1 ? 'drop-success' : 'drop-danger' }}">
-                                            <option data-val="1"
-                                                    value="{{route('admin-gs-new-product-sms',1)}}" {{ $gs->new_product_sms == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>
-                                            <option data-val="0"
-                                                    value="{{route('admin-gs-new-product-sms',0)}}" {{ $gs->new_product_sms == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="row justify-content-center">--}}
+{{--                                <div class="col-lg-3">--}}
+{{--                                    <div class="left-area">--}}
+{{--                                        <h4 class="heading">--}}
+{{--                                            {{ __('New Product') }} ({{__('SMS')}})--}}
+{{--                                        </h4>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="action-list">--}}
+{{--                                        <select class="process select droplinks {{ $gs->new_product_sms == 1 ? 'drop-success' : 'drop-danger' }}">--}}
+{{--                                            <option data-val="1"--}}
+{{--                                                    value="{{route('admin-gs-new-product-sms',1)}}" {{ $gs->new_product_sms == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>--}}
+{{--                                            <option data-val="0"--}}
+{{--                                                    value="{{route('admin-gs-new-product-sms',0)}}" {{ $gs->new_product_sms == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <hr>
+{{--                            <hr>--}}
 
-                            <div class="row justify-content-center">
-                                <div class="col-lg-3">
-                                    <div class="left-area">
-                                        <h4 class="heading">
-                                            {{ __('News') }} ({{__('Email')}})
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="action-list">
-                                        <select class="process select droplinks {{ $gs->news_email == 1 ? 'drop-success' : 'drop-danger' }}">
-                                            <option data-val="1"
-                                                    value="{{route('admin-gs-news-email',1)}}" {{ $gs->news_email == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>
-                                            <option data-val="0"
-                                                    value="{{route('admin-gs-news-email',0)}}" {{ $gs->news_email == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="row justify-content-center">--}}
+{{--                                <div class="col-lg-3">--}}
+{{--                                    <div class="left-area">--}}
+{{--                                        <h4 class="heading">--}}
+{{--                                            {{ __('News') }} ({{__('Email')}})--}}
+{{--                                        </h4>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="action-list">--}}
+{{--                                        <select class="process select droplinks {{ $gs->news_email == 1 ? 'drop-success' : 'drop-danger' }}">--}}
+{{--                                            <option data-val="1"--}}
+{{--                                                    value="{{route('admin-gs-news-email',1)}}" {{ $gs->news_email == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>--}}
+{{--                                            <option data-val="0"--}}
+{{--                                                    value="{{route('admin-gs-news-email',0)}}" {{ $gs->news_email == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            <div class="row justify-content-center">
-                                <div class="col-lg-3">
-                                    <div class="left-area">
-                                        <h4 class="heading">
-                                            {{ __('News') }} ({{__('SMS')}})
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="action-list">
-                                        <select class="process select droplinks {{ $gs->news_sms == 1 ? 'drop-success' : 'drop-danger' }}">
-                                            <option data-val="1" value="{{route('admin-gs-news-sms',1)}}" {{ $gs->news_sms == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>
-                                            <option data-val="0"
-                                                    value="{{route('admin-gs-news-sms',0)}}" {{ $gs->news_sms == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="row justify-content-center">--}}
+{{--                                <div class="col-lg-3">--}}
+{{--                                    <div class="left-area">--}}
+{{--                                        <h4 class="heading">--}}
+{{--                                            {{ __('News') }} ({{__('SMS')}})--}}
+{{--                                        </h4>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="action-list">--}}
+{{--                                        <select class="process select droplinks {{ $gs->news_sms == 1 ? 'drop-success' : 'drop-danger' }}">--}}
+{{--                                            <option data-val="1" value="{{route('admin-gs-news-sms',1)}}" {{ $gs->news_sms == 1 ? 'selected' : '' }}>{{ __('Activated') }}</option>--}}
+{{--                                            <option data-val="0"--}}
+{{--                                                    value="{{route('admin-gs-news-sms',0)}}" {{ $gs->news_sms == 0 ? 'selected' : '' }}>{{ __('Deactivated') }}</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <hr>
 

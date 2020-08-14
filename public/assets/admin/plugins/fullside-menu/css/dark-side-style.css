@@ -392,10 +392,10 @@
   
   .page .header .menu-toggle-button .nav-link {
 	position: absolute;
-	top: 50%;
+	top: 70%;
 	display: inline-block;
 	transform: translateY(-50%);
-	left: 280px;
+	left: 260px;
 	line-height: 0px;
   }
   .header .navbar-brand img {

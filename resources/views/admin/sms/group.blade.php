@@ -65,11 +65,12 @@
                                             <h4 class="heading">
                                                 {{ __('SMS Body') }} *
                                             </h4>
-                                            <p class="sub-heading">{{ __('(In Any Language)') }}</p>
+                                            <p class="sub-heading">({{ __('Except english, use in unicode') }})</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-7">
-                                        <textarea class="" rows="5" name="body" placeholder="{{ __('SMS Body') }}"></textarea>
+                                        <textarea class="" rows="5" name="body" placeholder="{{ __('SMS Body') }}"
+                                                  style="border: 1px solid #c3c3c3;border-radius: .4285rem;"></textarea>
                                     </div>
                                 </div>
 

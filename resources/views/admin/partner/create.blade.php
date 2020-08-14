@@ -50,7 +50,7 @@
                             </div>
                           </div>
                           <div class="col-lg-7">
-                            <button class="addProductSubmit-btn mt-4" type="submit">{{ __('Create Partner') }}</button>
+                            <button class="addProductSubmit-btn mt-4" type="submit">{{ __('Create Brand') }}</button>
                           </div>
                         </div>
                       </form>

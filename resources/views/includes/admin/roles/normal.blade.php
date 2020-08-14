@@ -328,7 +328,7 @@
                 <a href="{{ route('admin-review-index') }}"><span>{{ __('Reviews') }}</span></a>
             </li>
             <li>
-                <a href="{{ route('admin-partner-index') }}"><span>{{ __('Partners') }}</span></a>
+                <a href="{{ route('admin-partner-index') }}"><span>{{ __('Brands') }}</span></a>
             </li>
 
             

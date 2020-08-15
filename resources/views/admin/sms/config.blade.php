@@ -83,7 +83,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
-                                        <input type="text" class="input-field" placeholder="{{ __('Password') }} " name="sms_password" value="{{ $gs->sms_password }}"
+                                        <input type="password" class="input-field" placeholder="{{ __('Password') }} " name="sms_password" value="{{ $gs->sms_password }}"
                                                required="">
                                     </div>
                                 </div>

@@ -113,7 +113,6 @@ class EmailController extends Controller
                         'subject' => $request->subject,
                         'body'    => $request->body,
                     ];
-
                     $mailer = new GeniusMailer();
                     $mailer->sendCustomMail($data);
                 } else {

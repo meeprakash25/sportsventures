@@ -95,13 +95,13 @@
 
             </ul>
           </div>
-          @if($gs->reg_vendor == 1)
-            <div class="row mt-4">
-              <div class="col-lg-12 text-center">
-                <a href="{{ route('user-package') }}" class="mybtn1 lg">
-                  <i class="fas fa-dollar-sign"></i> {{ Auth::user()->is_vendor == 1 ? $langg->lang233 : (Auth::user()->is_vendor == 0 ? $langg->lang233 : $langg->lang237) }}
-                </a>
-              </div>
-            </div>
-          @endif
+          {{--          @if($gs->reg_vendor == 1)--}}
+          {{--            <div class="row mt-4">--}}
+          {{--              <div class="col-lg-12 text-center">--}}
+          {{--                <a href="{{ route('user-package') }}" class="mybtn1 lg">--}}
+          {{--                  <i class="fas fa-dollar-sign"></i> {{ Auth::user()->is_vendor == 1 ? $langg->lang233 : (Auth::user()->is_vendor == 0 ? $langg->lang233 : $langg->lang237) }}--}}
+          {{--                </a>--}}
+          {{--              </div>--}}
+          {{--            </div>--}}
+          {{--          @endif--}}
         </div>

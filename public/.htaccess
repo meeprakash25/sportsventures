@@ -21,11 +21,11 @@
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     ErrorDocument 403 /maintenance.html
-    <Files "index.php">
-        Order deny,allow
-        Deny from all
-        Allow from 49.244.9.30
-    </Files>
+#    <Files "index.php">
+#        Order deny,allow
+#        Deny from all
+#        Allow from 49.244.9.30
+#    </Files>
 
      RewriteCond %{SERVER_PORT} 80
      RewriteRule ^(.*)$ https://www.sportsventures.com.np/$1 [R,L]

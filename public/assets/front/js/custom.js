@@ -735,10 +735,10 @@ $('#category_select').on('change',function(){
         $.get( $(this).data('href') , function( data ) {
             if(data == 0) {
                 $("#cart-count").html(data);
-               $('.cart-table').html('<h3 class="mt-1 pl-3 text-left">Cart is empty.</h3>');
-                $('#cart-items').html('<p class="mt-1 pl-3 text-left">Cart is empty.</p>');
+                $('.cart-table').html('<h3 class="my-2 pl-3 text-left">Cart is empty.</h3>');
+                $('#cart-items').html('<p class="my-2 pl-3 text-left">Cart is empty.</p>');
                 $('.cartpage .col-lg-4').html('');
-              }
+            }
             else {
                $('.cart-quantity').html(data[1]);
                $('.cart-total').html(data[0]);
@@ -1440,19 +1440,13 @@ $('#track-form').on('submit',function(e){
   var code = $('#track-code').val();
   $('.submit-loader').removeClass('d-none');
   $('#track-order').load(mainurl+'/order/track/'+code,function(response, status, xhr){
-  if(status == "success")
-  {
-        $('.submit-loader').addClass('d-none');
+  if(status == "success") {
+      $('.submit-loader').addClass('d-none');
   }
-});
+  });
 });
 
 // TRACK ORDER ENDS
-
 });
-
-
-
-
 
 });

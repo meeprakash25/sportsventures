@@ -1,14 +1,12 @@
         <div class="col-lg-4">
           <div class="user-profile-info-area">
             <ul class="links">
-                @php 
+                @php
 
                   if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') 
                   {
                     $link = "https"; 
-                  }
-                  else
-                  {
+                  } else {
                     $link = "http"; 
                       
                     // Here append the common URL characters. 

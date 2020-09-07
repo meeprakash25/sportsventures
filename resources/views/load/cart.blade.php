@@ -51,5 +51,5 @@
 			</div><!-- End .dropdown-cart-total -->
 	</div>
 @else
-<p class="mt-1 pl-3 text-left">{{ $langg->lang8 }}</p>
+<p class="my-2 pl-3 text-left">{{ $langg->lang8 }}</p>
 @endif

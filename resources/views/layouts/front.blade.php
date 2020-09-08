@@ -33,8 +33,6 @@
 
     @if($langg->rtl == "1")
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.css">
     <!-- stylesheet -->
         <link rel="stylesheet" href="{{asset('assets/front/css/rtl/all.css')}}">
 
@@ -43,6 +41,8 @@
               href="{{ asset('assets/front/css/rtl/styles.php?color='.str_replace('#','',$gs->colors).'&amp;'.'header_color='.str_replace('#','',$gs->header_color).'&amp;'.'footer_color='.str_replace('#','',$gs->footer_color).'&amp;'.'copyright_color='.str_replace('#','',$gs->copyright_color).'&amp;'.'menu_color='.str_replace('#','',$gs->menu_color).'&amp;'.'menu_hover_color='.str_replace('#','',$gs->menu_hover_color)) }}">
 
     @else
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.css">
         <!-- stylesheet -->
         <link rel="stylesheet" href="{{asset('assets/front/css/all.css')}}">
 
@@ -61,8 +61,13 @@
 
         .navbar .dropdown-menu {
             border: none;
-            background-color: #0060c8 !important;
+            background-color: #193e69 !important;
         }
+
+        /*#navbarSupportedContent{*/
+        /*    background-color: #0049c8 !important;*/
+        /*    z-index:99;*/
+        /*}*/
 
         @media screen and (min-width: 992px) {
 
@@ -99,6 +104,7 @@
                 visibility: visible;
                 opacity: 1;
                 transition: visibility 0s, opacity 0.3s linear;
+                z-index:1000;
             }
 
             .navbar .dropdown-menu {
@@ -106,12 +112,6 @@
             }
 
         }
-
-       .brand-slider img{
-            height:40px;
-            width:100%;
-        }
-
     </style>
 
 </head>
@@ -124,10 +124,10 @@
 
 @if($gs->is_popup== 1)
 
-    {{--@if(isset($visited))--}}
-    {{--	<div style="display:none">--}}
-    {{--		<img src="{{asset('assets/images/'.$gs->popup_background)}}">--}}
-    {{--	</div>--}}
+    @if(isset($visited))
+{{--    	<div style="display:none">--}}
+{{--    		<img src="{{asset('assets/images/'.$gs->popup_background)}}">--}}
+{{--    	</div>--}}
 
     <!--  Starting of subscribe-pre-loader Area   -->
     <div class="subscribe-preloader-wrap" id="subscriptionForm" style="display: none;">
@@ -148,7 +148,7 @@
     </div>
     <!--  Ending of subscribe-pre-loader Area   -->
 
-    {{--@endif--}}
+    @endif
 
 @endif
 {{--	<section class="top-header">--}}
@@ -407,7 +407,6 @@
                 </div>
             </div>
             <div class="col-lg-1 col-md-3 col-sm-6 col-xs-4 col-4 remove-padding order-md-last">
-                <div class="top-header">
                     @php
                         $partners = DB::table('partners')->get();
                     @endphp
@@ -417,7 +416,6 @@
                                 <a href="{{$partner->link}}"><img class="item" src="{{asset('assets/images/partner/'.$partner->photo)}}"></a>
                             </div>
                         @endforeach
-                    </div>
                 </div>
             </div>
         </div>
@@ -428,368 +426,77 @@
 <!--Main-Menu Area Start-->
 <div class="mainmenu-area mainmenu-bb">
     <div class="container">
-        {{--        <div class="row align-items-center mainmenu-area-innner">--}}
-        {{--            <div class="col-lg-3 col-md-6 categorimenu-wrapper remove-padding">--}}
-        {{--                <!--categorie menu start-->--}}
-        {{--                <div class="categories_menu">--}}
-        {{--                    <div class="categories_title">--}}
-        {{--                        <h2 class="categori_toggle"><i class="fa fa-bars"></i> {{ $langg->lang14 }} <i class="fa fa-angle-down arrow-down"></i></h2>--}}
-        {{--                    </div>--}}
-        {{--                    <div class="categories_menu_inner">--}}
-        {{--                        <ul>--}}
-        {{--                            @php--}}
-        {{--                                $i=1;--}}
-        {{--                            @endphp--}}
-        {{--                            @foreach($categories as $category)--}}
-
-        {{--                                <li class="{{count($category->subs) > 0 ? 'dropdown_list':''}} {{ $i >= 15 ? 'rx-child' : '' }}">--}}
-        {{--                                    @if(count($category->subs) > 0)--}}
-        {{--                                        <div class="img">--}}
-        {{--                                            <img src="{{ asset('assets/images/categories/'.$category->photo) }}" alt="">--}}
-        {{--                                        </div>--}}
-        {{--                                        <div class="link-area">--}}
-        {{--                                            <span><a href="{{ route('front.category',$category->slug) }}">{{ $category->name }}</a></span>--}}
-        {{--                                            @if(count($category->subs) > 0)--}}
-        {{--                                                <a href="javascript:;">--}}
-        {{--                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>--}}
-        {{--                                                </a>--}}
-        {{--                                            @endif--}}
-        {{--                                        </div>--}}
-
-        {{--                                    @else--}}
-        {{--                                        <a href="{{ route('front.category',$category->slug) }}"><img--}}
-        {{--                                                    src="{{ asset('assets/images/categories/'.$category->photo) }}"> {{ $category->name }}</a>--}}
-
-        {{--                                    @endif--}}
-        {{--                                    @if(count($category->subs) > 0)--}}
-
-        {{--                                        @php--}}
-        {{--                                            $ck = 0;--}}
-        {{--                                            foreach($category->subs as $subcat) {--}}
-        {{--                                                if(count($subcat->childs) > 0) {--}}
-        {{--                                                    $ck = 1;--}}
-        {{--                                                    break;--}}
-        {{--                                                }--}}
-        {{--                                            }--}}
-        {{--                                        @endphp--}}
-        {{--                                        <ul class="{{ $ck == 1 ? 'categories_mega_menu' : 'categories_mega_menu column_1' }}">--}}
-        {{--                                            @foreach($category->subs as $subcat)--}}
-        {{--                                                <li>--}}
-        {{--                                                    <a href="{{ route('front.subcat',['slug1' => $subcat->category->slug, 'slug2' => $subcat->slug]) }}">{{$subcat->name}}</a>--}}
-        {{--                                                    @if(count($subcat->childs) > 0)--}}
-        {{--                                                        <div class="categorie_sub_menu">--}}
-        {{--                                                            <ul>--}}
-        {{--                                                                @foreach($subcat->childs as $childcat)--}}
-        {{--                                                                    <li>--}}
-        {{--                                                                        <a href="{{ route('front.childcat',['slug1' => $childcat->subcategory->category->slug, 'slug2' => $childcat->subcategory->slug, 'slug3' => $childcat->slug]) }}">{{$childcat->name}}</a>--}}
-        {{--                                                                    </li>--}}
-        {{--                                                                @endforeach--}}
-        {{--                                                            </ul>--}}
-        {{--                                                        </div>--}}
-        {{--                                                    @endif--}}
-        {{--                                                </li>--}}
-        {{--                                            @endforeach--}}
-        {{--                                        </ul>--}}
-
-        {{--                                    @endif--}}
-
-        {{--                                </li>--}}
-
-        {{--                                @php--}}
-        {{--                                    $i++;--}}
-        {{--                                @endphp--}}
-
-        {{--                                @if($i == 15)--}}
-        {{--                                    <li>--}}
-        {{--                                        <a href="{{ route('front.categories') }}"><i class="fas fa-plus"></i> {{ $langg->lang15 }} </a>--}}
-        {{--                                    </li>--}}
-        {{--                                    @break--}}
-        {{--                                @endif--}}
-
-
-        {{--                            @endforeach--}}
-
-        {{--                        </ul>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--                <!--categorie menu end-->--}}
-        {{--            </div>--}}
-
-
-
-
-
-        {{--            <div class="col-lg-12 col-md-12 mainmenu-wrapper">--}}
-        {{--                <nav>--}}
-        {{--                    <div class="nav-header">--}}
-        {{--                        <button class="toggle-bar"><span class="fa fa-bars"></span></button>--}}
-        {{--                    </div>--}}
-        {{--                    <ul class="menu">--}}
-        {{--                        @if($gs->is_home == 1)--}}
-        {{--                            <li><a href="{{ route('front.index') }}">{{ $langg->lang17 }}</a></li>--}}
-        {{--                        @endif--}}
-        {{--                        @foreach(DB::table('pages')->where('header','=',1)->get() as $data)--}}
-        {{--                            <li><a href="{{ route('front.page',$data->slug) }}">{{ $data->title }}</a></li>--}}
-        {{--                        @endforeach--}}
-        {{--                        <li><a href="{{ route('front.blog') }}">{{ $langg->lang18 }}</a></li>--}}
-        {{--                        @if($gs->is_faq == 1)--}}
-        {{--                            <li><a href="{{ route('front.faq') }}">{{ $langg->lang19 }}</a></li>--}}
-        {{--                        @endif--}}
-        {{--                        @if($gs->is_contact == 1)--}}
-        {{--                            <li><a href="{{ route('front.contact') }}">{{ $langg->lang20 }}</a></li>--}}
-        {{--                        @endif--}}
-        {{--                        <li>--}}
-        {{--                            <a href="javascript:;" data-toggle="modal" data-target="#track-order-modal" class="track-btn">{{ $langg->lang16 }}</a>--}}
-        {{--                        </li>--}}
-
-        {{--                        @php--}}
-        {{--                            $i=1;--}}
-        {{--                        @endphp--}}
-        {{--                        @foreach($categories as $category)--}}
-
-        {{--                            <li>--}}
-        {{--                                @if(count($category->subs) > 0)--}}
-        {{--                                    <a href="{{ route('front.category',$category->slug) }}">{{ $category->name }}</a>--}}
-        {{--                                    @if(count($category->subs) > 0)--}}
-        {{--                                        <a href="javascript:;">--}}
-        {{--                                            <i class="fa fa-angle-right" aria-hidden="true"></i>--}}
-        {{--                                        </a>--}}
-        {{--                                    @endif--}}
-        {{--                                @else--}}
-        {{--                                    <a href="{{ route('front.category',$category->slug) }}"><img--}}
-        {{--                                                src="{{ asset('assets/images/categories/'.$category->photo) }}"> {{ $category->name }}</a>--}}
-
-        {{--                                @endif--}}
-        {{--                                @if(count($category->subs) > 0)--}}
-
-        {{--                                    @php--}}
-        {{--                                        $ck = 0;--}}
-        {{--                                        foreach($category->subs as $subcat) {--}}
-        {{--                                            if(count($subcat->childs) > 0) {--}}
-        {{--                                                $ck = 1;--}}
-        {{--                                                break;--}}
-        {{--                                            }--}}
-        {{--                                        }--}}
-        {{--                                    @endphp--}}
-        {{--                                    <ul class="{{ $ck == 1 ? 'categories_mega_menu' : 'categories_mega_menu column_1' }}">--}}
-        {{--                                        @foreach($category->subs as $subcat)--}}
-        {{--                                            <li>--}}
-        {{--                                                <a href="{{ route('front.subcat',['slug1' => $subcat->category->slug, 'slug2' => $subcat->slug]) }}">{{$subcat->name}}</a>--}}
-        {{--                                                @if(count($subcat->childs) > 0)--}}
-        {{--                                                    <div class="categorie_sub_menu">--}}
-        {{--                                                        <ul>--}}
-        {{--                                                            @foreach($subcat->childs as $childcat)--}}
-        {{--                                                                <li>--}}
-        {{--                                                                    <a href="{{ route('front.childcat',['slug1' => $childcat->subcategory->category->slug, 'slug2' => $childcat->subcategory->slug, 'slug3' => $childcat->slug]) }}">{{$childcat->name}}</a>--}}
-        {{--                                                                </li>--}}
-        {{--                                                            @endforeach--}}
-        {{--                                                        </ul>--}}
-        {{--                                                    </div>--}}
-        {{--                                                @endif--}}
-        {{--                                            </li>--}}
-        {{--                                        @endforeach--}}
-        {{--                                    </ul>--}}
-
-        {{--                                @endif--}}
-
-        {{--                            </li>--}}
-
-        {{--                            @php--}}
-        {{--                                $i++;--}}
-        {{--                            @endphp--}}
-
-        {{--                            @if($i == 15)--}}
-        {{--                                <li>--}}
-        {{--                                    <a href="{{ route('front.categories') }}"><i class="fas fa-plus"></i> {{ $langg->lang15 }} </a>--}}
-        {{--                                </li>--}}
-        {{--                                @break--}}
-        {{--                            @endif--}}
-
-
-        {{--                        @endforeach--}}
-
-        {{--                    </ul>--}}
-
-        {{--                </nav>--}}
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    {{--                            <li class="nav-item">--}}
-                    {{--                                <a class="nav-link" href="#">Category</a>--}}
-                    {{--                            </li>--}}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Category 1
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @foreach($categories as $category)
+                        @if(count($category->subs) > 0)
+                            <li class="nav-item dropdown">
+                                @if(count($category->subs) > 0)
+                                    <a class="nav-link dropdown-toggle" href="{{ route('front.category',$category->slug) }}" id="navbarDropdown">
+                                        {{ $category->name }}
+                                    </a>
+                                    @if(count($category->subs) > 0)
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <div class="container">
+                                                <div class="row">
+                                                    @foreach($category->subs as $subcat)
+                                                        <div class="col-md-3">
+                                                            <a href="{{ route('front.subcat',['slug1' => $subcat->category->slug, 'slug2' => $subcat->slug]) }}">
+                                                                <span class="text-uppercase text-white">{{$subcat->name}}</span>
+                                                            </a>
 
-
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <span class="text-uppercase text-white">Category 1</span>
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">Active</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- /.col-md-4  -->
-                                    <div class="col-md-4">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">Active</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- /.col-md-4  -->
-                                    <div class="col-md-4">
-                                        <a href="">
-                                            <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
-                                        </a>
-                                        <p class="text-white">Short image call to action</p>
-
-                                    </div>
-                                    <!-- /.col-md-4  -->
-                                </div>
-                            </div>
-                            <!--  /.container  -->
-
-                        </div>
+                                                            @if(count($subcat->childs) > 0)
+                                                                <ul class="nav flex-column">
+                                                                    @foreach($subcat->childs as $childcat)
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link py-1" href="{{ route('front.childcat',['slug1' => $childcat->subcategory->category->slug,
+                                                                                'slug2' => $childcat->subcategory->slug, 'slug3' => $childcat->slug]) }}">{{$childcat->name}}</a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endif
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('front.category',$category->slug) }}">
+                                    {{ $category->name }}
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    @if($gs->is_home == 1)
+                        <li class="nav-item"><a class="nav-link" href="{{ route('front.index') }}">{{ $langg->lang17 }}</a></li>
+                    @endif
+                    @foreach(DB::table('pages')->where('header','=',1)->get() as $data)
+                        <li class="nav-item"><a class="nav-link" href="{{ route('front.page',$data->slug) }}">{{ $data->title }}</a></li>
+                    @endforeach
+                    @if($gs->is_faq == 1)
+                        <li class="nav-item"><a class="nav-link" href="{{ route('front.faq') }}">{{ $langg->lang19 }}</a></li>
+                    @endif
+                    <li class="nav-item"><a class="nav-link" href="{{ route('front.blog') }}">{{ $langg->lang18 }}</a></li>
+                    @if($gs->is_contact == 1)
+                        <li class="nav-item"><a class="nav-link" href="{{ route('front.contact') }}">{{ $langg->lang20 }}</a></li>
+                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:;" data-toggle="modal" data-target="#track-order-modal" class="track-btn">{{ $langg->lang16 }}</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Category 2
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <span class="text-uppercase text-white">Category 2</span>
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">Active</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- /.col-md-4  -->
-                                    <div class="col-md-4">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">Active</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- /.col-md-4  -->
-                                    <div class="col-md-4">
-                                        <a href="">
-                                            <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
-                                        </a>
-                                        <p class="text-white">Short image call to action</p>
-
-                                    </div>
-                                    <!-- /.col-md-4  -->
-                                </div>
-                            </div>
-                            <!--  /.container  -->
-
-
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Category 3
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <span class="text-uppercase text-white">Category 3</span>
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">Active</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- /.col-md-4  -->
-                                    <div class="col-md-4">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#">Active</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Link item</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- /.col-md-4  -->
-                                    <div class="col-md-4">
-
-                                        <a href="">
-                                            <img src="https://dummyimage.com/200x100/ccc/000&text=image+link" alt="" class="img-fluid">
-                                        </a>
-                                        <p class="text-white">Short image call to action</p>
-
-                                    </div>
-                                    <!-- /.col-md-4  -->
-                                </div>
-                            </div>
-                            <!--  /.container  -->
-
-
-                        </div>
-                    </li>
-
                 </ul>
             </div>
-
-
         </nav>
-
-        {{--            </div>--}}
-        {{--        </div>--}}
     </div>
 </div>
 <!--Main-Menu Area End-->
@@ -992,8 +699,7 @@
                                     <input type="hidden" name="modal" value="1">
                                     <input class="mauthdata" type="hidden" value="{{ $langg->lang177 }}">
                                     <button type="submit" class="submit-btn">{{ $langg->lang178 }}</button>
-                                    @if(App\Models\Socialsetting::find(1)->f_check == 1 ||
-                                    App\Models\Socialsetting::find(1)->g_check == 1)
+                                    @if(App\Models\Socialsetting::find(1)->f_check == 1 || App\Models\Socialsetting::find(1)->g_check == 1)
                                         <div class="social-area">
                                             <h3 class="title">{{ $langg->lang179 }}</h3>
                                             <p class="text">{{ $langg->lang180 }}</p>
@@ -1319,7 +1025,6 @@
 
                                             <div class="col-lg-6">
 
-
                                                 <ul class="captcha-area">
                                                     <li>
                                                         <p>
@@ -1329,7 +1034,6 @@
 
                                                     </li>
                                                 </ul>
-
 
                                             </div>
 
@@ -1491,8 +1195,8 @@
             slidesToShow: 1,
             slidesToScroll: 1,
             verticalSwiping: true,
-            autoplay:true,
-            autoplaySpeed:1000,
+            autoplay: true,
+            autoplaySpeed: 1000,
         });
 // document ready
     });

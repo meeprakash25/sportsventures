@@ -211,7 +211,7 @@
                             <div class="col-lg-3">
                               <div class="left-area">
                                 <h4 class="heading">
-                                    {{ __('Tawk.to') }}
+                                    Web Chat
                                 </h4>
                               </div>
                             </div>
@@ -228,7 +228,7 @@
                               <div class="col-lg-3">
                                 <div class="left-area">
                                   <h4 class="heading">
-                                      {{ __('Tawk.to Widget Code') }} *
+                                      Web Chat Widget Code *
                                   </h4>
                                 </div>
                               </div>

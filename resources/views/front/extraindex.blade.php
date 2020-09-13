@@ -8,7 +8,7 @@
 {{--                        <div class="col-lg-4 remove-padding">--}}
 {{--                            <div class="left">--}}
 {{--                                <a class="banner-effect" href="{{ $img->link }}" target="_blank">--}}
-{{--                                    <img src="{{asset('assets/images/banners/'.$img->photo)}}" alt="">--}}
+{{--                                    <img src="{{asset('public/assets/images/banners/'.$img->photo)}}" alt="">--}}
 {{--                                </a>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
@@ -28,7 +28,7 @@
                 <div class="col-12 col-md-4 remove-padding">
                     <figure class="banner-image " style="margin-right: 20px;">
                         <a class="banner-effect" href="{{ $bottom_small_banners[0]->link }}" target="_blank">
-                            <img src="{{asset('assets/images/banners/'.$bottom_small_banners[0]->photo)}}" alt="">
+                            <img src="{{asset('public/assets/images/banners/'.$bottom_small_banners[0]->photo)}}" alt="">
 {{--                                                    <img src="http://via.placeholder.com/300x265" alt="">--}}
                         </a>
                     </figure>
@@ -36,14 +36,14 @@
                 <div class="col-12 col-md-8 remove-padding">
                     <figure class="banner-image " style="margin-bottom: 20px;">
                         <a class="banner-effect" href="{{ $bottom_small_banners[1]->link }}" target="_blank">
-                            <img src="{{asset('assets/images/banners/'.$bottom_small_banners[1]->photo)}}" alt="">
+                            <img src="{{asset('public/assets/images/banners/'.$bottom_small_banners[1]->photo)}}" alt="">
 {{--                                                    <img src="http://via.placeholder.com/770x150" alt="">--}}
                         </a>
                     </figure>
                     <figure class="banner-image">
                         <a class="banner-effect" href="{{ $bottom_small_banners[2]->link }}" target="_blank">
 {{--                                                    <img src="http://via.placeholder.com/770x150" alt="">--}}
-                            <img src="{{asset('assets/images/banners/'.$bottom_small_banners[2]->photo)}}" alt="">
+                            <img src="{{asset('public/assets/images/banners/'.$bottom_small_banners[2]->photo)}}" alt="">
                         </a>
                     </figure>
                 </div>
@@ -136,10 +136,10 @@
                 <div class="col-lg-3 remove-padding d-none d-lg-block">
                     <div class="aside">
                         <a class="banner-effect mb-10" href="{{ $ps->best_seller_banner_link }}">
-                            <img src="{{asset('assets/images/'.$ps->best_seller_banner)}}" alt="">
+                            <img src="{{asset('public/assets/images/'.$ps->best_seller_banner)}}" alt="">
                         </a>
                         <a class="banner-effect" href="{{ $ps->best_seller_banner_link1 }}">
-                            <img src="{{asset('assets/images/'.$ps->best_seller_banner1)}}" alt="">
+                            <img src="{{asset('public/assets/images/'.$ps->best_seller_banner1)}}" alt="">
                         </a>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                         @foreach($partners as $data)
                             <div class="item-slide">
                                 <a href="{{ $data->link }}" target="_blank">
-                                    <img src="{{asset('assets/images/partner/'.$data->photo)}}" alt="">
+                                    <img src="{{asset('public/assets/images/partner/'.$data->photo)}}" alt="">
                                 </a>
                             </div>
                         @endforeach
@@ -190,7 +190,7 @@
                         <div class="col-lg-12 remove-padding">
                             <div class="img">
                                 <a class="banner-effect" href="{{ $img->link }}">
-                                    <img src="{{asset('assets/images/banners/'.$img->photo)}}" alt="">
+                                    <img src="{{asset('public/assets/images/banners/'.$img->photo)}}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -229,10 +229,10 @@
 {{--                <div class="col-lg-3 remove-padding d-none d-lg-block">--}}
 {{--                    <div class="aside">--}}
 {{--                        <a class="banner-effect mb-10" href="{{ $ps->big_save_banner_link }}">--}}
-{{--                            <img src="{{asset('assets/images/'.$ps->big_save_banner)}}" alt="">--}}
+{{--                            <img src="{{asset('public/assets/images/'.$ps->big_save_banner)}}" alt="">--}}
 {{--                        </a>--}}
 {{--                        <a class="banner-effect" href="{{ $ps->big_save_banner_link1 }}">--}}
-{{--                            <img src="{{asset('assets/images/'.$ps->big_save_banner1)}}" alt="">--}}
+{{--                            <img src="{{asset('public/assets/images/'.$ps->big_save_banner1)}}" alt="">--}}
 {{--                        </a>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
@@ -368,7 +368,7 @@
                                     <div class="slide-item">
                                         <div class="top-area">
                                             <div class="left">
-                                                <img src="{{ $review->photo ? asset('assets/images/reviews/'.$review->photo) : asset('assets/images/noimage.png') }}" alt="">
+                                                <img src="{{ $review->photo ? asset('public/assets/images/reviews/'.$review->photo) : asset('public/assets/images/noimage.png') }}" alt="">
                                             </div>
                                             <div class="right">
                                                 <div class="content">
@@ -396,7 +396,7 @@
                         <div class="blog-box">
                             <div class="blog-images">
                                 <div class="img">
-                                    <img src="{{ $blogg->photo ? asset('assets/images/blogs/'.$blogg->photo):asset('assets/images/noimage.png') }}" class="img-fluid" alt="">
+                                    <img src="{{ $blogg->photo ? asset('public/assets/images/blogs/'.$blogg->photo):asset('public/assets/images/noimage.png') }}" class="img-fluid" alt="">
                                     <div class="date d-flex justify-content-center">
                                         <div class="box align-self-center">
                                             <p>{{date('d', strtotime($blogg->created_at))}}</p>
@@ -445,7 +445,7 @@
                                     <div class="col-6 col-xl-3 p-0">
                                         <div class="info-box">
                                             <div class="icon">
-                                                <img src="{{ asset('assets/images/services/'.$service->photo) }}">
+                                                <img src="{{ asset('public/assets/images/services/'.$service->photo) }}">
                                             </div>
                                             <div class="info">
                                                 <div class="details">
@@ -473,4 +473,4 @@
 @endif
 
 <!-- main -->
-<script src="{{asset('assets/front/js/mainextra.js')}}"></script>
+<script src="{{asset('public/assets/front/js/mainextra.js')}}"></script>

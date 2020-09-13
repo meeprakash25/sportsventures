@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('styles')
 
-<link href="{{asset('assets/admin/css/product.css')}}" rel="stylesheet"/>
+<link href="{{asset('public/assets/admin/css/product.css')}}" rel="stylesheet"/>
 
 @endsection
 @section('content')
@@ -32,7 +32,7 @@
 								<div class="row">
 									<div class="col-lg-12 p-5">
 
-					                      <div class="gocover" style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+					                      <div class="gocover" style="background: url({{asset('public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
 					                      <form id="geniusform" action="{{route('admin-prod-importsubmit')}}" method="POST" enctype="multipart/form-data">
 					                        {{csrf_field()}}
 
@@ -40,7 +40,7 @@
 
 											  <div class="row">
 												  <div class="col-lg-12 text-right">
-													  <span style="margin-top:10px;"><a class="btn btn-primary" href="{{asset('assets/product-csv-format.csv')}}">{{ __("Download Sample CSV") }}</a></span>
+													  <span style="margin-top:10px;"><a class="btn btn-primary" href="{{asset('public/assets/product-csv-format.csv')}}">{{ __("Download Sample CSV") }}</a></span>
 												  </div>
 
 											  </div>
@@ -81,5 +81,5 @@
 
 @section('scripts')
 
-<script src="{{asset('assets/admin/js/product.js')}}"></script>
+<script src="{{asset('public/assets/admin/js/product.js')}}"></script>
 @endsection

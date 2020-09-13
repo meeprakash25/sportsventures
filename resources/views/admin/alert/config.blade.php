@@ -26,7 +26,7 @@
                 <div class="col-lg-12">
                     <div class="product-description">
                         <div class="body-area">
-                            <div class="gocover" style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+                            <div class="gocover" style="background: url({{asset('public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
 
                             <div class="row justify-content-center">
                                 <div class="col-lg-3">

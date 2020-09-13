@@ -42,7 +42,7 @@
                 <div class="col-xl-7 col-lg-7 col-md-6">
                     <div class="left-area">
                         <div class="contact-form">
-                            <div class="gocover" style="background: url({{ asset('assets/images/'.$gs->loader) }}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+                            <div class="gocover" style="background: url({{ asset('public/assets/images/'.$gs->loader) }}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
                             <form id="contactform" action="{{route('front.contact.submit')}}" method="POST">
                                 {{csrf_field()}}
                                 @include('includes.admin.form-both')

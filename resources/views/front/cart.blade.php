@@ -49,7 +49,7 @@
                     <tr class="cremove{{ $product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values']) }}">
                       <td class="product-img">
                         <div class="item">
-                          <img src="{{ $product['item']['photo'] ? asset('assets/images/products/'.$product['item']['photo']):asset('assets/images/noimage.png') }}" alt="">
+                          <img src="{{ $product['item']['photo'] ? asset('public/assets/images/products/'.$product['item']['photo']):asset('public/assets/images/noimage.png') }}" alt="">
                           <p class="name"><a href="{{ route('front.product', $product['item']['slug']) }}">{{mb_strlen($product['item']['name'],'utf-8') > 35 ? mb_substr($product['item']['name'],0,35,'utf-8').'...' : $product['item']['name']}}</a></p>
                         </div>
                       </td>

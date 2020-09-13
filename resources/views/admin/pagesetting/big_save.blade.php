@@ -26,7 +26,7 @@
                     <div class="product-description">
                       <div class="body-area">
 
-                                <div class="gocover" style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+                                <div class="gocover" style="background: url({{asset('public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
                       <form id="geniusform" action="{{ route('admin-ps-update') }}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
 
@@ -41,7 +41,7 @@
                                       </div>
                                       <div class="col-lg-7">
                                         <div class="img-upload">
-                                            <div id="image-preview" class="img-preview" style="background: url({{ $data->big_save_banner ? asset('assets/images/'.$data->big_save_banner):asset('assets/images/noimage.png') }});">
+                                            <div id="image-preview" class="img-preview" style="background: url({{ $data->big_save_banner ? asset('public/assets/images/'.$data->big_save_banner):asset('public/assets/images/noimage.png') }});">
                                                 <label for="image-upload" class="img-label" id="image-label"><i class="icofont-upload-alt"></i>{{ __('Upload Image') }}</label>
                                                 <input type="file" name="big_save_banner" class="img-upload" id="image-upload">
                                               </div>
@@ -72,7 +72,7 @@
                                       </div>
                                       <div class="col-lg-7">
                                         <div class="img-upload">
-                                            <div id="image-preview" class="img-preview" style="background: url({{ $data->big_save_banner1 ? asset('assets/images/'.$data->big_save_banner1):asset('assets/images/noimage.png') }});">
+                                            <div id="image-preview" class="img-preview" style="background: url({{ $data->big_save_banner1 ? asset('public/assets/images/'.$data->big_save_banner1):asset('public/assets/images/noimage.png') }});">
                                                 <label for="image-upload" class="img-label" id="image-label"><i class="icofont-upload-alt"></i>{{ __('Upload Image') }}</label>
                                                 <input type="file" name="big_save_banner1" class="img-upload" id="image-upload">
                                               </div>

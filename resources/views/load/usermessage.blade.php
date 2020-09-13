@@ -9,10 +9,10 @@
                                         </div>
                                         <div class="right">
                                             @if($message->conversation->user->is_provider == 1)
-                                            <img class="img-circle" src="{{$message->conversation->user->photo != null ? $message->conversation->user->photo : asset('assets/images/noimage.png')}}" alt="">
+                                            <img class="img-circle" src="{{$message->conversation->user->photo != null ? $message->conversation->user->photo : asset('public/assets/images/noimage.png')}}" alt="">
                                             @else 
 
-                                            <img class="img-circle" src="{{$message->conversation->user->photo != null ? asset('assets/images/users/'.$message->conversation->user->photo) : asset('assets/images/noimage.png')}}" alt="">
+                                            <img class="img-circle" src="{{$message->conversation->user->photo != null ? asset('public/assets/images/users/'.$message->conversation->user->photo) : asset('public/assets/images/noimage.png')}}" alt="">
 
                                             @endif
                                             <p class="ticket-date">{{$message->conversation->user->name}}</p>
@@ -28,7 +28,7 @@
                                 <div class="col-lg-12">
                                     <div class="reply-area">
                                         <div class="left">
-                                            <img class="img-circle" src="{{ asset('assets/images/admin.jpg')}}" alt="">
+                                            <img class="img-circle" src="{{ asset('public/assets/images/admin.jpg')}}" alt="">
                                             <p class="ticket-date">Admin</p>
                                         </div>
                                         <div class="right">

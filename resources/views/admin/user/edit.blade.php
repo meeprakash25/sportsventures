@@ -20,9 +20,9 @@
 						                          <div class="col-lg-7">
 						                            <div class="img-upload">
 						                            	@if($data->is_provider == 1)
-						                                <div id="image-preview" class="img-preview" style="background: url({{ $data->photo ? asset($data->photo):asset('assets/images/noimage.png') }});">
+						                                <div id="image-preview" class="img-preview" style="background: url({{ $data->photo ? asset($data->photo):asset('public/assets/images/noimage.png') }});">
 						                            	@else
-						                                <div id="image-preview" class="img-preview" style="background: url({{ $data->photo ? asset('assets/images/users/'.$data->photo):asset('assets/images/noimage.png') }});">
+						                                <div id="image-preview" class="img-preview" style="background: url({{ $data->photo ? asset('public/assets/images/users/'.$data->photo):asset('public/assets/images/noimage.png') }});">
 						                                @endif
 						                                @if($data->is_provider != 1)
 						                                    <label for="image-upload" class="img-label" id="image-label"><i class="icofont-upload-alt"></i>{{ __("Upload Image") }}</label>

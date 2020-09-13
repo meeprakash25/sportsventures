@@ -22,7 +22,7 @@
             </div>
             <div class="add-logo-area">
                 @include('includes.admin.form-both')  
-              <div class="gocover" style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+              <div class="gocover" style="background: url({{asset('public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
               <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="special-box">
@@ -52,7 +52,7 @@
                             <h4 class="title">
                               {{ __('Current Loader') }} :
                             </h4>
-                            <img src="{{ $gs->loader ? asset('assets/images/'.$gs->loader):asset('assets/images/noimage.png')}}" alt="">
+                            <img src="{{ $gs->loader ? asset('public/assets/images/'.$gs->loader):asset('public/assets/images/noimage.png')}}" alt="">
                           </div>
                           <div class="set-logo">
                             <h4 class="title">
@@ -102,7 +102,7 @@
                               {{ __('Current Loader') }} :
                             </h4>
 
-                            <img src="{{ $gs->admin_loader ? asset('assets/images/'.$gs->admin_loader):asset('assets/images/noimage.png')}}" alt="">
+                            <img src="{{ $gs->admin_loader ? asset('public/assets/images/'.$gs->admin_loader):asset('public/assets/images/noimage.png')}}" alt="">
                           </div>
                           
                           <div class="set-logo">

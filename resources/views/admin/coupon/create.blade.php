@@ -2,7 +2,7 @@
 
 @section('styles')
 
-<link href="{{asset('assets/admin/css/jquery-ui.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('public/assets/admin/css/jquery-ui.css')}}" rel="stylesheet" type="text/css">
 
 @endsection
 
@@ -35,7 +35,7 @@
                   <div class="col-lg-12">
                     <div class="product-description">
                       <div class="body-area">
-                        <div class="gocover" style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+                        <div class="gocover" style="background: url({{asset('public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
                         @include('includes.admin.form-both') 
                       <form id="geniusform" action="{{route('admin-coupon-create')}}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}

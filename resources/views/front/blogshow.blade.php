@@ -37,7 +37,7 @@
         <div class="col-lg-8">
           <div class="blog-content">
             <div class="feature-image">
-              <img class="img-fluid" src="{{ asset('assets/images/blogs/'.$blog->photo) }}" alt="">
+              <img class="img-fluid" src="{{ asset('public/assets/images/blogs/'.$blog->photo) }}" alt="">
             </div>
             <div class="content">
                 <h3 class="title">
@@ -152,7 +152,7 @@
                 <li>
                   <div class="post">
                     <div class="post-img">
-                      <img style="width: 73px; height: 59px;" src="{{ asset('assets/images/blogs/'.$blog->photo) }}" alt="">
+                      <img style="width: 73px; height: 59px;" src="{{ asset('public/assets/images/blogs/'.$blog->photo) }}" alt="">
                     </div>
                     <div class="post-details">
                       <a href="{{ route('front.blogshow',$blog->id) }}">

@@ -1,9 +1,9 @@
 @extends('layouts.vendor')
 @section('styles')
 
-<link href="{{asset('assets/admin/css/product.css')}}" rel="stylesheet" />
-<link href="{{asset('assets/admin/css/jquery.Jcrop.css')}}" rel="stylesheet" />
-<link href="{{asset('assets/admin/css/Jcrop-style.css')}}" rel="stylesheet" />
+<link href="{{asset('public/assets/admin/css/product.css')}}" rel="stylesheet" />
+<link href="{{asset('public/assets/admin/css/jquery.Jcrop.css')}}" rel="stylesheet" />
+<link href="{{asset('public/assets/admin/css/Jcrop-style.css')}}" rel="stylesheet" />
 
 @endsection
 @section('content')
@@ -44,7 +44,7 @@
 							<div class="body-area">
 		
 								<div class="gocover"
-									style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);">
+									style="background: url({{asset('public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);">
 								</div>
 								
 		
@@ -665,7 +665,7 @@
 											<div class="col-lg-12">
 												<div class="img-upload  custom-image-upload">
 													<div id="image-preview" class="img-preview"
-														style="background: url({{ $data->photo ? asset('assets/images/products/'.$data->photo):asset('assets/images/noimage.png') }});">
+														style="background: url({{ $data->photo ? asset('public/assets/images/products/'.$data->photo):asset('public/assets/images/noimage.png') }});">
 														<label class="img-label" id="image-label"><i
 																class="icofont-upload-alt"></i>{{ $langg->lang512 }}</label>
 														<input type="file" name="photo" class="img-upload" id="image-upload"
@@ -1007,9 +1007,9 @@
 	// Gallery Section Update Ends	
 </script>
 
-<script src="{{asset('assets/admin/js/jquery.Jcrop.js')}}"></script>
+<script src="{{asset('public/assets/admin/js/jquery.Jcrop.js')}}"></script>
 
-<script src="{{asset('assets/admin/js/jquery.SimpleCropper.js')}}"></script>
+<script src="{{asset('public/assets/admin/js/jquery.SimpleCropper.js')}}"></script>
 
 <script type="text/javascript">
 	$('.cropme').simpleCropper();
@@ -1020,7 +1020,7 @@
 	$(document).ready(function () {
 
 		let html =
-			`<img src="{{ empty($data->photo) ? asset('assets/images/noimage.png') : filter_var($data->photo, FILTER_VALIDATE_URL) ? $data->photo : asset('assets/images/products/'.$data->photo) }}" alt="">`;
+			`<img src="{{ empty($data->photo) ? asset('public/assets/images/noimage.png') : filter_var($data->photo, FILTER_VALIDATE_URL) ? $data->photo : asset('public/assets/images/products/'.$data->photo) }}" alt="">`;
 		$(".span4.cropme").html(html);
 
 		$.ajaxSetup({
@@ -1077,5 +1077,5 @@
 	});
 </script>
 
-<script src="{{asset('assets/admin/js/product.js')}}"></script>
+<script src="{{asset('public/assets/admin/js/product.js')}}"></script>
 @endsection

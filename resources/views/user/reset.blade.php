@@ -17,7 +17,7 @@
                                 
                                 <div class="body">
                                         <div class="edit-info-area-form">
-                                                <div class="gocover" style="background: url({{ asset('assets/images/'.$gs->loader) }}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+                                                <div class="gocover" style="background: url({{ asset('public/assets/images/'.$gs->loader) }}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
                                                 <form id="userform" action="{{route('user-reset-submit')}}" method="POST" enctype="multipart/form-data">
                                                     {{ csrf_field() }}
                                                     @include('includes.admin.form-both') 

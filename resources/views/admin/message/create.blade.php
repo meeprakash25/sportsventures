@@ -27,7 +27,7 @@
 
 <div class="order-table-wrap support-ticket-wrapper ">
                         <div class="panel panel-primary">
-                        <div class="gocover" style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+                        <div class="gocover" style="background: url({{asset('public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
                         @include('includes.admin.form-both')  
                             <div class="panel-body" id="messages">
                                 @foreach($conv->messages as $message)
@@ -41,10 +41,10 @@
                                                 </div>
                                                 <div class="right">
                                             @if($message->conversation->user->is_provider == 1)
-                                            <img class="img-circle" src="{{$message->conversation->user->photo != null ? $message->conversation->user->photo : asset('assets/images/noimage.png')}}" alt="">
+                                            <img class="img-circle" src="{{$message->conversation->user->photo != null ? $message->conversation->user->photo : asset('public/assets/images/noimage.png')}}" alt="">
                                             @else 
 
-                                            <img class="img-circle" src="{{$message->conversation->user->photo != null ? asset('assets/images/users/'.$message->conversation->user->photo) : asset('assets/images/noimage.png')}}" alt="">
+                                            <img class="img-circle" src="{{$message->conversation->user->photo != null ? asset('public/assets/images/users/'.$message->conversation->user->photo) : asset('public/assets/images/noimage.png')}}" alt="">
 
                                             @endif
                                                     <a target="_blank" class="d-block profile-btn" href="{{ route('admin-user-show',$message->conversation->user->id) }}" class="d-block">{{ __('View Profile') }}</a>
@@ -64,7 +64,7 @@
                                         <div class="col-lg-12">
                                             <div class="reply-area">
                                                 <div class="left">
-                                                    <img class="img-circle" src="{{ Auth::guard('admin')->user()->photo ? asset('assets/images/admins/'.Auth::guard('admin')->user()->photo ):asset('assets/images/noimage.png') }}" alt="">
+                                                    <img class="img-circle" src="{{ Auth::guard('admin')->user()->photo ? asset('public/assets/images/admins/'.Auth::guard('admin')->user()->photo ):asset('public/assets/images/noimage.png') }}" alt="">
                                                     <p class="ticket-date">{{ $message->created_at->diffForHumans() }}</p>
                                                 </div>
                                                 <div class="right">

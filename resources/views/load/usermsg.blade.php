@@ -7,9 +7,9 @@
                                     <div class="reply-area">
                                         <div class="left">
                                             @if($message->conversation->sent->is_provider == 1 )
-                                            <img class="img-circle" src="{{ $message->conversation->sent->photo != null ? $message->conversation->sent->photo : asset('assets/images/noimage.png') }}" alt="">
+                                            <img class="img-circle" src="{{ $message->conversation->sent->photo != null ? $message->conversation->sent->photo : asset('public/assets/images/noimage.png') }}" alt="">
                                             @else 
-                                            <img class="img-circle" src="{{ $message->conversation->sent->photo != null ? asset('assets/images/users/'.$message->conversation->sent->photo) : asset('assets/images/noimage.png') }}" alt="">
+                                            <img class="img-circle" src="{{ $message->conversation->sent->photo != null ? asset('public/assets/images/users/'.$message->conversation->sent->photo) : asset('public/assets/images/noimage.png') }}" alt="">
                                             @endif
                                             <p class="ticket-date">{{ $message->conversation->sent->name }}</p>
                                         </div>
@@ -34,9 +34,9 @@
                                         </div>
                                         <div class="right">
                                             @if($message->conversation->recieved->is_provider == 1 )
-                                            <img class="img-circle" src="{{ $message->conversation->recieved->photo != null ? $message->conversation->recieved->photo : asset('assets/images/noimage.png') }}" alt="">
+                                            <img class="img-circle" src="{{ $message->conversation->recieved->photo != null ? $message->conversation->recieved->photo : asset('public/assets/images/noimage.png') }}" alt="">
                                             @else 
-                                            <img class="img-circle" src="{{ $message->conversation->recieved->photo != null ? asset('assets/images/users/'.$message->conversation->recieved->photo) : asset('assets/images/noimage.png') }}" alt="">
+                                            <img class="img-circle" src="{{ $message->conversation->recieved->photo != null ? asset('public/assets/images/users/'.$message->conversation->recieved->photo) : asset('public/assets/images/noimage.png') }}" alt="">
                                             @endif
                                             <p class="ticket-date">{{$message->conversation->recieved->name}}</p>
                                         </div>

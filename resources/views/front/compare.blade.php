@@ -49,7 +49,7 @@
 											@foreach($products as $product)
 											<td class="product-image-title c{{$product['item']['id']}}">
 
-													<img class="img-fluid" src="{{ $product['item']['thumbnail'] ? asset('assets/images/thumbnails/'.$product['item']['thumbnail']):asset('assets/images/noimage.png') }}" alt="Compare product['item']">
+													<img class="img-fluid" src="{{ $product['item']['thumbnail'] ? asset('public/assets/images/thumbnails/'.$product['item']['thumbnail']):asset('public/assets/images/noimage.png') }}" alt="Compare product['item']">
 
 												<a href="{{ route('front.product', $product['item']['slug']) }}">
 													<h4 class="title">

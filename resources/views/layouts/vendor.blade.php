@@ -10,36 +10,36 @@
 		<!-- Title -->
 		<title>{{$gs->title}}</title>
 		<!-- favicon -->
-		<link rel="icon"  type="image/x-icon" href="{{asset('assets/images/'.$gs->favicon)}}"/>
+		<link rel="icon"  type="image/x-icon" href="{{asset('public/assets/images/'.$gs->favicon)}}"/>
 		<!-- Bootstrap -->
-		<link href="{{asset('assets/vendor/css/bootstrap.min.css')}}" rel="stylesheet" />
+		<link href="{{asset('public/assets/vendor/css/bootstrap.min.css')}}" rel="stylesheet" />
 		<!-- Fontawesome -->
-		<link rel="stylesheet" href="{{asset('assets/vendor/css/fontawesome.css')}}">
+		<link rel="stylesheet" href="{{asset('public/assets/vendor/css/fontawesome.css')}}">
 		<!-- icofont -->
-		<link rel="stylesheet" href="{{asset('assets/vendor/css/icofont.min.css')}}">
+		<link rel="stylesheet" href="{{asset('public/assets/vendor/css/icofont.min.css')}}">
 		<!-- Sidemenu Css -->
-		<link href="{{asset('assets/admin/plugins/fullside-menu/css/dark-side-style.css')}}" rel="stylesheet" />
-		<link href="{{asset('assets/vendor/plugins/fullside-menu/waves.min.css')}}" rel="stylesheet" />
+		<link href="{{asset('public/assets/admin/plugins/fullside-menu/css/dark-side-style.css')}}" rel="stylesheet" />
+		<link href="{{asset('public/assets/vendor/plugins/fullside-menu/waves.min.css')}}" rel="stylesheet" />
 
-		<link href="{{asset('assets/vendor/css/plugin.css')}}" rel="stylesheet" />
+		<link href="{{asset('public/assets/vendor/css/plugin.css')}}" rel="stylesheet" />
 
-		<link href="{{asset('assets/vendor/css/jquery.tagit.css')}}" rel="stylesheet" />
-    	<link rel="stylesheet" href="{{ asset('assets/vendor/css/bootstrap-coloroicker.css') }}">
+		<link href="{{asset('public/assets/vendor/css/jquery.tagit.css')}}" rel="stylesheet" />
+    	<link rel="stylesheet" href="{{ asset('public/assets/vendor/css/bootstrap-coloroicker.css') }}">
 		<!-- Main Css -->
 
 	@if($langg->rtl == "1")
 
-	<link href="{{asset('assets/admin/css/rtl/style.css')}}" rel="stylesheet"/>
-	<link href="{{asset('assets/admin/css/rtl/custom.css')}}" rel="stylesheet"/>
-	<link href="{{asset('assets/admin/css/rtl/responsive.css')}}" rel="stylesheet" />
-	<link href="{{asset('assets/admin/css/common.css')}}" rel="stylesheet" />
+	<link href="{{asset('public/assets/admin/css/rtl/style.css')}}" rel="stylesheet"/>
+	<link href="{{asset('public/assets/admin/css/rtl/custom.css')}}" rel="stylesheet"/>
+	<link href="{{asset('public/assets/admin/css/rtl/responsive.css')}}" rel="stylesheet" />
+	<link href="{{asset('public/assets/admin/css/common.css')}}" rel="stylesheet" />
 
 	@else
 
-	<link href="{{asset('assets/admin/css/style.css')}}" rel="stylesheet"/>
-	<link href="{{asset('assets/admin/css/custom.css')}}" rel="stylesheet"/>
-	<link href="{{asset('assets/admin/css/responsive.css')}}" rel="stylesheet" />
-	<link href="{{asset('assets/admin/css/common.css')}}" rel="stylesheet" />
+	<link href="{{asset('public/assets/admin/css/style.css')}}" rel="stylesheet"/>
+	<link href="{{asset('public/assets/admin/css/custom.css')}}" rel="stylesheet"/>
+	<link href="{{asset('public/assets/admin/css/responsive.css')}}" rel="stylesheet" />
+	<link href="{{asset('public/assets/admin/css/common.css')}}" rel="stylesheet" />
 
 	@endif
 
@@ -54,7 +54,7 @@
 					<div class="container-fluid">
 						<div class="d-flex justify-content-between">
 						<a class="admin-logo" href="{{ route('front.index') }}" target="_blank">
-								<img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
+								<img src="{{asset('public/assets/images/'.$gs->logo)}}" alt="">
 							</a>
 							<div class="menu-toggle-button">
 								<a class="nav-link" href="javascript:;" id="sidebarCollapse">
@@ -84,9 +84,9 @@
 										<a class="dropdown-toggle-1" href="javascript:;">
 											<div class="user-img">
               @if(Auth::user()->is_provider == 1)
-              <img src="{{ Auth::user()->photo ? asset(Auth::user()->photo):asset('assets/images/noimage.png') }}" alt="">
+              <img src="{{ Auth::user()->photo ? asset(Auth::user()->photo):asset('public/assets/images/noimage.png') }}" alt="">
               @else
-              <img src="{{ Auth::user()->photo ? asset('assets/images/users/'.Auth::user()->photo ):asset('assets/images/noimage.png') }}" alt="">
+              <img src="{{ Auth::user()->photo ? asset('public/assets/images/users/'.Auth::user()->photo ):asset('public/assets/images/noimage.png') }}" alt="">
               @endif
 											</div>
 										</a>
@@ -232,25 +232,25 @@
 		</script>
 
 		<!-- Dashboard Core -->
-		<script src="{{asset('assets/vendor/js/vendors/jquery-1.12.4.min.js')}}"></script>
-		<script src="{{asset('assets/vendor/js/vendors/bootstrap.min.js')}}"></script>
-		<script src="{{asset('assets/vendor/js/jqueryui.min.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/js/vendors/jquery-1.12.4.min.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/js/vendors/bootstrap.min.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/js/jqueryui.min.js')}}"></script>
 		<!-- Fullside-menu Js-->
-		<script src="{{asset('assets/vendor/plugins/fullside-menu/jquery.slimscroll.min.js')}}"></script>
-		<script src="{{asset('assets/vendor/plugins/fullside-menu/waves.min.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/plugins/fullside-menu/jquery.slimscroll.min.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/plugins/fullside-menu/waves.min.js')}}"></script>
 
-		<script src="{{asset('assets/vendor/js/plugin.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/js/plugin.js')}}"></script>
 
-		<script src="{{asset('assets/vendor/js/Chart.min.js')}}"></script>
-		<script src="{{asset('assets/vendor/js/tag-it.js')}}"></script>
-		<script src="{{asset('assets/vendor/js/nicEdit.js')}}"></script>
-        <script src="{{asset('assets/vendor/js/bootstrap-colorpicker.min.js') }}"></script>
-        <script src="{{asset('assets/vendor/js/notify.js') }}"></script>
-		<script src="{{asset('assets/vendor/js/load.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/js/Chart.min.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/js/tag-it.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/js/nicEdit.js')}}"></script>
+        <script src="{{asset('public/assets/vendor/js/bootstrap-colorpicker.min.js') }}"></script>
+        <script src="{{asset('public/assets/vendor/js/notify.js') }}"></script>
+		<script src="{{asset('public/assets/vendor/js/load.js')}}"></script>
 		<!-- Custom Js-->
-		<script src="{{asset('assets/vendor/js/custom.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/js/custom.js')}}"></script>
 		<!-- AJAX Js-->
-		<script src="{{asset('assets/vendor/js/myscript.js')}}"></script>
+		<script src="{{asset('public/assets/vendor/js/myscript.js')}}"></script>
 		@yield('scripts')
 
 @if($gs->is_admin_loader == 0)

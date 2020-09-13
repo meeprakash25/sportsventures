@@ -34,8 +34,7 @@
 		</div>
 	</div>
 
-	<form id="geniusform" action="{{route('vendor-prod-store')}}" method="POST"
-	enctype="multipart/form-data">
+	<form id="geniusform" action="{{route('vendor-prod-store')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}
 	<div class="row">
 		<div class="col-lg-8">

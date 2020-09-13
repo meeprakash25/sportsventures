@@ -143,18 +143,11 @@
 											</select>
 										</div>
 									</div>
-		
-		
+
 									<div id="catAttributes"></div>
 									<div id="subcatAttributes"></div>
 									<div id="childcatAttributes"></div>
-		
-		
-		
-			
-		
-		
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -171,9 +164,7 @@
 											</ul>
 										</div>
 									</div>
-		
-		
-		
+
 									<div class="showbox">
 		
 										<div class="row">
@@ -187,8 +178,7 @@
 													placeholder="{{ __('Estimated Shipping Time') }}" name="ship">
 											</div>
 										</div>
-		
-		
+
 									</div>
 		
 									<div class="row">

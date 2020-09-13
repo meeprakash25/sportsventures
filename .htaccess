@@ -7,4 +7,35 @@
         Order allow,deny
         Deny from all
     </Files>
+
+        <IfModule mod_negotiation.c>
+            Options -MultiViews
+            Options -Indexes
+        </IfModule>
+
+        RewriteEngine On
+
+        # Redirect Trailing Slashes If Not A Folder...
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteCond %{REQUEST_URI} (.+)/$
+        RewriteRule ^ %1 [L,R=301]
+
+        # Handle Front Controller...
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteRule ^ index.php [L]
+
+        # Handle Authorization Header
+        RewriteCond %{HTTP:Authorization} .
+        RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+        ErrorDocument 403 /maintenance.html
+    #    <Files "index.php">
+    #        Order deny,allow
+    #        Deny from all
+    #        Allow from 49.244.9.30
+    #    </Files>
+
+         RewriteCond %{SERVER_PORT} 80
+         RewriteRule ^(.*)$ https://www.sportsventures.com.np/$1 [R,L]
 </IfModule>

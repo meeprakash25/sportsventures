@@ -981,7 +981,7 @@
 
                                                 <ul class="captcha-area">
                                                     <li>
-                                                        <p><img class="codeimg1" src="{{asset("assets/images/capcha_code.png")}}" alt=""> <i
+                                                        <p><img class="codeimg1" src="{{asset("public/assets/images/capcha_code.png")}}" alt=""> <i
                                                                     class="fas fa-sync-alt pointer refresh_code "></i></p>
                                                     </li>
                                                 </ul>

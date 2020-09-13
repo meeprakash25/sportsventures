@@ -29,7 +29,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="content">
-            <img src="{{ $gs->error_banner ? asset('assets/images/'.$gs->error_banner):asset('assets/images/noimage.png') }}" alt="">
+            <img src="{{ $gs->error_banner ? asset("public/assets/images/'.$gs->error_banner):asset("public/assets/images/noimage.png') }}" alt="">
             <h4 class="heading">
               {{ $langg->lang428 }}
             </h4>

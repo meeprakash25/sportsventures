@@ -252,7 +252,7 @@
                                                     <div class="order-item">
                                                         <div class="product-img">
                                                             <div class="d-flex">
-                                                                <img src=" {{ asset('assets/images/products/'.$product['item']['photo']) }}"
+                                                                <img src=" {{ asset("public/assets/images/products/'.$product['item']['photo']) }}"
                                                                      height="80" width="80" class="p-1">
 
                                                             </div>
@@ -323,7 +323,7 @@
                                         <div class="content">
 
                                             <div class="submit-loader">
-                                                <img src="{{asset('assets/images/loading_large.gif')}}" alt="">
+                                                <img src="{{asset("public/assets/images/loading_large.gif')}}" alt="">
                                             </div>
                                             <div class="billing-info-area {{ $digital == 1 ? 'd-none' : '' }}">
                                                 <h4 class="title">
@@ -759,7 +759,7 @@
                                 <div class="cupon-box">
 
                                     <div id="coupon-link">
-                                        <img src="{{ asset('assets/front/images/tag.png') }}">
+                                        <img src="{{ asset("public/assets/front/images/tag.png') }}">
                                         {{ $langg->lang132 }}
                                     </div>
 

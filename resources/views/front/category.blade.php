@@ -49,7 +49,7 @@
                  <div class="row" id="ajaxContent">
                    @include('includes.product.filtered-products')
                  </div>
-                 <div id="ajaxLoader" class="ajax-loader" style="background: url({{asset('assets/images/'.$gs->loader)}}) no-repeat scroll center center rgba(0,0,0,.6);"></div>
+                 <div id="ajaxLoader" class="ajax-loader" style="background: url({{asset("public/assets/images/'.$gs->loader)}}) no-repeat scroll center center rgba(0,0,0,.6);"></div>
                </div>
 
             </div>

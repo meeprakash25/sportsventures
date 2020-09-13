@@ -1,9 +1,9 @@
 @extends('layouts.vendor')
 @section('styles')
 
-<link href="{{asset('assets/vendor/css/product.css')}}" rel="stylesheet" />
-<link href="{{asset('assets/admin/css/jquery.Jcrop.css')}}" rel="stylesheet" />
-<link href="{{asset('assets/admin/css/Jcrop-style.css')}}" rel="stylesheet" />
+<link href="{{asset("public/assets/vendor/css/product.css')}}" rel="stylesheet" />
+<link href="{{asset("public/assets/admin/css/jquery.Jcrop.css')}}" rel="stylesheet" />
+<link href="{{asset("public/assets/admin/css/Jcrop-style.css')}}" rel="stylesheet" />
 
 @endsection
 @section('content')
@@ -49,7 +49,7 @@
 							<div class="body-area">
 		
 								<div class="gocover"
-									style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);">
+									style="background: url({{asset("public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);">
 								</div>
 								
 									@include('includes.vendor.form-both')
@@ -326,7 +326,7 @@
 										<div class="col-lg-12">
 											<div class="img-upload custom-image-upload">
 												<div id="image-preview" class="img-preview"
-													style="background: url({{ asset('assets/vendor/images/upload.png') }});">
+													style="background: url({{ asset("public/assets/vendor/images/upload.png') }});">
 													<label for="image-upload" class="img-label" id="image-label"><i
 															class="icofont-upload-alt"></i>{{ $langg->lang512 }}</label>
 													<input type="file" name="photo" class="img-upload-p" id="image-upload"
@@ -488,8 +488,8 @@
 
 @section('scripts')
 
-<script src="{{asset('assets/admin/js/jquery.Jcrop.js')}}"></script>
-<script src="{{asset('assets/admin/js/jquery.SimpleCropper.js')}}"></script>
+<script src="{{asset("public/assets/admin/js/jquery.Jcrop.js')}}"></script>
+<script src="{{asset("public/assets/admin/js/jquery.SimpleCropper.js')}}"></script>
 
 <script type="text/javascript">
 	// Gallery Section Insert
@@ -535,5 +535,5 @@
 </script>
 
 
-<script src="{{asset('assets/admin/js/product.js')}}"></script>
+<script src="{{asset("public/assets/admin/js/product.js')}}"></script>
 @endsection

@@ -18,7 +18,7 @@
                                 <div class="body">
                                     <div class="edit-info-area-form">
                                         <div class="gocover"
-                                            style="background: url({{ asset('assets/images/'.$gs->loader) }}) no-repeat scroll center center rgba(45, 45, 45, 0.5);">
+                                            style="background: url({{ asset("public/assets/images/'.$gs->loader) }}) no-repeat scroll center center rgba(45, 45, 45, 0.5);">
                                         </div>
                                         <form id="userform" action="{{route('user-profile-update')}}" method="POST"
                                             enctype="multipart/form-data">
@@ -29,11 +29,11 @@
                                             <div class="upload-img">
                                                 @if($user->is_provider == 1)
                                                 <div class="img"><img
-                                                        src="{{ $user->photo ? asset($user->photo):asset('assets/images/'.$gs->user_image) }}">
+                                                        src="{{ $user->photo ? asset($user->photo):asset("public/assets/images/'.$gs->user_image) }}">
                                                 </div>
                                                 @else
                                                 <div class="img"><img
-                                                        src="{{ $user->photo ? asset('assets/images/users/'.$user->photo):asset('assets/images/'.$gs->user_image) }}">
+                                                        src="{{ $user->photo ? asset("public/assets/images/users/'.$user->photo):asset("public/assets/images/'.$gs->user_image) }}">
                                                 </div>
                                                 @endif
                                                 @if($user->is_provider != 1)

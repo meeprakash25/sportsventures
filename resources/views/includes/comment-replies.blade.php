@@ -29,7 +29,7 @@
   <li>
     <div class="single-comment comment-section">
       <div class="left-area">
-        <img src="{{$comment->user->photo != null ? asset('assets/images/users/'.$comment->user->photo) : asset('assets/images/noimage.png')}}" alt="">
+        <img src="{{$comment->user->photo != null ? asset("public/assets/images/users/'.$comment->user->photo) : asset("public/assets/images/noimage.png')}}" alt="">
         <h5 class="name">{{ $comment->user->name }}</h5>
         <p class="date">{{ $comment->created_at->diffForHumans() }}</p>
       </div>
@@ -65,7 +65,7 @@
   @foreach($comment->replies as $reply)
     <div class="single-comment replay-review hidden">
       <div class="left-area">
-        <img src="{{ $reply->user->photo != null ? asset('assets/images/users/'.$reply->user->photo) : asset('assets/images/noimage.png') }}" alt="">
+        <img src="{{ $reply->user->photo != null ? asset("public/assets/images/users/'.$reply->user->photo) : asset("public/assets/images/noimage.png') }}" alt="">
         <h5 class="name">{{ $reply->user->name }}</h5>
         <p class="date">{{ $reply->created_at->diffForHumans() }}</p>
       </div>
@@ -131,7 +131,7 @@
   <li>
     <div class="single-comment">
       <div class="left-area">
-        <img src="{{$comment->user->photo != null ? asset('assets/images/users/'.$comment->user->photo) : asset('assets/images/noimage.png')}}" alt="">
+        <img src="{{$comment->user->photo != null ? asset("public/assets/images/users/'.$comment->user->photo) : asset("public/assets/images/noimage.png')}}" alt="">
         <h5 class="name">{{ $comment->user->name }}</h5>
         <p class="date">{{ $comment->created_at->diffForHumans() }}</p>
       </div>
@@ -156,7 +156,7 @@
   @foreach($comment->replies()->orderBy('created_at','desc')->get() as $reply)
     <div class="single-comment replay-review hidden">
       <div class="left-area">
-        <img src="{{ $reply->user->photo != null ? asset('assets/images/users/'.$reply->user->photo) : asset('assets/images/noimage.png') }}" alt="">
+        <img src="{{ $reply->user->photo != null ? asset("public/assets/images/users/'.$reply->user->photo) : asset("public/assets/images/noimage.png') }}" alt="">
         <h5 class="name">{{ $reply->user->name }}</h5>
         <p class="date">{{ $reply->created_at->diffForHumans() }}</p>
       </div>

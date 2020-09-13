@@ -22,7 +22,7 @@
               </div>
             </div>
             <div class="add-logo-area">
-              <div class="gocover" style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+              <div class="gocover" style="background: url({{asset("public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
               <div class="row justify-content-center">
                 <div class="col-lg-6">
 
@@ -34,7 +34,7 @@
                       <h4 class="title">
                         {{ __('Current Favicon') }} :
                       </h4>
-                      <img src="{{ $gs->favicon ? asset('assets/images/'.$gs->favicon):asset('assets/images/noimage.png')}}" alt="">
+                      <img src="{{ $gs->favicon ? asset("public/assets/images/'.$gs->favicon):asset("public/assets/images/noimage.png')}}" alt="">
                     </div>
                     <div class="set-logo">
                       <h4 class="title">

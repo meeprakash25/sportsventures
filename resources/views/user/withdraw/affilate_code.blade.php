@@ -17,7 +17,7 @@
                                 
                                 <div class="body">
                                         <div class="edit-info-area-form">
-                                                <div class="gocover" style="background: url({{ asset('assets/images/'.$gs->loader) }}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+                                                <div class="gocover" style="background: url({{ asset("public/assets/images/'.$gs->loader) }}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
                                                 <form>
                                                     @include('includes.admin.form-both') 
 
@@ -39,7 +39,7 @@
                                                             <small>{{ $langg->lang326 }}</small>
                                                         </div>
                                                         <div class="col-lg-8 pt-2 pl-5">
-                                                             <a href="{{ url('/').'/?reff='.$user->affilate_code}}" target="_blank"><img src="{{asset('assets/images/'.$gs->affilate_banner)}}"></a>
+                                                             <a href="{{ url('/').'/?reff='.$user->affilate_code}}" target="_blank"><img src="{{asset("public/assets/images/'.$gs->affilate_banner)}}"></a>
                                                         </div>
                                                     </div>
 
@@ -50,7 +50,7 @@
                                                             <small>{{ $langg->lang328 }}</small>
                                                         </div>
                                                         <div class="col-lg-8 pt-2">
-                                                             <textarea id="affilate_html" class="input-field affilate" name="address" readonly="" row="5"><a href="{{ url('/').'/?reff='.$user->affilate_code}}" target="_blank"><img src="{{asset('assets/images/'.$gs->affilate_banner)}}"></a></textarea>
+                                                             <textarea id="affilate_html" class="input-field affilate" name="address" readonly="" row="5"><a href="{{ url('/').'/?reff='.$user->affilate_code}}" target="_blank"><img src="{{asset("public/assets/images/'.$gs->affilate_banner)}}"></a></textarea>
                                                         </div>
                                                     </div>
 

@@ -1402,7 +1402,7 @@ $(document).on('submit','#messageform',function(e){
 
         $('.refresh_code').on( "click", function() {
             $.get(mainurl+'/contact/refresh_code', function(data, status){
-                $('.codeimg1').attr("src",mainurl+"public/assets/images/capcha_code.png?time="+ Math.random());
+                $('.codeimg1').attr("src",mainurl+"/public/assets/images/capcha_code.png?time="+ Math.random());
             });
         })
 

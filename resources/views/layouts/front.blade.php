@@ -19,7 +19,7 @@
         <meta name="description" content="{{ $productt->meta_description != null ? $productt->meta_description : strip_tags($productt->description) }}">
         <meta property="og:title" content="{{$productt->name}}"/>
         <meta property="og:description" content="{{ $productt->meta_description != null ? $productt->meta_description : strip_tags($productt->description) }}"/>
-        <meta property="og:image" content="{{asset('assets/images/thumbnails/'.$productt->thumbnail)}}"/>
+        <meta property="og:image" content="{{asset('public/assets/images/thumbnails/'.$productt->thumbnail)}}"/>
         <meta name="author" content="GeniusOcean">
         <title>{{substr($productt->name, 0,11)."-"}}{{$gs->title}}</title>
     @else
@@ -28,23 +28,23 @@
         <title>{{$gs->title}}</title>
     @endif
 <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/images/'.$gs->favicon)}}"/>
+    <link rel="icon" type="image/x-icon" href="{{asset('public/assets/images/'.$gs->favicon)}}"/>
 
 
     @if($langg->rtl == "1")
 
     <!-- stylesheet -->
-        <link rel="stylesheet" href="{{asset('assets/front/css/rtl/all.css')}}">
+        <link rel="stylesheet" href="{{asset('public/assets/front/css/rtl/all.css')}}">
 
         <!--Updated CSS-->
         <link rel="stylesheet"
-              href="{{ asset('assets/front/css/rtl/styles.php?color='.str_replace('#','',$gs->colors).'&amp;'.'header_color='.str_replace('#','',$gs->header_color).'&amp;'.'footer_color='.str_replace('#','',$gs->footer_color).'&amp;'.'copyright_color='.str_replace('#','',$gs->copyright_color).'&amp;'.'menu_color='.str_replace('#','',$gs->menu_color).'&amp;'.'menu_hover_color='.str_replace('#','',$gs->menu_hover_color)) }}">
+              href="{{ asset('public/assets/front/css/rtl/styles.php?color='.str_replace('#','',$gs->colors).'&amp;'.'header_color='.str_replace('#','',$gs->header_color).'&amp;'.'footer_color='.str_replace('#','',$gs->footer_color).'&amp;'.'copyright_color='.str_replace('#','',$gs->copyright_color).'&amp;'.'menu_color='.str_replace('#','',$gs->menu_color).'&amp;'.'menu_hover_color='.str_replace('#','',$gs->menu_hover_color)) }}">
 
     @else
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.css">
         <!-- stylesheet -->
-        <link rel="stylesheet" href="{{asset('assets/front/css/all.css')}}">
+        <link rel="stylesheet" href="{{asset('public/assets/front/css/all.css')}}">
 
         <!--Updated CSS-->
         @include('includes.dynamiccss')
@@ -122,19 +122,19 @@
 <body>
 
 @if($gs->is_loader == 1)
-    <div class="preloader" id="preloader" style="background: url({{asset('assets/images/'.$gs->loader)}}) no-repeat scroll center center #FFF;"></div>
+    <div class="preloader" id="preloader" style="background: url({{asset('public/assets/images/'.$gs->loader)}}) no-repeat scroll center center #FFF;"></div>
 @endif
 
 @if($gs->is_popup== 1)
 
     @if(isset($visited))
 {{--    	<div style="display:none">--}}
-{{--    		<img src="{{asset('assets/images/'.$gs->popup_background)}}">--}}
+{{--    		<img src="{{asset('public/assets/images/'.$gs->popup_background)}}">--}}
 {{--    	</div>--}}
 
     <!--  Starting of subscribe-pre-loader Area   -->
     <div class="subscribe-preloader-wrap" id="subscriptionForm" style="display: none;">
-        <div class="subscribePreloader__thumb" {{--@if(isset($gs->popup_background)) style="background-image: url({{asset('assets/images/'.$gs->popup_background)}});" @endif--}}>
+        <div class="subscribePreloader__thumb" {{--@if(isset($gs->popup_background)) style="background-image: url({{asset('public/assets/images/'.$gs->popup_background)}});" @endif--}}>
             <div class="subscribePreloader__text text-center">
                 <span class="preload-close"><i class="fas fa-times"></i></span>
                 <h1>{{$gs->popup_title}}</h1>
@@ -272,7 +272,7 @@
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-3 col-3 remove-padding">
                 <div class="logo">
                     <a href="{{ route('front.index') }}">
-                        <img src="{{asset('assets/images/'.$gs->logo)}}" alt="" class="logo-img" style="max-height: 50px">
+                        <img src="{{asset('public/assets/images/'.$gs->logo)}}" alt="" class="logo-img" style="max-height: 50px">
                     </a>
                 </div>
             </div>
@@ -416,7 +416,7 @@
                     <div class="brand-slider float-right">
                         @foreach($partners as $partner)
                             <div>
-                                <a href="{{$partner->link}}"><img class="item" src="{{asset('assets/images/partner/'.$partner->photo)}}"></a>
+                                <a href="{{$partner->link}}"><img class="item" src="{{asset('public/assets/images/partner/'.$partner->photo)}}"></a>
                             </div>
                         @endforeach
                 </div>
@@ -514,7 +514,7 @@
                 <div class="footer-info-area">
                     <div class="footer-logo">
                         <a href="{{ route('front.index') }}" class="logo-link">
-                            <img src="{{asset('assets/images/'.$gs->footer_logo)}}" alt="">
+                            <img src="{{asset('public/assets/images/'.$gs->footer_logo)}}" alt="">
                         </a>
                     </div>
                     <div class="text">
@@ -600,7 +600,7 @@
                             <li>
                                 <div class="post">
                                     <div class="post-img">
-                                        <img style="width: 73px; height: 59px;" src="{{ asset('assets/images/blogs/'.$blog->photo) }}" alt="">
+                                        <img style="width: 73px; height: 59px;" src="{{ asset('public/assets/images/blogs/'.$blog->photo) }}" alt="">
                                     </div>
                                     <div class="post-details">
                                         <a href="{{ route('front.blogshow',$blog->id) }}">
@@ -1077,7 +1077,7 @@
     <div class="modal-dialog quickview-modal modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="submit-loader">
-                <img src="{{asset('assets/images/'.$gs->loader)}}" alt="">
+                <img src="{{asset('public/assets/images/'.$gs->loader)}}" alt="">
             </div>
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -1117,7 +1117,7 @@
 
                 <div>
                     <div class="submit-loader d-none">
-                        <img src="{{asset('assets/images/'.$gs->loader)}}" alt="">
+                        <img src="{{asset('public/assets/images/'.$gs->loader)}}" alt="">
                     </div>
                     <div id="track-order">
 
@@ -1137,27 +1137,27 @@
 </script>
 
 <!-- jquery -->
-{{-- <script src="{{asset('assets/front/js/all.js')}}"></script> --}}
-<script src="{{asset('assets/front/js/jquery.js')}}"></script>
-<script src="{{asset('assets/front/js/vue.js')}}"></script>
-<script src="{{asset('assets/front/jquery-ui/jquery-ui.min.js')}}"></script>
+{{-- <script src="{{asset('public/assets/front/js/all.js')}}"></script> --}}
+<script src="{{asset('public/assets/front/js/jquery.js')}}"></script>
+<script src="{{asset('public/assets/front/js/vue.js')}}"></script>
+<script src="{{asset('public/assets/front/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- popper -->
-<script src="{{asset('assets/front/js/popper.min.js')}}"></script>
+<script src="{{asset('public/assets/front/js/popper.min.js')}}"></script>
 <!-- bootstrap -->
-<script src="{{asset('assets/front/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('public/assets/front/js/bootstrap.min.js')}}"></script>
 <!-- plugin js-->
-<script src="{{asset('assets/front/js/plugin.js')}}"></script>
+<script src="{{asset('public/assets/front/js/plugin.js')}}"></script>
 
-<script src="{{asset('assets/front/js/xzoom.min.js')}}"></script>
-<script src="{{asset('assets/front/js/jquery.hammer.min.js')}}"></script>
-<script src="{{asset('assets/front/js/setup.js')}}"></script>
+<script src="{{asset('public/assets/front/js/xzoom.min.js')}}"></script>
+<script src="{{asset('public/assets/front/js/jquery.hammer.min.js')}}"></script>
+<script src="{{asset('public/assets/front/js/setup.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
 
-<script src="{{asset('assets/front/js/toastr.js')}}"></script>
+<script src="{{asset('public/assets/front/js/toastr.js')}}"></script>
 <!-- main -->
-<script src="{{asset('assets/front/js/main.js')}}"></script>
+<script src="{{asset('public/assets/front/js/main.js')}}"></script>
 <!-- custom -->
-<script src="{{asset('assets/front/js/custom.js')}}"></script>
+<script src="{{asset('public/assets/front/js/custom.js')}}"></script>
 
 {!! $seo->google_analytics !!}
 

@@ -526,6 +526,8 @@ class CheckoutController extends Controller
                     'aemail'  => "",
                     'wtitle'  => "",
                     'onumber' => $order->order_number,
+                    'subject' => "Your Order Has Been Placed!!",
+                    'body'    => "Hello " . $request->name . "!\nYou have placed a new order.\nYour order number is " . $order->order_number . ".Please wait for your delivery. \nThank you."
                 ];
 
                 $mailer = new GeniusMailer();

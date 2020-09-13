@@ -76,11 +76,11 @@
 												name="sku" required=""
 												value="{{ str_random(3).substr(time(), 6,8).str_random(3) }}">
 		
-											<div class="checkbox-wrapper">
-												<input type="checkbox" name="product_condition_check" class="checkclick"
-													id="conditionCheck" value="1">
-												<label for="conditionCheck">{{ __('Allow Product Condition') }}</label>
-											</div>
+{{--											<div class="checkbox-wrapper">--}}
+{{--												<input type="checkbox" name="product_condition_check" class="checkclick"--}}
+{{--													id="conditionCheck" value="1">--}}
+{{--												<label for="conditionCheck">{{ __('Allow Product Condition') }}</label>--}}
+{{--											</div>--}}
 		
 										</div>
 									</div>

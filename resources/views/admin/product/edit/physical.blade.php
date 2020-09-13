@@ -67,15 +67,15 @@
 																<h4 class="heading">{{ __('Product Sku') }}* </h4>
 														</div>
 													</div>
-													<div class="col-lg-12">
-														<input type="text" class="input-field" placeholder="{{ __('Enter Product Sku') }}" name="sku" required="" value="{{ $data->sku }}">
+{{--													<div class="col-lg-12">--}}
+{{--														<input type="text" class="input-field" placeholder="{{ __('Enter Product Sku') }}" name="sku" required="" value="{{ $data->sku }}">--}}
 
-							                            <div class="checkbox-wrapper">
-							                              <input type="checkbox" name="product_condition_check" class="checkclick" id="conditionCheck" value="1" {{ $data->product_condition != 0 ? "checked":"" }}>
-							                              <label for="conditionCheck">{{ __('Allow Product Condition') }}</label>
-							                            </div>
+{{--							                            <div class="checkbox-wrapper">--}}
+{{--							                              <input type="checkbox" name="product_condition_check" class="checkclick" id="conditionCheck" value="1" {{ $data->product_condition != 0 ? "checked":"" }}>--}}
+{{--							                              <label for="conditionCheck">{{ __('Allow Product Condition') }}</label>--}}
+{{--							                            </div>--}}
 
-													</div>
+{{--													</div>--}}
 												</div>
 
 

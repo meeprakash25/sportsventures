@@ -19,7 +19,7 @@
                         <div class="slide-progress"></div>
                         <div class="intro-carousel">
                             @foreach($sliders as $data)
-                                <div class="intro-content {{$data->position}}" style="background-image: url({{asset('assets/images/sliders/'.$data->photo)}})">
+                                <div class="intro-content {{$data->position}}" style="background-image: url({{asset('public/assets/images/sliders/'.$data->photo)}})">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -76,7 +76,7 @@
 {{--                                    </p>--}}
 {{--                                </div>--}}
 {{--                                <div class="right">--}}
-{{--                                    <img src="{{asset('assets/images/categories/'.$cat->image) }}" alt="">--}}
+{{--                                    <img src="{{asset('public/assets/images/categories/'.$cat->image) }}" alt="">--}}
 {{--                                </div>--}}
 {{--                            </a>--}}
 {{--                        </div>--}}
@@ -92,7 +92,7 @@
 
     <section id="extraData">
         <div class="text-center">
-            <img src="{{asset('assets/images/'.$gs->loader)}}">
+            <img src="{{asset('public/assets/images/'.$gs->loader)}}">
         </div>
     </section>
 
@@ -136,7 +136,7 @@
 {{--                            <div class="col-lg-6 remove-padding">--}}
 {{--                                <div class="left">--}}
 {{--                                    <a class="banner-effect" href="{{ $img->link }}" target="_blank">--}}
-{{--                                        <img src="{{asset('assets/images/banners/'.$img->photo)}}" alt="">--}}
+{{--                                        <img src="{{asset('public/assets/images/banners/'.$img->photo)}}" alt="">--}}
 {{--                                    </a>--}}
 {{--                                </div>--}}
 {{--                            </div>--}}

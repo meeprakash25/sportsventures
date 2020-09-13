@@ -551,7 +551,7 @@ class ProductController extends Controller
                 {
                     $gallery = new Gallery;
                     $name = time().$file->getClientOriginalName();
-                    $file->move('assets/images/galleries',$name);
+                    $file->move('public/assets/images/galleries',$name);
                     $gallery['photo'] = $name;
                     $gallery['product_id'] = $lastid;
                     $gallery->save();

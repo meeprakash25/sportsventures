@@ -814,13 +814,15 @@ class CheckoutController extends Controller
                     'aemail'  => "",
                     'wtitle'  => "",
                     'onumber' => $order->order_number,
+                    'subject' => "Your Order Has Been Placed!!",
+                    'body'    => "Hello " . $request->name . "!\nYou have placed a new order.\nYour order number is " . $order->order_number . ".Please wait for your delivery. \nThank you."
                 ];
 
                 $mailer = new GeniusMailer();
                 $mailer->sendAutoOrderMail($data, $order->id);
             } else {
                 $to      = $request->email;
-                $subject = "Your Order Placed!!";
+                $subject = "Your Order Has Been Placed!!";
                 $msg     = "Hello " . $request->name . "!\nYou have placed a new order.\nYour order number is " . $order->order_number . ".Please wait for your delivery. \nThank you.";
                 $headers = "From: " . $gs->from_name . "<" . $gs->from_email . ">";
                 mail($to, $subject, $msg, $headers);

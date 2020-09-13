@@ -39,7 +39,6 @@ class GeniusMailer
 
     public function sendAutoOrderMail(array $mailData, $id)
     {
-        dd($mailData);
         $setup = Generalsetting::find(1);
         $temp  = EmailTemplate::where('email_type', '=', $mailData['type'])->first();
         $body  = preg_replace("/{customer_name}/", $mailData['cname'], $temp->email_body);

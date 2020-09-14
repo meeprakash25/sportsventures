@@ -94,7 +94,7 @@ class OrderController extends Controller
                     if ($gs->is_smtp == 1) {
                         $maildata = [
                             'to'      => $data->customer_email,
-                            'subject' => 'Your order ' . $data->order_number . ' is being Processed!',
+                            'subject' => 'Your order number ' . $data->order_number . ' is being Processed!',
                             'body'    => "Hello " . $data->customer_name . "," . "\n We are processing your order. Thank you for shopping with us.",
                         ];
 
@@ -102,7 +102,7 @@ class OrderController extends Controller
                         $mailer->sendCustomMail($maildata);
                     } else {
                         $to      = $data->customer_email;
-                        $subject = 'Your order ' . $data->order_number . ' is Confirmed!';
+                        $subject = 'Your order number ' . $data->order_number . ' is being Processed!';
                         $msg     = "Hello " . $data->customer_name . "," . "\n We are processing your order. Thank you for shopping with us.";
                         $headers = "From: " . $gs->from_name . "<" . $gs->from_email . ">";
                         mail($to, $subject, $msg, $headers);
@@ -115,6 +115,35 @@ class OrderController extends Controller
                     $sms->sendCustomSMS($message, $number);
                 }
             }
+
+            if ($input['status'] == "on delivery") {
+                $gs = Generalsetting::findOrFail(1);
+                if ($gs->order_status_email == 1) {
+                    if ($gs->is_smtp == 1) {
+                        $maildata = [
+                            'to'      => $data->customer_email,
+                            'subject' => 'Your order number ' . $data->order_number . ' is on its way!',
+                            'body'    => "Hello " . $data->customer_name . "," . "\n Your order is on its way. Thank you for shopping with us.",
+                        ];
+
+                        $mailer = new GeniusMailer();
+                        $mailer->sendCustomMail($maildata);
+                    } else {
+                        $to      = $data->customer_email;
+                        $subject = 'Your order number ' . $data->order_number . ' is being Processed!';
+                        $msg     = "Hello " . $data->customer_name . "," . "\n Your order is on its way. Thank you for shopping with us.";
+                        $headers = "From: " . $gs->from_name . "<" . $gs->from_email . ">";
+                        mail($to, $subject, $msg, $headers);
+                    }
+                }
+                if ($gs->order_status_sms == 1) {
+                    $message = 'Your order is on its way!';
+                    $number  = [$data->customer_phone];
+                    $sms     = new GeniusSMS();
+                    $sms->sendCustomSMS($message, $number);
+                }
+            }
+
             if ($input['status'] == "completed") {
 
                 foreach ($data->vendororders as $vorder) {
@@ -128,7 +157,7 @@ class OrderController extends Controller
                     if ($gs->is_smtp == 1) {
                         $maildata = [
                             'to'      => $data->customer_email,
-                            'subject' => 'Your order ' . $data->order_number . ' is Confirmed!',
+                            'subject' => 'Your order number ' . $data->order_number . ' is Completed!',
                             'body'    => "Hello " . $data->customer_name . "," . "\n Thank you for shopping with us. We are looking forward to your next visit.",
                         ];
 
@@ -136,33 +165,34 @@ class OrderController extends Controller
                         $mailer->sendCustomMail($maildata);
                     } else {
                         $to      = $data->customer_email;
-                        $subject = 'Your order ' . $data->order_number . ' is Confirmed!';
+                        $subject = 'Your order number ' . $data->order_number . ' is Completed!';
                         $msg     = "Hello " . $data->customer_name . "," . "\n Thank you for shopping with us. We are looking forward to your next visit.";
                         $headers = "From: " . $gs->from_name . "<" . $gs->from_email . ">";
                         mail($to, $subject, $msg, $headers);
                     }
                 }
                 if ($gs->order_status_sms == 1) {
-                    $message = "Your order number is " . $data->order_number . ' is Confirmed!';
+                    $message = "Your order number " . $data->order_number . ' is Conpleted!';
                     $number  = [$data->customer_phone];
                     $sms     = new GeniusSMS();
                     $sms->sendCustomSMS($message, $number);
                 }
             }
+
             if ($input['status'] == "declined") {
                 $gs = Generalsetting::findOrFail(1);
                 if ($gs->order_status_email == 1) {
                     if ($gs->is_smtp == 1) {
                         $maildata = [
                             'to'      => $data->customer_email,
-                            'subject' => 'Your order ' . $data->order_number . ' is Declined!',
+                            'subject' => 'Your order numbeer ' . $data->order_number . ' is Declined!',
                             'body'    => "Hello " . $data->customer_name . "," . "\n We are sorry for the inconvenience caused. We are looking forward to your next visit.",
                         ];
                         $mailer   = new GeniusMailer();
                         $mailer->sendCustomMail($maildata);
                     } else {
                         $to      = $data->customer_email;
-                        $subject = 'Your order ' . $data->order_number . ' is Declined!';
+                        $subject = 'Your order number ' . $data->order_number . ' is Declined!';
                         $msg     = "Hello " . $data->customer_name . "," . "\n We are sorry for the inconvenience caused. We are looking forward to your next visit.";
                         $headers = "From: " . $gs->from_name . "<" . $gs->from_email . ">";
                         mail($to, $subject, $msg, $headers);
@@ -170,7 +200,7 @@ class OrderController extends Controller
                 }
 
                 if ($gs->order_status_sms == 1) {
-                    $message = "Your order number is " . $data->order_number . ' is Declined!';
+                    $message = "Your order number " . $data->order_number . ' is Declined!';
                     $number  = [$data->customer_phone];
                     $sms     = new GeniusSMS();
                     $sms->sendCustomSMS($message, $number);
@@ -195,10 +225,7 @@ class OrderController extends Controller
                     $data->text     = $request->track_text;
                     $data->save();
                 }
-
-
             }
-
 
             $order = VendorOrder::where('order_id', '=', $id)->update(['status' => $input['status']]);
 
@@ -210,8 +237,8 @@ class OrderController extends Controller
         }
 
         //--- Redirect Section          
-        $msg = 'Status Updated Successfully.';
-        return response()->json($msg);
+        //$msg = 'Status Updated Successfully.';
+        //return response()->json($msg);
         //--- Redirect Section Ends  
 
     }

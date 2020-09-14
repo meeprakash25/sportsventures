@@ -292,14 +292,12 @@
                             <table id="example2" class="table table-hover dt-responsive" cellspacing="0" width="100%">
                                 <thead>
                                 <tr>
-                                <tr>
                                     <th width="10%">{{ __('Product ID#') }}</th>
                                     <th>{{ __('Product Image') }}</th>
                                     <th>{{ __('Product Title') }}</th>
                                     <th>{{ __('Product Status') }}</th>
-                                    <th width="20%">{{ __('Details') }}</th>
+                                    <th width="25%">{{ __('Details') }}</th>
                                     <th width="10%">{{ __('Total Price') }}</th>
-                                </tr>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -309,7 +307,7 @@
                                         <td><input type="hidden" value="{{$key}}">{{ $product['item']['id'] }}</td>
 
                                         <td>
-                                            Image
+                                            <img src="{{asset('public/assets/images/products/'.$product['item']['photo'])}}" alt="{{asset(''.$product['item']['name'])}}">
                                         </td>
 
                                         <td>

@@ -303,7 +303,7 @@ class ProductController extends Controller
         // Check File
         if ($file = $request->file('file')) {
             $name = time().$file->getClientOriginalName();
-            $file->move('assets/files',$name);
+            $file->move('public/assets/files',$name);
             $input['file'] = $name;
         }
 
@@ -592,7 +592,7 @@ class ProductController extends Controller
         if ($file = $request->file('csvfile'))
         {
             $filename = time().'-'.$file->getClientOriginalName();
-            $file->move('assets/temp_files',$filename);
+            $file->move('public/assets/temp_files',$filename);
         }
 
         //$filename = $request->file('csvfile')->getClientOriginalName();

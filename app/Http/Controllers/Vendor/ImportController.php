@@ -176,7 +176,7 @@ class ImportController extends Controller
             if ($file = $request->file('file')) 
             {              
                 $name = time().$file->getClientOriginalName();
-                $file->move('assets/files',$name);           
+                $file->move('public/assets/files',$name);
                 $input['file'] = $name;
             }
 
@@ -185,7 +185,7 @@ class ImportController extends Controller
                 if ($file = $request->file('photo')) 
                 {      
                    $name = time().$file->getClientOriginalName();
-                   $file->move('assets/images/products',$name);           
+                   $file->move('public/assets/images/products',$name);
                    $input['photo'] = $name;
                 } 
             }else{
@@ -455,7 +455,7 @@ class ImportController extends Controller
                 if ($file = $request->file('photo')) 
                 {      
                 $name = time().$file->getClientOriginalName();
-                $file->move('assets/images/products',$name);           
+                $file->move('public/assets/images/products',$name);
                 $input['photo'] = $name;
                 } 
             }else{

@@ -70,7 +70,7 @@ class StaffController extends Controller
         if ($file = $request->file('photo')) 
          {      
             $name = time().$file->getClientOriginalName();
-            $file->move('assets/images/admins',$name);           
+            $file->move('public/assets/images/admins',$name);
             $input['photo'] = $name;
         } 
         $input['role'] = 'Staff';
@@ -113,7 +113,7 @@ class StaffController extends Controller
                 if ($file = $request->file('photo')) 
                 {              
                     $name = time().$file->getClientOriginalName();
-                    $file->move('assets/images/admins/',$name);
+                    $file->move('public/assets/images/admins/',$name);
                     if($data->photo != null)
                     {
                         if (file_exists(public_path().'/assets/images/admins/'.$data->photo)) {

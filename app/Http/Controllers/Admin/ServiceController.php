@@ -23,7 +23,7 @@ class ServiceController extends Controller
          //--- Integrating This Collection Into Datatables
          return Datatables::of($datas)
                             ->editColumn('photo', function(Service $data) {
-                                $photo = $data->photo ? url('assets/images/services/'.$data->photo):url('assets/images/noimage.png');
+                                $photo = $data->photo ? url('public/assets/images/services/'.$data->photo):url('public/assets/images/noimage.png');
                                 return '<img src="' . $photo . '" alt="Image">';
                             })
                             ->editColumn('title', function(Service $data) {
@@ -74,7 +74,7 @@ class ServiceController extends Controller
         if ($file = $request->file('photo')) 
          {      
             $name = time().$file->getClientOriginalName();
-            $file->move('assets/images/services',$name);           
+            $file->move('public/assets/images/services',$name);
             $input['photo'] = $name;
         } 
         $data->fill($input)->save();
@@ -114,7 +114,7 @@ class ServiceController extends Controller
             if ($file = $request->file('photo')) 
             {              
                 $name = time().$file->getClientOriginalName();
-                $file->move('assets/images/services',$name);
+                $file->move('public/assets/images/services',$name);
                 if($data->photo != null)
                 {
                     if (file_exists(public_path().'/assets/images/services/'.$data->photo)) {

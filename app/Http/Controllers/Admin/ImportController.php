@@ -147,7 +147,7 @@ class ImportController extends Controller
             if ($file = $request->file('file')) 
             {              
                 $name = time().$file->getClientOriginalName();
-                $file->move('assets/files',$name);           
+                $file->move('public/assets/files',$name);
                 $input['file'] = $name;
             }
 

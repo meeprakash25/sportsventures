@@ -14490,7 +14490,7 @@ top: 20px;
   width: 120px;
 }
 .logo-header .search-box .search-form {
-  padding-left: 125px;
+    padding-left: 10px;
 }
 .logo-header .search-box .search-form input{
   font-size: 12px;
@@ -15218,13 +15218,33 @@ div#myInputautocomplete-list {
 
 @media only screen and (max-width: 360px) {
 
-    .top-header ul li.my-dropdown.profilearea .profile .text i{
+    .top-header ul li.my-dropdown.profilearea .profile .text i {
         display: none
-    
+
     }
+
     .product-details-page .right-area .product-info .info-meta-3 .meta-list li.addtocart a {
         padding: 0px 8px;
         line-height: 33px;
     }
 
+}
+
+button.navbar-toggler {
+    padding: 0;
+    font-size: 1rem;
+    line-height: 0;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.2em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
 }

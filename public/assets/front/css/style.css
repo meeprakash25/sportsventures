@@ -7124,13 +7124,13 @@ input[type=checkbox]:checked:disabled + label:before {
 }
 
 #comment-area h3,
-#replay-area h5
-{
-  font-size: 18px!important;
-  font-weight: 600!important;
+#replay-area h5 {
+  font-size: 18px !important;
+  font-weight: 600 !important;
 }
+
 #comment-area h3 .btn.login-btn,
-#replay-area h5 .btn.login-btn
-{
-  padding: 5px 15px!important;
+#replay-area h5 .btn.login-btn {
+  padding: 5px 15px !important;
 }
+

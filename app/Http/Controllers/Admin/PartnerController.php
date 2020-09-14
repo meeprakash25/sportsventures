@@ -23,7 +23,7 @@ class PartnerController extends Controller
          //--- Integrating This Collection Into Datatables
          return Datatables::of($datas)
                             ->editColumn('photo', function(Partner $data) {
-                                $photo = $data->photo ? url('assets/images/partner/'.$data->photo):url('assets/images/noimage.png');
+                                $photo = $data->photo ? url('public/assets/images/partner/'.$data->photo):url('public/assets/images/noimage.png');
                                 return '<img src="' . $photo . '" alt="Image">';
                             })
                             ->addColumn('action', function(Partner $data) {
@@ -66,7 +66,7 @@ class PartnerController extends Controller
         if ($file = $request->file('photo')) 
          {      
             $name = time().$file->getClientOriginalName();
-            $file->move('assets/images/partner',$name);           
+            $file->move('public/assets/images/partner',$name);
             $input['photo'] = $name;
         } 
         if (!empty($request->meta_tag)) 
@@ -119,7 +119,7 @@ class PartnerController extends Controller
             if ($file = $request->file('photo')) 
             {              
                 $name = time().$file->getClientOriginalName();
-                $file->move('assets/images/partner',$name);
+                $file->move('public/assets/images/partner',$name);
                 if($data->photo != null)
                 {
                     if (file_exists(public_path().'/assets/images/partner/'.$data->photo)) {

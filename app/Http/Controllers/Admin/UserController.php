@@ -96,7 +96,7 @@ class UserController extends Controller
             if ($file = $request->file('photo'))
             {
                 $name = time().$file->getClientOriginalName();
-                $file->move('assets/images/users',$name);
+                $file->move('public/assets/images/users',$name);
                 if($user->photo != null)
                 {
                     if (file_exists(public_path().'/assets/images/users/'.$user->photo)) {

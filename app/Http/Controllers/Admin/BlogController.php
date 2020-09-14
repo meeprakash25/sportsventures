@@ -24,7 +24,7 @@ class BlogController extends Controller
          //--- Integrating This Collection Into Datatables
          return Datatables::of($datas)
                             ->editColumn('photo', function(Blog $data) {
-                                $photo = $data->photo ? url('assets/images/blogs/'.$data->photo):url('assets/images/noimage.png');
+                                $photo = $data->photo ? url('public/assets/images/blogs/'.$data->photo):url('public/assets/images/noimage.png');
                                 return '<img src="' . $photo . '" alt="Image">';
                             })
                             ->addColumn('action', function(Blog $data) {
@@ -68,7 +68,7 @@ class BlogController extends Controller
         if ($file = $request->file('photo')) 
          {      
             $name = time().$file->getClientOriginalName();
-            $file->move('assets/images/blogs',$name);           
+            $file->move('public/assets/images/blogs',$name);
             $input['photo'] = $name;
         } 
         if (!empty($request->meta_tag)) 
@@ -122,7 +122,7 @@ class BlogController extends Controller
             if ($file = $request->file('photo')) 
             {              
                 $name = time().$file->getClientOriginalName();
-                $file->move('assets/images/blogs',$name);
+                $file->move('public/assets/images/blogs',$name);
                 if($data->photo != null)
                 {
                     if (file_exists(public_path().'/assets/images/blogs/'.$data->photo)) {

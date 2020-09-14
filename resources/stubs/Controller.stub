@@ -23,7 +23,7 @@ class {{modelName}}Controller extends Controller
          //--- Integrating This Collection Into Datatables
          return Datatables::of($datas)
                             ->editColumn('photo', function({{modelName}} $data) {
-                                $photo = $data->photo ? url('assets/images/{{modelNameSingularLowerCase}}/'.$data->photo):url('assets/images/noimage.png');
+                                $photo = $data->photo ? url('public/assets/images/{{modelNameSingularLowerCase}}/'.$data->photo):url('public/assets/images/noimage.png');
                                 return '<img src="' . $photo . '" alt="Image">';
                             })
                             ->editColumn('details', function({{modelName}} $data) {
@@ -70,7 +70,7 @@ class {{modelName}}Controller extends Controller
         if ($file = $request->file('photo')) 
          {      
             $name = time().$file->getClientOriginalName();
-            $file->move('assets/images/{{modelNameSingularLowerCase}}',$name);           
+            $file->move('public/assets/images/{{modelNameSingularLowerCase}}',$name);
             $input['photo'] = $name;
         } 
         if (!empty($request->meta_tag)) 
@@ -123,7 +123,7 @@ class {{modelName}}Controller extends Controller
             if ($file = $request->file('photo')) 
             {              
                 $name = time().$file->getClientOriginalName();
-                $file->move('assets/images/{{modelNameSingularLowerCase}}',$name);
+                $file->move('public/assets/images/{{modelNameSingularLowerCase}}',$name);
                 if($data->photo != null)
                 {
                     if (file_exists(public_path().'/assets/images/{{modelNameSingularLowerCase}}/'.$data->photo)) {

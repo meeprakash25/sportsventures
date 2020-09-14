@@ -52,7 +52,7 @@ class GeniusMailer
             'title'       => $mailData['subject'],
             'email_body' => $mailData['body'],
             'websiteURL'  => 'https://www.sportsventures.com.np',
-            'websiteName' => "Sports Ventures",
+            'websiteName' => "Sports Ventures Pvt. Ltd.",
         ];
 
 

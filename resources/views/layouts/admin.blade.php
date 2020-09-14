@@ -81,7 +81,7 @@
                             <li class="bell-area">
                                 <a id="notf_conv" class="dropdown-toggle-1" href="javascript:;">
                                     <i class="far fa-envelope"></i>
-                                    <span data-href="{{ route('conv-notf-count') }}" id="conv-notf-count">{{ App\Models\Notification::countConversation() }}</span>
+                                    <span data-href="{{ route('conv-notf-count') }}" class="{{ App\Models\Notification::countConversation() > 0 ? 'text-danger font-weight-bold' : '' }}" id="conv-notf-count">{{ App\Models\Notification::countConversation() }}</span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="dropdownmenu-wrapper" data-href="{{ route('conv-notf-show') }}" id="conv-notf-show">
@@ -92,7 +92,7 @@
                             <li class="bell-area">
                                 <a id="notf_product" class="dropdown-toggle-1" href="javascript:;">
                                     <i class="icofont-cart"></i>
-                                    <span data-href="{{ route('product-notf-count') }}" id="product-notf-count">{{ App\Models\Notification::countProduct() }}</span>
+                                    <span data-href="{{ route('product-notf-count') }}"  class="{{ App\Models\Notification::countProduct() > 0 ? 'text-danger font-weight-bold' : '' }}" id="product-notf-count">{{ App\Models\Notification::countProduct() }}</span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="dropdownmenu-wrapper" data-href="{{ route('product-notf-show') }}" id="product-notf-show">
@@ -103,7 +103,7 @@
                             <li class="bell-area">
                                 <a id="notf_user" class="dropdown-toggle-1" href="javascript:;">
                                     <i class="far fa-user"></i>
-                                    <span data-href="{{ route('user-notf-count') }}" id="user-notf-count">{{ App\Models\Notification::countRegistration() }}</span>
+                                    <span data-href="{{ route('user-notf-count') }}" class="{{ App\Models\Notification::countRegistration() > 0 ? 'text-danger font-weight-bold' : '' }}" id="user-notf-count">{{ App\Models\Notification::countRegistration() }}</span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="dropdownmenu-wrapper" data-href="{{ route('user-notf-show') }}" id="user-notf-show">
@@ -114,7 +114,7 @@
                             <li class="bell-area">
                                 <a id="notf_order" class="dropdown-toggle-1" href="javascript:;">
                                     <i class="far fa-newspaper"></i>
-                                    <span data-href="{{ route('order-notf-count') }}" id="order-notf-count">{{ App\Models\Notification::countOrder() }}</span>
+                                    <span data-href="{{ route('order-notf-count') }}" class="{{ App\Models\Notification::countOrder() > 0 ? 'text-danger font-weight-bold' : '' }}" id="order-notf-count">{{ App\Models\Notification::countOrder() }}</span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="dropdownmenu-wrapper" data-href="{{ route('order-notf-show') }}" id="order-notf-show">

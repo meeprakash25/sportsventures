@@ -969,14 +969,18 @@ $(document).ready(function(){
                     url:$("#user-notf-count").data('href'),
                     success:function(data){
                         $("#user-notf-count").html(data);
-                      }
+                        if (data > 0) {
+                            $("#user-notf-count").addClass('text-danger font-weight-bold');
+                        }
+                    }
               });
     }, 5000);
 });
 
 $(document).on('click','#notf_user',function(){
-  $("#user-notf-count").html('0');
-  $('#user-notf-show').load($("#user-notf-show").data('href'));
+    $("#user-notf-count").html('0');
+    $("#user-notf-count").removeClass('text-danger font-weight-bold');
+    $('#user-notf-show').load($("#user-notf-show").data('href'));
 });
 
 $(document).on('click','#user-notf-clear',function(){
@@ -995,6 +999,9 @@ $(document).ready(function(){
                     url:$("#order-notf-count").data('href'),
                     success:function(data){
                         $("#order-notf-count").html(data);
+                        if (data > 0) {
+                            $("#order-notf-count").addClass('text-danger font-weight-bold');
+                        }
                       }
               });
     }, 5000);
@@ -1002,6 +1009,7 @@ $(document).ready(function(){
 
 $(document).on('click','#notf_order',function(){
   $("#order-notf-count").html('0');
+    $("#order-notf-count").removeClass('text-danger font-weight-bold');
   $('#order-notf-show').load($("#order-notf-show").data('href'));
 });
 
@@ -1019,16 +1027,20 @@ $(document).ready(function(){
             $.ajax({
                     type: "GET",
                     url:$("#product-notf-count").data('href'),
-                    success:function(data){
+                    success:function(data) {
                         $("#product-notf-count").html(data);
-                      }
+                        if (data > 0) {
+                            $("#product-notf-count").addClass('text-danger font-weight-bold');
+                        }
+                    }
               });
     }, 5000);
 });
 
 $(document).on('click','#notf_product',function(){
-  $("#product-notf-count").html('0');
-  $('#product-notf-show').load($("#product-notf-show").data('href'));
+    $("#product-notf-count").html('0');
+    $("#product-notf-count").removeClass('text-danger font-weight-bold');
+    $('#product-notf-show').load($("#product-notf-show").data('href'));
 });
 
 $(document).on('click','#product-notf-clear',function(){
@@ -1045,16 +1057,20 @@ $(document).ready(function(){
             $.ajax({
                     type: "GET",
                     url:$("#conv-notf-count").data('href'),
-                    success:function(data){
+                    success:function(data) {
                         $("#conv-notf-count").html(data);
-                      }
+                        if (data > 0) {
+                            $("#conv-notf-count").addClass('text-danger font-weight-bold');
+                        }
+                    }
               });
     }, 5000);
 });
 
 $(document).on('click','#notf_conv',function(){
-  $("#conv-notf-count").html('0');
-  $('#conv-notf-show').load($("#conv-notf-show").data('href'));
+    $("#conv-notf-count").html('0');
+    $("#conv-notf-count").removeClass('text-danger font-weight-bold');
+    $('#conv-notf-show').load($("#conv-notf-show").data('href'));
 });
 
 $(document).on('click','#conv-notf-clear',function(){

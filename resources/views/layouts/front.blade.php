@@ -446,7 +446,7 @@
                                     @if(count($category->subs) > 0)
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <div class="container">
-                                                <div class="row">
+                                                <div class="row mt-2">
                                                     @foreach($category->subs as $subcat)
                                                         <div class="col-md-3">
                                                             <a href="{{ route('front.subcat',['slug1' => $subcat->category->slug, 'slug2' => $subcat->slug]) }}">

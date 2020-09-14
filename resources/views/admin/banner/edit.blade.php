@@ -27,7 +27,6 @@
                                   </div>
                               <p class="text">First Image (300x265), Second Image (770x150), Third Image (770x150)</p>
                             </div>
-
                           </div>
                         </div>
 

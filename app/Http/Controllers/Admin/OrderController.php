@@ -28,6 +28,8 @@ class OrderController extends Controller
             $datas = Order::where('status', '=', 'pending')->get();
         } elseif ($status == 'processing') {
             $datas = Order::where('status', '=', 'processing')->get();
+        } elseif ($status == 'ondelivery') {
+            $datas = Order::where('status', '=', 'on delivery')->get();
         } elseif ($status == 'completed') {
             $datas = Order::where('status', '=', 'completed')->get();
         } elseif ($status == 'declined') {
@@ -61,7 +63,7 @@ class OrderController extends Controller
     public function edit($id)
     {
         $data = Order::find($id);
-        return view('admin.order.delivery', compact('data'));
+        return view('admin.order.orderstatus', compact('data'));
     }
 
     //*** POST Request
@@ -222,6 +224,11 @@ class OrderController extends Controller
     public function processing()
     {
         return view('admin.order.processing');
+    }
+
+    public function ondelivery()
+    {
+        return view('admin.order.ondelivery');
     }
 
     public function completed()

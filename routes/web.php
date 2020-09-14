@@ -61,6 +61,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/order/update/{id}', 'Admin\OrderController@update')->name('admin-order-update');
         Route::get('/orders/pending', 'Admin\OrderController@pending')->name('admin-order-pending');
         Route::get('/orders/processing', 'Admin\OrderController@processing')->name('admin-order-processing');
+        Route::get('/orders/ondelivery', 'Admin\OrderController@ondelivery')->name('admin-order-on-delivery');
         Route::get('/orders/completed', 'Admin\OrderController@completed')->name('admin-order-completed');
         Route::get('/orders/declined', 'Admin\OrderController@declined')->name('admin-order-declined');
         Route::get('/order/{id}/show', 'Admin\OrderController@show')->name('admin-order-show');

@@ -8,7 +8,7 @@
         <div class="mr-breadcrumb">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="heading">{{ __('Pending Orders') }}</h4>
+                    <h4 class="heading">{{ __('Orders On Delivery') }}</h4>
                     <ul class="links">
                         <li>
                             <a href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }} </a>
@@ -17,7 +17,7 @@
                             <a href="javascript:;">{{ __('Orders') }}</a>
                         </li>
                         <li>
-                            <a href="{{ route('admin-order-pending') }}">{{ __('Pending Orders') }}</a>
+                            <a href="{{ route('admin-order-on-delivery') }}">{{ __('Orders On Delivery') }}</a>
                         </li>
                     </ul>
                 </div>
@@ -82,7 +82,6 @@
     </div>
 
     {{-- ORDER MODAL ENDS --}}
-
 
 
     {{-- MESSAGE MODAL --}}
@@ -168,7 +167,7 @@
             ordering: false,
             processing: true,
             serverSide: true,
-            ajax: '{{ route('admin-order-datatables','pending') }}',
+            ajax: '{{ route('admin-order-datatables','ondelivery') }}',
             columns: [
                 {data: 'customer_email', name: 'customer_email'},
                 {data: 'id', name: 'id'},

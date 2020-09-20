@@ -695,24 +695,21 @@
                                         </div>
 
 
-                                        <div class="{{ !empty($data->size) ? "showbox":"" }}" id="stckprod">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="left-area">
-                                                        <h4 class="heading">{{ __('Product Stock') }}*</h4>
-                                                        <p class="sub-heading">{{ __('(Leave Empty will Show Always Available)') }}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <input name="stock" type="text" class="input-field" placeholder="e.g 20" value="{{ $data->stock }}">
-                                                    <div class="checkbox-wrapper">
-                                                        <input type="checkbox" name="measure_check" class="checkclick1" id="allowProductMeasurement"
-                                                               value="1" {{ $data->measure == null ? '' : 'checked' }}>
-                                                        <label for="allowProductMeasurement">{{ __('Allow Product Measurement') }}</label>
-                                                    </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="left-area">
+                                                    <h4 class="heading">{{ __('Product Stock') }}*</h4>
+                                                    <p class="sub-heading">{{ __('(Leave Empty will Show Always Available)') }}</p>
                                                 </div>
                                             </div>
-
+                                            <div class="col-lg-12">
+                                                <input name="stock" type="text" class="input-field" placeholder="e.g 20" value="{{ $data->stock }}">
+                                                <div class="checkbox-wrapper {{ !empty($data->size) ? "showbox":"" }}" id="stckprod">
+                                                    <input type="checkbox" name="measure_check" class="checkclick1" id="allowProductMeasurement"
+                                                           value="1" {{ $data->measure == null ? '' : 'checked' }}>
+                                                    <label for="allowProductMeasurement">{{ __('Allow Product Measurement') }}</label>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="{{ $data->measure == null ? 'showbox' : '' }}">

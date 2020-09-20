@@ -19682,8 +19682,8 @@
         }
 
         .invoice__logo img {
-            height: 50px;
-            width: 250px;
+            height: auto;
+            width: 200px;
         }
 
         .invoce__date p,

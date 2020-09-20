@@ -344,7 +344,7 @@
 										</div>
 									</div>
 		
-									<div class="row" id="stckprod">
+									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
 												<h4 class="heading">{{ __('Product Stock') }}*</h4>
@@ -354,7 +354,7 @@
 										<div class="col-lg-12">
 											<input name="stock" type="text" class="input-field"
 												placeholder="{{ __('e.g 20') }}">
-											<div class="checkbox-wrapper">
+											<div class="checkbox-wrapper" id="stckprod">
 												<input type="checkbox" name="measure_check" class="checkclick"
 													id="allowProductMeasurement" value="1">
 												<label

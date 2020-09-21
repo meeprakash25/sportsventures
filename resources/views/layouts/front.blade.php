@@ -104,14 +104,15 @@
                 visibility: visible;
                 opacity: 1;
                 transition: visibility 0s, opacity 0.3s linear;
-                z-index:1000;
+                z-index: 1000;
             }
 
-            .navbar a{
-                color:#fff!important;
+            .navbar a {
+                color: #fff !important;
             }
+
             .navbar a:hover {
-                color:orangered!important;
+                color: orangered !important;
             }
 
         }
@@ -128,28 +129,28 @@
 @if($gs->is_popup== 1)
 
     @if(isset($visited))
-{{--    	<div style="display:none">--}}
-{{--    		<img src="{{asset('public/assets/images/'.$gs->popup_background)}}">--}}
-{{--    	</div>--}}
+        {{--    	<div style="display:none">--}}
+        {{--    		<img src="{{asset('public/assets/images/'.$gs->popup_background)}}">--}}
+        {{--    	</div>--}}
 
-    <!--  Starting of subscribe-pre-loader Area   -->
-    <div class="subscribe-preloader-wrap" id="subscriptionForm" style="display: none;">
-        <div class="subscribePreloader__thumb" {{--@if(isset($gs->popup_background)) style="background-image: url({{asset('public/assets/images/'.$gs->popup_background)}});" @endif--}}>
-            <div class="subscribePreloader__text text-center">
-                <span class="preload-close"><i class="fas fa-times"></i></span>
-                <h1>{{$gs->popup_title}}</h1>
-                <p>{{$gs->popup_text}}</p>
-                <form action="{{route('front.subscribe')}}" id="subscribeform" method="POST">
-                    {{csrf_field()}}
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="{{ $langg->lang741 }}" required="">
-                        <button id="sub-btn" type="submit">{{ $langg->lang742 }}</button>
-                    </div>
-                </form>
+        <!--  Starting of subscribe-pre-loader Area   -->
+        <div class="subscribe-preloader-wrap" id="subscriptionForm" style="display: none;">
+            <div class="subscribePreloader__thumb" {{--@if(isset($gs->popup_background)) style="background-image: url({{asset('public/assets/images/'.$gs->popup_background)}});" @endif--}}>
+                <div class="subscribePreloader__text text-center">
+                    <span class="preload-close"><i class="fas fa-times"></i></span>
+                    <h1>{{$gs->popup_title}}</h1>
+                    <p>{{$gs->popup_text}}</p>
+                    <form action="{{route('front.subscribe')}}" id="subscribeform" method="POST">
+                        {{csrf_field()}}
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="{{ $langg->lang741 }}" required="">
+                            <button id="sub-btn" type="submit">{{ $langg->lang742 }}</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <!--  Ending of subscribe-pre-loader Area   -->
+        <!--  Ending of subscribe-pre-loader Area   -->
 
     @endif
 
@@ -410,15 +411,15 @@
                 </div>
             </div>
             <div class="col-lg-1 col-md-3 col-sm-6 col-xs-4 col-4 remove-padding order-md-last">
-                    @php
-                        $partners = DB::table('partners')->get();
-                    @endphp
-                    <div class="brand-slider float-right">
-                        @foreach($partners as $partner)
-                            <div>
-                                <a href="{{$partner->link}}"><img class="item" src="{{asset('public/assets/images/partner/'.$partner->photo)}}"></a>
-                            </div>
-                        @endforeach
+                @php
+                    $partners = DB::table('partners')->get();
+                @endphp
+                <div class="brand-slider float-right">
+                    @foreach($partners as $partner)
+                        <div>
+                            <a href="{{$partner->link}}"><img class="item" src="{{asset('public/assets/images/partner/'.$partner->photo)}}"></a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -429,77 +430,87 @@
 <!--Main-Menu Area Start-->
 <div class="mainmenu-area mainmenu-bb">
     <div class="container">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    @foreach($categories as $category)
-                        @if(count($category->subs) > 0)
-                            <li class="nav-item dropdown">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            @foreach($categories as $category)
                                 @if(count($category->subs) > 0)
-                                    <a class="nav-link dropdown-toggle" href="{{ route('front.category',$category->slug) }}" id="navbarDropdown">
-                                        {{ $category->name }}
-                                    </a>
-                                    @if(count($category->subs) > 0)
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <div class="container">
-                                                <div class="row mt-2">
-                                                    @foreach($category->subs as $subcat)
-                                                        <div class="col-md-3">
-                                                            <a href="{{ route('front.subcat',['slug1' => $subcat->category->slug, 'slug2' => $subcat->slug]) }}">
-                                                                <span class="text-uppercase text-white">{{$subcat->name}}</span>
-                                                            </a>
-
-                                                            @if(count($subcat->childs) > 0)
-                                                                <ul class="nav flex-column">
-                                                                    @foreach($subcat->childs as $childcat)
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link py-1" href="{{ route('front.childcat',['slug1' => $childcat->subcategory->category->slug,
-                                                                                'slug2' => $childcat->subcategory->slug, 'slug3' => $childcat->slug]) }}">{{$childcat->name}}</a>
-                                                                        </li>
-                                                                    @endforeach
-                                                                </ul>
-                                                            @endif
+                                    <li class="nav-item dropdown">
+                                        @if(count($category->subs) > 0)
+                                            <a class="nav-link dropdown-toggle" href="{{ route('front.category',$category->slug) }}" id="navbarDropdown">
+                                                {{ $category->name }}
+                                            </a>
+                                            @if(count($category->subs) > 0)
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12 text-center mt-1">
+                                                                <h5 class="text-white">{{ $category->name }}</h5>
+                                                            </div>
                                                         </div>
-                                                    @endforeach
+                                                        <div class="row">
+                                                            @foreach($category->subs as $subcat)
+                                                                <div class="col-md-3">
+                                                                    <a href="{{ route('front.subcat',['slug1' => $subcat->category->slug, 'slug2' => $subcat->slug]) }}">
+                                                                        <span class="text-uppercase text-white">{{$subcat->name}}</span>
+                                                                    </a>
+
+                                                                    @if(count($subcat->childs) > 0)
+                                                                        <ul class="nav flex-column">
+                                                                            @foreach($subcat->childs as $childcat)
+                                                                                <li class="nav-item">
+                                                                                    <a class="nav-link py-1" href="{{ route('front.childcat',['slug1' => $childcat->subcategory->category->slug,
+                                                                                'slug2' => $childcat->subcategory->slug, 'slug3' => $childcat->slug]) }}">{{$childcat->name}}</a>
+                                                                                </li>
+                                                                            @endforeach
+                                                                        </ul>
+                                                                    @endif
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    @endif
+                                            @endif
+                                        @endif
+                                    </li>
+                                @else
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('front.category',$category->slug) }}">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
                                 @endif
-                            </li>
-                        @else
+                            @endforeach
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            @if($gs->is_home == 1)
+                                <li class="nav-item"><a class="nav-link" href="{{ route('front.index') }}">{{ $langg->lang17 }}</a></li>
+                            @endif
+                            @foreach(DB::table('pages')->where('header','=',1)->get() as $data)
+                                <li class="nav-item"><a class="nav-link" href="{{ route('front.page',$data->slug) }}">{{ $data->title }}</a></li>
+                            @endforeach
+                            @if($gs->is_faq == 1)
+                                <li class="nav-item"><a class="nav-link" href="{{ route('front.faq') }}">{{ $langg->lang19 }}</a></li>
+                            @endif
+                            <li class="nav-item"><a class="nav-link" href="{{ route('front.blog') }}">{{ $langg->lang18 }}</a></li>
+                            @if($gs->is_contact == 1)
+                                <li class="nav-item"><a class="nav-link" href="{{ route('front.contact') }}">{{ $langg->lang20 }}</a></li>
+                            @endif
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('front.category',$category->slug) }}">
-                                    {{ $category->name }}
-                                </a>
+                                <a class="nav-link" href="javascript:;" data-toggle="modal" data-target="#track-order-modal" class="track-btn">{{ $langg->lang16 }}</a>
                             </li>
-                        @endif
-                    @endforeach
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    @if($gs->is_home == 1)
-                        <li class="nav-item"><a class="nav-link" href="{{ route('front.index') }}">{{ $langg->lang17 }}</a></li>
-                    @endif
-                    @foreach(DB::table('pages')->where('header','=',1)->get() as $data)
-                        <li class="nav-item"><a class="nav-link" href="{{ route('front.page',$data->slug) }}">{{ $data->title }}</a></li>
-                    @endforeach
-                    @if($gs->is_faq == 1)
-                        <li class="nav-item"><a class="nav-link" href="{{ route('front.faq') }}">{{ $langg->lang19 }}</a></li>
-                    @endif
-                    <li class="nav-item"><a class="nav-link" href="{{ route('front.blog') }}">{{ $langg->lang18 }}</a></li>
-                    @if($gs->is_contact == 1)
-                        <li class="nav-item"><a class="nav-link" href="{{ route('front.contact') }}">{{ $langg->lang20 }}</a></li>
-                    @endif
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:;" data-toggle="modal" data-target="#track-order-modal" class="track-btn">{{ $langg->lang16 }}</a>
-                    </li>
-                </ul>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </nav>
+        </div>
     </div>
 </div>
 <!--Main-Menu Area End-->

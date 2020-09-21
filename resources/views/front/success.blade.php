@@ -177,8 +177,8 @@
                                                                         </address>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <h5 class="text-danger">{{ $langg->lang292 }}</h5>
-                                                                        <p class="text-danger">{{ $langg->lang293 }} {{$order->currency_sign}}{{ round($order->pay_amount * $order->currency_value , 2) }}</p>
+                                                                        <h5 class="text-danger" style="font-weight: 800;font-size: 20px;">{{ $langg->lang292 }}</h5>
+                                                                        <p class="text-danger"  style="font-weight: 800;font-size: 20px;">{{ $langg->lang293 }} {{$order->currency_sign}}{{ round($order->pay_amount * $order->currency_value , 2) }}</p>
                                                                         <p>{{ $langg->lang294 }} {{$order->method}}</p>
 
                                                                         @if($order->method != "Cash On Delivery")

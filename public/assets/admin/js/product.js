@@ -75,7 +75,7 @@
             'Size Qty :' +
             '<span>(Number of quantity of this size)</span>' +
             '</label>' +
-            '<input type="number" name="size_qty[]" class="input-field" placeholder="Size Qty" value="1" min="1">' +
+            '<input type="number" name="size_qty[]" class="input-field size_qty" placeholder="Size Qty" value="1" min="1">' +
             '</div>' +
             '<div class="col-md-4 col-sm-6">' +
             '<label>' +
@@ -88,6 +88,21 @@
             '</div>'
             + '');
 
+        var tot = 0;
+        $("#size-section .size_qty").each(function () {
+            tot += Number($(this).val());
+        });
+        $('#total_stock').text(`Total Stock: ${tot}`);
+        $('#input_total_stock').val(tot);
+
+        $('.size_qty').on('input', function () {
+            var tot = 0;
+            $("#size-section .size_qty").each(function () {
+                tot += Number($(this).val());
+            });
+            $('#total_stock').text(`Total Stock: ${tot}`);
+            $('#input_total_stock').val(tot);
+        });
     });
 
     $(document).on('click', '.size-remove', function () {
@@ -111,7 +126,7 @@
                 'Size Qty :' +
                 '<span>(Number of quantity of this size)</span>' +
                 '</label>' +
-                '<input type="number" name="size_qty[]" class="input-field" placeholder="Size Qty" value="1" min="1">' +
+                '<input type="number" name="size_qty[]" class="input-field size_qty" placeholder="Size Qty" value="1" min="1">' +
                 '</div>' +
                 '<div class="col-md-4 col-sm-6">' +
                 '<label>' +
@@ -123,10 +138,56 @@
                 '</div>' +
                 '</div>'
                 + '');
-
-
+            $('#total_stock').text(`Total Stock: 1`);
         }
+        var tot = 0;
+        $("#size-section .size_qty").each(function () {
+            tot += Number($(this).val());
+        });
+        $('#total_stock').text(`Total Stock: ${tot}`);
+        $('#input_total_stock').val(tot);
 
+        $('.size_qty').on('input', function () {
+            var tot = 0;
+            $("#size-section .size_qty").each(function () {
+                tot += Number($(this).val());
+            });
+            $('#total_stock').text(`Total Stock: ${tot}`);
+            $('#input_total_stock').val(tot);
+        });
+    });
+
+    $('.size_qty').on('input', function () {
+        var tot = 0;
+        $("#size-section .size_qty").each(function () {
+            tot += Number($(this).val());
+        });
+        $('#total_stock').text(`Total Stock: ${tot}`);
+        $('#input_total_stock').val(tot);
+    });
+
+    // var tot = 0;
+    // $("#size-section .size_qty").each(function () {
+    //     tot += Number($(this).val());
+    // });
+    // $('#total_stock').text(`Total Stock: ${tot}`);
+    // $('#input_total_stock').val(tot);
+
+    $("#size-check").on("change", function () {
+        if (this.checked) {
+            var tot = 0;
+            $("#size-section .size_qty").each(function () {
+                tot += Number($(this).val());
+            });
+            $('#total_stock').text(`Total Stock: ${tot}`);
+            $('#input_total_stock').val(tot);
+        } else {
+            if (total_stock_from_backend > 0) {
+                $('#input_total_stock').val(total_stock_from_backend);
+            }else{
+                $('#input_total_stock').val();
+            }
+        }
     });
 
 // Size Section Ends

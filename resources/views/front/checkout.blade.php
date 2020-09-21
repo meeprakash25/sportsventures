@@ -173,7 +173,7 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <input class="form-control" type="text" name="zip"
-                                                               placeholder="{{ $langg->lang159 }}" required=""
+                                                               placeholder="{{ $langg->lang159 }}"
                                                                value="{{ Auth::guard('web')->check() ? Auth::guard('web')->user()->zip : '' }}">
                                                     </div>
                                                 </div>

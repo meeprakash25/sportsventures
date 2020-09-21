@@ -35,7 +35,7 @@
 	</div>
 
 	<form id="geniusform" action="{{route('admin-prod-store')}}" method="POST" enctype="multipart/form-data">
-		{{csrf_field()}}	
+		{{csrf_field()}}
 	<div class="row">
 		<div class="col-lg-8">
 			<div class="add-product-content">
@@ -43,13 +43,13 @@
 					<div class="col-lg-12">
 						<div class="product-description">
 							<div class="body-area">
-		
+
 								<div class="gocover"
 									style="background: url({{asset('public/assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);">
 								</div>
-		
+
 									@include('includes.admin.form-both')
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -62,7 +62,7 @@
 												name="name" required="">
 										</div>
 									</div>
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -73,16 +73,16 @@
 											<input type="text" class="input-field" placeholder="{{ __('Enter Product Sku') }}"
 												name="sku" required=""
 												value="{{ str_random(3).substr(time(), 6,8).str_random(3) }}">
-		
+
 {{--											<div class="checkbox-wrapper">--}}
 {{--												<input type="checkbox" name="product_condition_check" class="checkclick"--}}
 {{--													id="conditionCheck" value="1">--}}
 {{--												<label for="conditionCheck">{{ __('Allow Product Condition') }}</label>--}}
 {{--											</div>--}}
-		
+
 										</div>
 									</div>
-		
+
 									<div class="showbox">
 										<div class="row">
 											<div class="col-lg-12">
@@ -98,7 +98,7 @@
 											</div>
 										</div>
 									</div>
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -115,7 +115,7 @@
 											</select>
 										</div>
 									</div>
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -128,7 +128,7 @@
 											</select>
 										</div>
 									</div>
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -149,7 +149,7 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
-		
+
 											</div>
 										</div>
 										<div class="col-lg-12">
@@ -164,7 +164,7 @@
 									</div>
 
 									<div class="showbox">
-		
+
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="left-area">
@@ -178,11 +178,11 @@
 										</div>
 
 									</div>
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
-		
+
 											</div>
 										</div>
 										<div class="col-lg-12">
@@ -220,7 +220,7 @@
 																		{{ __('(Number of quantity of this size)') }}
 																	</span>
 																</label>
-																<input type="number" name="size_qty[]" class="input-field"
+																<input type="number" name="size_qty[]" class="input-field size_qty"
 																	placeholder="{{ __('Size Qty') }}" value="1" min="1">
 															</div>
 															<div class="col-md-4 col-sm-6">
@@ -236,7 +236,7 @@
 														</div>
 													</div>
 												</div>
-		
+                                                <h5 id="total_stock">Total Stock: 1</h5>
 												<a href="javascript:;" id="size-btn" class="add-more"><i
 														class="fas fa-plus"></i>{{ __('Add More Size') }} </a>
 											</div>
@@ -245,7 +245,7 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
-		
+
 											</div>
 										</div>
 										<div class="col-lg-12">
@@ -258,9 +258,8 @@
 											</ul>
 										</div>
 									</div>
-		
+
 									<div class="showbox">
-		
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="left-area">
@@ -277,23 +276,20 @@
 													<div class="color-area">
 														<span class="remove color-remove"><i class="fas fa-times"></i></span>
 														<div class="input-group colorpicker-component cp">
-															<input type="text" name="color[]" value="#000000"
-																class="input-field cp" />
+															<input type="text" name="color[]" value="#000000" class="input-field cp" />
 															<span class="input-group-addon"><i></i></span>
 														</div>
 													</div>
 												</div>
-												<a href="javascript:;" id="color-btn" class="add-more mt-4 mb-3"><i
-														class="fas fa-plus"></i>{{ __('Add More Color') }} </a>
+												<a href="javascript:;" id="color-btn" class="add-more mt-4 mb-3"><i class="fas fa-plus"></i>{{ __('Add More Color') }} </a>
 											</div>
 										</div>
-		
 									</div>
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
-		
+
 											</div>
 										</div>
 										<div class="col-lg-12">
@@ -306,12 +302,12 @@
 											</ul>
 										</div>
 									</div>
-		
+
 									<div class="showbox">
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="left-area">
-		
+
 												</div>
 											</div>
 											<div class="col-lg-12">
@@ -326,7 +322,7 @@
 																		class="input-field"
 																		placeholder="{{ __('Enter Quantity') }}" min="0">
 																</div>
-		
+
 																<div class="col-lg-6">
 																	<input type="number" name="whole_sell_discount[]"
 																		class="input-field"
@@ -336,14 +332,14 @@
 															</div>
 														</div>
 													</div>
-		
+
 													<a href="javascript:;" id="whole-btn" class="add-fild-btn"><i
 															class="icofont-plus"></i> {{ __('Add More Field') }}</a>
 												</div>
 											</div>
 										</div>
 									</div>
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -352,23 +348,19 @@
 											</div>
 										</div>
 										<div class="col-lg-12">
-											<input name="stock" type="text" class="input-field"
+											<input name="stock" type="text" class="input-field" id="input_total_stock"
 												placeholder="{{ __('e.g 20') }}">
 											<div class="checkbox-wrapper" id="stckprod">
-												<input type="checkbox" name="measure_check" class="checkclick"
-													id="allowProductMeasurement" value="1">
-												<label
-													for="allowProductMeasurement">{{ __('Allow Product Measurement') }}</label>
+												<input type="checkbox" name="measure_check" class="checkclick" id="allowProductMeasurement" value="1">
+												<label for="allowProductMeasurement">{{ __('Allow Product Measurement') }}</label>
 											</div>
 										</div>
 									</div>
-		
-		
-		
+
 									<div class="showbox">
-		
+
 										<div class="row">
-											<div class="col-lg-6">
+											<div class="col-lg-12">
 												<div class="left-area">
 													<h4 class="heading">{{ __('Product Measurement') }}*</h4>
 												</div>
@@ -384,14 +376,13 @@
 												</select>
 											</div>
 											<div class="col-lg-6 hidden" id="measure">
-												<input name="measure" type="text" id="measurement" class="input-field"
-													placeholder="{{ __('Enter Unit') }}">
+												<input name="measure" type="text" id="measurement" class="input-field" placeholder="{{ __('Enter Unit') }}">
 											</div>
 										</div>
-		
+
 									</div>
-		
-		
+
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -406,9 +397,9 @@
 											</div>
 										</div>
 									</div>
-		
-		
-		
+
+
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -423,8 +414,8 @@
 											</div>
 										</div>
 									</div>
-		
-		
+
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="checkbox-wrapper">
@@ -434,9 +425,9 @@
 											</div>
 										</div>
 									</div>
-		
-		
-		
+
+
+
 									<div class="showbox">
 										<div class="row">
 											<div class="col-lg-12">
@@ -449,7 +440,7 @@
 												</ul>
 											</div>
 										</div>
-		
+
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="left-area">
@@ -466,10 +457,7 @@
 											</div>
 										</div>
 									</div>
-		
 
-		
-		
 									<div class="row">
 										<div class="col-lg-12 text-center">
 											<button class="addProductSubmit-btn"
@@ -505,9 +493,9 @@
 												</div>
 										</div>
 									</div>
-		
+
 									<input type="hidden" id="feature_photo" name="photo" value="">
-		
+
 									<input type="file" name="gallery[]" class="hidden" id="uploadgallery" accept="image/*"
 										multiple>
 
@@ -526,8 +514,8 @@
 										</div>
 									</div>
 
-		
-							
+
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -544,7 +532,7 @@
 												placeholder="{{ __('e.g 20') }}" step="0.01" required="" min="0">
 										</div>
 									</div>
-		
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -557,8 +545,8 @@
 												placeholder="{{ __('e.g 20') }}" min="0">
 										</div>
 									</div>
-		
-		
+
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -574,7 +562,7 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
-		
+
 											</div>
 										</div>
 										<div class="col-lg-12">
@@ -590,7 +578,7 @@
 																<input type="text" name="features[]" class="input-field"
 																	placeholder="{{ __('Enter Your Keyword') }}">
 															</div>
-		
+
 															<div class="col-lg-6">
 																<div class="input-group colorpicker-component cp">
 																	<input type="text" name="colors[]" value="#000000"
@@ -601,14 +589,14 @@
 														</div>
 													</div>
 												</div>
-		
+
 												<a href="javascript:;" id="feature-btn" class="add-fild-btn"><i
 														class="icofont-plus"></i> {{ __('Add More Field') }}</a>
 											</div>
 										</div>
 									</div>
-		
-		
+
+
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="left-area">
@@ -621,7 +609,7 @@
 										</div>
 									</div>
 									<input type="hidden" name="type" value="Physical">
-		
+
 							</div>
 						</div>
 					</div>
@@ -630,7 +618,7 @@
 		</div>
 	</div>
 	</form>
-	
+
 </div>
 
 <div class="modal fade" id="setgallery" tabindex="-1" role="dialog" aria-labelledby="setgallery" aria-hidden="true">
@@ -722,6 +710,9 @@
 	$('.cropme').simpleCropper();
 </script>
 
+<script>
+	var total_stock_from_backend = 0;
+</script>
 
 <script src="{{asset('public/assets/admin/js/product.js')}}"></script>
 @endsection

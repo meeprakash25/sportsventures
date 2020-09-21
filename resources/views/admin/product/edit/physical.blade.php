@@ -470,8 +470,8 @@
                                                                             <label>
                                                                                 {{ __('Size Name') }} :
                                                                                 <span>
-																							{{ __('(eg. S,M,L,XL,XXL,3XL,4XL)') }}
-																						</span>
+                                                                                    {{ __('(eg. S,M,L,XL,XXL,3XL,4XL)') }}
+                                                                                </span>
                                                                             </label>
                                                                             <input type="text" name="size[]" class="input-field" placeholder="Size Name"
                                                                                    value="{{ $data->size[$key] }}">
@@ -480,18 +480,18 @@
                                                                             <label>
                                                                                 {{ __('Size Qty') }} :
                                                                                 <span>
-																								{{ __('(Number of quantity of this size)') }}
-																							</span>
+                                                                                    {{ __('(Number of quantity of this size)') }}
+                                                                                </span>
                                                                             </label>
-                                                                            <input type="number" name="size_qty[]" class="input-field" placeholder="Size Qty" min="1"
+                                                                            <input type="number" name="size_qty[]" class="input-field size_qty" placeholder="Size Qty" min="1"
                                                                                    value="{{ $data->size_qty[$key] }}">
                                                                         </div>
                                                                         <div class="col-md-4 col-sm-6">
                                                                             <label>
                                                                                 {{ __('Size Price') }} :
                                                                                 <span>
-																								{{ __('(This price will be added with base price)') }}
-																							</span>
+                                                                                    {{ __('(This price will be added with base price)') }}
+                                                                                </span>
                                                                             </label>
                                                                             <input type="number" name="size_price[]" class="input-field" placeholder="{{ __('Size Price') }}"
                                                                                    min="0" value="{{ $data->size_price[$key] }}">
@@ -507,8 +507,8 @@
                                                                         <label>
                                                                             {{ __('Size Name') }} :
                                                                             <span>
-																							{{ __('(eg. S,M,L,XL,XXL,3XL,4XL)') }}
-																						</span>
+                                                                                {{ __('(eg. S,M,L,XL,XXL,3XL,4XL)') }}
+                                                                            </span>
                                                                         </label>
                                                                         <input type="text" name="size[]" class="input-field" placeholder="Size Name">
                                                                     </div>
@@ -516,17 +516,17 @@
                                                                         <label>
                                                                             {{ __('Size Qty') }} :
                                                                             <span>
-																								{{ __('(Number of quantity of this size)') }}
-																							</span>
+                                                                                {{ __('(Number of quantity of this size)') }}
+                                                                            </span>
                                                                         </label>
-                                                                        <input type="number" name="size_qty[]" class="input-field" placeholder="Size Qty" value="1" min="1">
+                                                                        <input type="number" name="size_qty[]" class="input-field size_qty" placeholder="Size Qty" value="1" min="1">
                                                                     </div>
                                                                     <div class="col-md-4 col-sm-6">
                                                                         <label>
                                                                             {{ __('Size Price') }} :
                                                                             <span>
-																								{{ __('(This price will be added with base price)') }}
-																							</span>
+                                                                                {{ __('(This price will be added with base price)') }}
+                                                                            </span>
                                                                         </label>
                                                                         <input type="number" name="size_price[]" class="input-field" placeholder="Size Price" value="0" min="0">
                                                                     </div>
@@ -534,7 +534,7 @@
                                                             </div>
                                                         @endif
                                                     </div>
-
+                                                    <h5 id="total_stock">Total Stock: {{isset($data->stock) ? $data->stock : 0}}</h5>
                                                     <a href="javascript:;" id="size-btn" class="add-more"><i class="fas fa-plus"></i>{{ __('Add More Size') }} </a>
                                                 </div>
                                             </div>
@@ -556,7 +556,6 @@
                                                 </ul>
                                             </div>
                                         </div>
-
 
                                         <div class="{{ !empty($data->color) ? "":"showbox" }}">
 
@@ -609,8 +608,6 @@
                                                         </div>
                                                         <a href="javascript:;" id="color-btn" class="add-more mt-4 mb-3"><i class="fas fa-plus"></i>{{ __('Add More Color') }} </a>
                                                     </div>
-
-
                                                 @endif
                                             </div>
 
@@ -665,10 +662,8 @@
                                                                         </div>
                                                                     </div>
 
-
                                                                 @endforeach
                                                             @else
-
 
                                                                 <div class="feature-area">
                                                                     <span class="remove whole-remove"><i class="fas fa-times"></i></span>
@@ -694,7 +689,6 @@
                                             </div>
                                         </div>
 
-
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="left-area">
@@ -703,11 +697,13 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
-                                                <input name="stock" type="text" class="input-field" placeholder="e.g 20" value="{{ $data->stock }}">
-                                                <div class="checkbox-wrapper {{ !empty($data->size) ? "showbox":"" }}" id="stckprod">
-                                                    <input type="checkbox" name="measure_check" class="checkclick1" id="allowProductMeasurement"
-                                                           value="1" {{ $data->measure == null ? '' : 'checked' }}>
-                                                    <label for="allowProductMeasurement">{{ __('Allow Product Measurement') }}</label>
+                                                <input name="stock" id="input_total_stock" type="text" class="input-field" placeholder="e.g 20" value="{{ $data->stock }}">
+                                                <div class="{{ !empty($data->size) ? "showbox":"" }}" id="stckprod">
+                                                    <div class="checkbox-wrapper">
+                                                        <input type="checkbox" name="measure_check" class="checkclick1" id="allowProductMeasurement"
+                                                               value="1" {{ $data->measure == null ? '' : 'checked' }}>
+                                                        <label for="allowProductMeasurement">{{ __('Allow Product Measurement') }}</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -715,7 +711,7 @@
                                         <div class="{{ $data->measure == null ? 'showbox' : '' }}">
 
                                             <div class="row">
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-12">
                                                     <div class="left-area">
                                                         <h4 class="heading">{{ __('Product Measurement') }}*</h4>
                                                     </div>
@@ -1226,6 +1222,10 @@
             }
         });
 
+    </script>
+
+    <script>
+        var total_stock_from_backend = {{$data->stock}};
     </script>
 
     <script src="{{asset('public/assets/admin/js/product.js')}}"></script>

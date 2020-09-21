@@ -410,7 +410,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-1 col-md-3 col-sm-6 col-xs-4 col-4 remove-padding order-md-last">
+            <div class="col-lg-1 col-md-3 col-sm-6 col-xs-4 col-4 remove-padding order-md-6 order-lg-last ">
                 @php
                     $partners = DB::table('partners')->get();
                 @endphp
@@ -432,7 +432,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -450,9 +450,9 @@
                                             @if(count($category->subs) > 0)
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                     <div class="container">
-                                                        <div class="row">
+                                                        <div class="row d-none d-lg-block">
                                                             <div class="col-md-12 text-center mt-1">
-                                                                <h5 class="text-white">{{ $category->name }}</h5>
+                                                                <h5 class="text-danger">{{ $category->name }}</h5>
                                                             </div>
                                                         </div>
                                                         <div class="row">

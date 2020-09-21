@@ -882,4 +882,9 @@ if (isset($gs->menu_hover_color)) {
         background: <?php echo $color; ?>;
 
     }
+
+    .mainmenu-area .navbar-collapse.collapse.show,
+    .mainmenu-area .navbar-collapse.collapsing {
+        background-color: <?php echo $color; ?>;
+    }
 </style>

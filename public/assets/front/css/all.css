@@ -15251,8 +15251,10 @@ button.navbar-toggler {
 
 .mainmenu-area .navbar-collapse.collapse.show,
 .mainmenu-area .navbar-collapse.collapsing{
-    background-color:#193e69;
     padding-left:10px;
     padding-right:10px;
     z-index: 1000;
+    position: relative !important;
 }
+
+

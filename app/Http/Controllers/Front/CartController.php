@@ -34,6 +34,13 @@ class CartController extends Controller
         if (Session::has('coupon_percentage')) {
             Session::forget('coupon_percentage');
         }
+        //if (Session::has('coupon_code')) {
+        //    Session::forget('coupon_code');
+        //}
+        //if (Session::has('coupon_id')) {
+        //    Session::forget('coupon_id');
+        //}
+
         $gs         = Generalsetting::findOrFail(1);
         $oldCart    = Session::get('cart');
         $cart       = new Cart($oldCart);

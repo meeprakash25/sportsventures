@@ -441,7 +441,9 @@ class CheckoutController extends Controller
             }
             $coupon->update();
         }
-
+        //foreach ($cart->items as $prod) {
+        //    dd($prod['stock'], Product::findOrFail($prod['item']['id']));
+        //}
         foreach ($cart->items as $prod) {
             $x = (string)$prod['size_qty'];
             if (!empty($x)) {

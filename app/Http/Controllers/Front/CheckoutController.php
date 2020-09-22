@@ -345,6 +345,7 @@ class CheckoutController extends Controller
         } else {
             $curr = Currency::where('is_default', '=', 1)->first();
         }
+
         $gs      = Generalsetting::findOrFail(1);
         $oldCart = Session::get('cart');
         $cart    = new Cart($oldCart);
@@ -439,7 +440,6 @@ class CheckoutController extends Controller
                 $coupon->times = (string)$i;
             }
             $coupon->update();
-
         }
 
         foreach ($cart->items as $prod) {
@@ -456,21 +456,19 @@ class CheckoutController extends Controller
             }
         }
 
-
         foreach($cart->items as $prod)
         {
             $x = (string)$prod['stock'];
             if($x != null)
             {
-
-                $product = Product::findOrFail($prod['item']['id']);
-                $product->stock =  $prod['stock'];
-                $product->update();  
+                $product        = Product::findOrFail($prod['item']['id']);
+                $product->stock = $prod['stock'];
+                $product->update();
                 if($product->stock <= 5)
                 {
-                    $notification = new Notification;
+                    $notification             = new Notification;
                     $notification->product_id = $product->id;
-                    $notification->save();                    
+                    $notification->save();
                 }              
             }
         }
@@ -490,7 +488,6 @@ class CheckoutController extends Controller
                 $vorder->order_number = $order->order_number;             
                 $vorder->save();
             }
-
         }
 
         if (!empty($notf)) {
@@ -513,6 +510,9 @@ class CheckoutController extends Controller
         Session::forget('coupon_total');
         Session::forget('coupon_total1');
         Session::forget('coupon_percentage');
+
+        Session::forget('coupon_code');
+        Session::forget('coupon_id');
 
         //Sending Email To Buyer
         if ($gs->order_email == 1) {
@@ -706,27 +706,6 @@ class CheckoutController extends Controller
         $notification->order_id = $order->id;
         $notification->save();
 
-        // Customer Order email
-        //if ($gs->order_email == 1) {
-        //    $to      = $request->email;
-        //    $subject = 'Order Placed Successfully!';
-        //    $msg     = "Dear Customer,<br> You have successfully placed your order. Your order id is " . $order->id . ". Your tracking code is " . $order->track->id;
-        //    if ($gs->is_smtp == 1) {
-        //        $data = [
-        //            'to'      => $to,
-        //            'subject' => $subject,
-        //            'body'    => $msg,
-        //        ];
-        //
-        //        $mailer = new GeniusMailer();
-        //        $mailer->sendCustomMail($data);
-        //    } else {
-        //        $headers = "From: " . $gs->from_name . "<" . $gs->from_email . ">";
-        //        mail($to, $subject, $msg, $headers);
-        //    }
-        //}
-
-
         if ($request->coupon_id != "") {
             $coupon = Coupon::findOrFail($request->coupon_id);
             $coupon->used++;
@@ -756,7 +735,6 @@ class CheckoutController extends Controller
         foreach ($cart->items as $prod) {
             $x = (string)$prod['stock'];
             if ($x != null) {
-
                 $product        = Product::findOrFail($prod['item']['id']);
                 $product->stock = $prod['stock'];
                 $product->update();

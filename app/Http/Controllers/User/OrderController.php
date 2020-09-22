@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Auth;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\PaymentGateway;
+use Auth;
 
 class OrderController extends Controller
 {

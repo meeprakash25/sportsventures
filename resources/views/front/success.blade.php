@@ -190,7 +190,6 @@
                                                                             @else
                                                                                 {{$order->method}} {{ $langg->lang296 }} <p id="ttn">{{$order->txnid}}</p>
                                                                             @endif
-
                                                                         @endif
                                                                     </div>
                                                                 </div>

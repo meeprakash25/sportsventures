@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\Currency;
 use App\Models\Generalsetting;
@@ -32,7 +33,7 @@ class GeneralSettingController extends Controller
     }
 
 
-    private function setEnv($key, $value,$prev)
+    private function setEnv($key, $value, $prev)
     {
         file_put_contents(app()->environmentFilePath(), str_replace(
             $key . '=' . $prev,
@@ -57,54 +58,54 @@ class GeneralSettingController extends Controller
             $input = $request->all();
             $data  = Generalsetting::findOrFail(1);
             if ($file = $request->file('logo')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->logo);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->logo);
                 $input['logo'] = $name;
             }
             if ($file = $request->file('favicon')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->favicon);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->favicon);
                 $input['favicon'] = $name;
             }
             if ($file = $request->file('loader')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->loader);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->loader);
                 $input['loader'] = $name;
             }
             if ($file = $request->file('admin_loader')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->admin_loader);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->admin_loader);
                 $input['admin_loader'] = $name;
             }
             if ($file = $request->file('affilate_banner')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->affilate_banner);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->affilate_banner);
                 $input['affilate_banner'] = $name;
             }
             if ($file = $request->file('error_banner')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->error_banner);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->error_banner);
                 $input['error_banner'] = $name;
             }
             if ($file = $request->file('popup_background')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->popup_background);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->popup_background);
                 $input['popup_background'] = $name;
             }
             if ($file = $request->file('invoice_logo')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->invoice_logo);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->invoice_logo);
                 $input['invoice_logo'] = $name;
             }
             if ($file = $request->file('user_image')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->user_image);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->user_image);
                 $input['user_image'] = $name;
             }
 
             if ($file = $request->file('footer_logo')) {
-                $name = time().$file->getClientOriginalName();
-                $data->upload($name,$file,$data->footer_logo);
+                $name = time() . $file->getClientOriginalName();
+                $data->upload($name, $file, $data->footer_logo);
                 $input['footer_logo'] = $name;
             }
             $data->update($input);
@@ -136,25 +137,25 @@ class GeneralSettingController extends Controller
         //--- Logic Section
         else {
             $input = $request->all();
-            $curr  = Currency::where('is_default','=',1)->first();
+            $curr  = Currency::where('is_default', '=', 1)->first();
             $data  = Generalsetting::findOrFail(1);
             $prev  = $data->molly_key;
 
-            if ($request->vendor_ship_info == ""){
+            if ($request->vendor_ship_info == "") {
                 $input['vendor_ship_info'] = 0;
             }
 
-            if ($request->instamojo_sandbox == ""){
+            if ($request->instamojo_sandbox == "") {
                 $input['instamojo_sandbox'] = 0;
             }
 
-            if ($request->paypal_mode == ""){
+            if ($request->paypal_mode == "") {
                 $input['paypal_mode'] = 'live';
             } else {
                 $input['paypal_mode'] = 'sandbox';
             }
 
-            if ($request->paytm_mode == ""){
+            if ($request->paytm_mode == "") {
                 $input['paytm_mode'] = 'live';
             } else {
                 $input['paytm_mode'] = 'sandbox';
@@ -163,7 +164,7 @@ class GeneralSettingController extends Controller
             $data->update($input);
 
 
-            $this->setEnv('MOLLIE_KEY',$data->molly_key,$prev);
+            $this->setEnv('MOLLIE_KEY', $data->molly_key, $prev);
             // Set Molly ENV
 
             //--- Logic Section Ends
@@ -212,8 +213,8 @@ class GeneralSettingController extends Controller
 
     public function paymentsinfo()
     {
-        $curr = Currency::where('is_default','=',1)->first();
-        return view('admin.generalsetting.paymentsinfo',compact('curr'));
+        $curr = Currency::where('is_default', '=', 1)->first();
+        return view('admin.generalsetting.paymentsinfo', compact('curr'));
     }
 
     public function affilate()

@@ -340,7 +340,7 @@ class Product extends Model
     public function emptyStock() {
         $stck = (string)$this->stock;
         if($stck == "0"){
-            return true;            
+            return true;
         }
     }
 

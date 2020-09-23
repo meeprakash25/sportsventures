@@ -309,6 +309,7 @@ class CartController extends Controller
         $prices     = $_GET['prices'];
         $keys       = $keys == "" ? '' : implode(',', $keys);
         $values     = $values == "" ? '' : implode(',', $values);
+
         if (Session::has('currency')) {
             $curr = Currency::find(Session::get('currency'));
         } else {
@@ -360,6 +361,12 @@ class CartController extends Controller
             }
         }
         $color   = str_replace('#', '', $color);
+
+        // added by me
+        if ($size_qty < 1) {
+            return 0;
+        }
+
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart    = new Cart($oldCart);
         $cart->addnum($prod, $prod->id, $qty, $size, $color, $size_qty, $size_price, $size_key, $keys, $values);
@@ -400,8 +407,8 @@ class CartController extends Controller
         $prices     = $_GET['prices'];
         $prices     = explode(",", $prices);
         $keys       = $keys == "" ? '' : implode(',', $keys);
-
         $values = $values == "" ? '' : implode(',', $values);
+
         if (Session::has('currency')) {
             $curr = Currency::find(Session::get('currency'));
         } else {
@@ -467,10 +474,18 @@ class CartController extends Controller
 
             }
         }
+
+        // added by me
+        if ($size_qty < 1) {
+            return redirect()->route('front.cart')->with('unsuccess', $lang->out_stock);
+        }
+
         $color   = str_replace('#', '', $color);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart    = new Cart($oldCart);
         $cart->addnum($prod, $prod->id, $qty, $size, $color, $size_qty, $size_price, $size_key, $keys, $values);
+
+
         if ($cart->items[$id . $size . $color . str_replace(str_split(' ,'), '', $values)]['dp'] == 1) {
             return redirect()->route('front.cart')->with('unsuccess', $lang->already_cart);
         }

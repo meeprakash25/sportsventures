@@ -317,7 +317,7 @@ class ProductController extends Controller
         if ($request->type == "Physical") {
 
             //--- Validation Section
-            $rules = ['sku' => 'min:8|unique:products'];
+            $rules = ['sku' => 'min:3|unique:products'];
 
             $validator = Validator::make(Input::all(), $rules);
 
@@ -731,7 +731,7 @@ class ProductController extends Controller
         if ($data->type == "Physical") {
 
             //--- Validation Section
-            $rules = ['sku' => 'min:8|unique:products,sku,' . $id];
+            $rules = ['sku' => 'min:3|unique:products,sku,' . $id];
 
             $validator = Validator::make(Input::all(), $rules);
 

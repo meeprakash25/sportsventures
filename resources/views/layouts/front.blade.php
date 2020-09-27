@@ -417,7 +417,7 @@
                 <div class="brand-slider float-right">
                     @foreach($partners as $partner)
                         <div>
-                            <a href="{{$partner->link}}"><img class="item" src="{{asset('public/assets/images/partner/'.$partner->photo)}}"></a>
+                            <a href="{{route('front.brand',$partner->id)}}"><img class="item" src="{{asset('public/assets/images/partner/'.$partner->photo)}}"></a>
                         </div>
                     @endforeach
                 </div>

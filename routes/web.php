@@ -1266,6 +1266,10 @@ Route::group(['middleware' => 'maintenance'], function () {
     Route::get('/tag/{slug}', 'Front\CatalogController@tag')->name('front.tag');
     // TAG SECTION ENDS
 
+    // BRAND SECTION
+    Route::get('/brand/{id}', 'Front\CatalogController@brand')->name('front.brand');
+    // BRAND SECTION ENDS
+
     // TAG SECTION
     Route::get('/search/', 'Front\CatalogController@search')->name('front.search');
     // TAG SECTION ENDS

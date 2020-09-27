@@ -33,7 +33,7 @@
                                 <thead>
                                 <tr>
                                     <th>{{ __("Name") }}</th>
-                                    <th>{{ __("Type") }}</th>
+                                    <th>{{ __("Brand") }}</th>
                                     <th>{{ __("Stock") }}</th>
                                     <th>{{ __("Price") }}</th>
                                     <th>{{ __("Status") }}</th>
@@ -207,7 +207,7 @@
             ajax: '{{ route('admin-prod-datatables') }}',
             columns: [
                 {data: 'name', name: 'name'},
-                {data: 'type', name: 'type'},
+                {data: 'brand', name: 'brand'},
                 {data: 'stock', name: 'stock'},
                 {data: 'price', name: 'price'},
                 {data: 'status', searchable: false, orderable: false},

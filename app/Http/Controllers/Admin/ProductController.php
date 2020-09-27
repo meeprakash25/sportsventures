@@ -41,6 +41,10 @@ class ProductController extends Controller
 
                 return $name . '<br>' . $id . $id3 . $id2;
             })
+            ->editColumn('brand', function (Product $data) {
+                $brand = $data->brand->name ?? 'n/a';
+                return $brand;
+            })
             ->editColumn('price', function (Product $data) {
                 $sign  = Currency::where('is_default', '=', 1)->first();
                 $price = round($data->price * $sign->value, 2);

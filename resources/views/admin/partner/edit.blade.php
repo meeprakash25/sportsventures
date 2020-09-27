@@ -16,6 +16,17 @@
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="left-area">
+                                <h4 class="heading">{{ __('Brand Name') }} *</h4>
+                            </div>
+                          </div>
+                          <div class="col-lg-7">
+                            <input type="text" class="input-field" name="name" placeholder="{{ __('Brand Name') }}" value="{{$data->name}}">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-4">
+                            <div class="left-area">
                                 <h4 class="heading">{{ __('Link') }} *</h4>
                             </div>
                           </div>

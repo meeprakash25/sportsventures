@@ -81,7 +81,6 @@
 
 
                                         <div class="{{ $data->product_condition == 0 ? "showbox":"" }}">
-
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="left-area">
@@ -96,10 +95,7 @@
                                                     ? "selected":""}}>{{ __('Used') }}</option>
                                                     </select>
                                                 </div>
-
                                             </div>
-
-
                                         </div>
 
                                         <div class="row">
@@ -169,10 +165,28 @@
                                             </div>
                                         </div>
 
+                                        <?php
+                                        $brands = \App\Models\Partner::all();
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="left-area">
+                                                    <h4 class="heading">{{ __('Brand') }}*</h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <select name="partner_id">
+                                                    <option value="">{{ __('Select Brand') }}</option>
+                                                    @foreach($brands as $brand)
+                                                        <option value="{{$brand->id}}" @if($brand->id == $data->partner_id) selected @endif>{{ $brand->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
 
                                         @php
                                             $selectedAttrs = json_decode($data->attributes, true);
-                                            // dd($selectedAttrs);
                                         @endphp
 
 

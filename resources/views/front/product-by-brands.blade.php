@@ -11,7 +11,7 @@
                             <a href="{{route('front.index')}}">{{ $langg->lang17 }}</a>
                         </li>
                         <li>
-                            <a href="{{route('front.brand',$brand->name)}}">{{ $langg->lang59 }}: {{$brand->name}}</a>
+                            <a href="{{route('front.brand',$brand->name)}}">Brand: {{$brand->name}}</a>
                         </li>
                     </ul>
                 </div>

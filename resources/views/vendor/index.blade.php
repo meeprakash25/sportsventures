@@ -14,7 +14,6 @@
                         
                         @include('includes.form-success')
                         <div class="row row-cards-one">
-
                                 <div class="col-md-12 col-lg-6 col-xl-4">
                                     <div class="mycard bg1">
                                         <div class="left">

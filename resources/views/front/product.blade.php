@@ -283,8 +283,8 @@
                                                 </div>
                                                 @endif
                                                 <p style="font-size: 14px;">
-                                                    Category: <a href="{{route('front.category', $productt->category->slug)}}">{{$productt->category->name}}</a><br>
-                                                    Brand: <a href="{{route('front.brand', $productt->brand->slug)}}">{{$productt->brand->name}}</a>
+                                                    Category: @if($productt->category()->exists())<a href="{{route('front.category', $productt->category->slug)}}">{{$productt->category->name}}</a> @else n/a @endif<br>
+                                                    Brand: @if($productt->category()->exists())<a href="{{route('front.brand', $productt->brand->slug)}}">{{$productt->brand->name}}</a> @else n/a @endif
                                                 </p>
                                                 @if($productt->product_type == "affiliate")
 

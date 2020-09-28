@@ -283,8 +283,10 @@
                                                 </div>
                                                 @endif
                                                 <p style="font-size: 14px;">
-                                                    Category: @if($productt->category()->exists())<a href="{{route('front.category', $productt->category->slug)}}">{{$productt->category->name}}</a> @else n/a @endif<br>
-                                                    Brand: @if($productt->brand()->exists())<a href="{{route('front.brand', $productt->brand->slug)}}">{{$productt->brand->name}}</a> @else n/a @endif
+                                                    Category: @if($productt->category()->exists())<a
+                                                            href="{{route('front.category', $productt->category->slug)}}">{{$productt->category->name}}</a> @else n/a @endif<br>
+                                                    Brand: @if($productt->brand()->exists())<a
+                                                            href="{{route('front.brand', $productt->brand->slug)}}">{{$productt->brand->name}}</a> @else n/a @endif
                                                 </p>
                                                 @if($productt->product_type == "affiliate")
 
@@ -296,11 +298,11 @@
                                                     @if($productt->emptyStock())
                                                         <li class="addtocart">
                                                             <a href="javascript:;" class="cart-out-of-stock">
-                                                            <i class="icofont-close-circled"></i>
-                                                            {{ $langg->lang78 }}</a>
-                                                    </li>
-                                                @else
-                                                    <li class="addtocart">
+                                                                <i class="icofont-close-circled"></i>
+                                                                {{ $langg->lang78 }}</a>
+                                                        </li>
+                                                    @else
+                                                        <li class="addtocart">
                                                         <a href="javascript:;" id="addcrt"><i class="icofont-cart"></i>{{ $langg->lang90 }}</a>
                                                     </li>
 

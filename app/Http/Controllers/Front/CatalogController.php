@@ -50,7 +50,6 @@ class CatalogController extends Controller
 
     public function category(Request $request, $slug = null, $slug1 = null, $slug2 = null)
     {
-        //dd($request->all(),$slug,$slug1,$slug2);
         if (Session::has('currency')) {
             $curr = Currency::find(Session::get('currency'));
         } else {
@@ -203,6 +202,10 @@ class CatalogController extends Controller
         $search   = $request->search;
         $minprice = round(($minprice / $curr->value), 2);
         $maxprice = round(($maxprice / $curr->value), 2);
+
+        $data['cat']      = null;
+        $data['subcat']   = null;
+        $data['childcat'] = null;
 
         $products = Product::when($search, function ($query, $search) {
             return $query->whereRaw('MATCH (name) AGAINST (? IN BOOLEAN MODE)', array($search));

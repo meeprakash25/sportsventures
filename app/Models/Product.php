@@ -57,7 +57,7 @@ class Product extends Model
 
     public function brand()
     {
-        return $this->belongsTo('App\Models\Partner', 'partner_slug');
+        return $this->belongsTo('App\Models\Partner', 'partner_slug','slug');
     }
 
     public function galleries()

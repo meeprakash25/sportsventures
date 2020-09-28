@@ -15,7 +15,7 @@ class AddColumnPartnerIdToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->bigInteger('partner_id')->nullable()->default(null);
+            $table->string('partner_slug')->nullable()->default(null);
         });
     }
 
@@ -27,7 +27,7 @@ class AddColumnPartnerIdToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn(['partner_id']);
+            $table->dropColumn(['partner_slug']);
         });
     }
 }

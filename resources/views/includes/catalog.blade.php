@@ -6,9 +6,97 @@
                     {{$langg->lang61}}
                 </h4>
             </div>
-            @if($by_brand)
+            @if(isset($brand))
                 <div class="body-area">
-                    <form id="catalogForm" action="{{ route('front.brand', $brand->id) }}"
+                    <h6 class="title"><strong>Brands</strong></h6>
+                    <form id="catalogForm" action="{{ route('front.brand', $brand->slug) }}" method="GET">
+                        @if (!empty(request()->input('search')))
+                            <input type="hidden" name="search" value="{{ request()->input('search') }}">
+                        @endif
+                        @if (!empty(request()->input('sort')))
+                            <input type="hidden" name="sort" value="{{ request()->input('sort') }}">
+                        @endif
+                        <ul class="filter-list">
+                            <?php $brnds = \App\Models\Partner::all() ?>
+                            @foreach ($brnds as $brnd)
+                                <li>
+                                    <div class="content">
+                                        <i class="fas fa-angle-double-right"></i> <a href="{{route('front.brand', $brnd->slug)}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
+                                           class="category-link @if($brnd->slug == $brand->slug) active @endif">{{$brnd->name}}</a>
+                                    </div>
+                                </li>
+                            @endforeach
+
+                        </ul>
+
+                        <h6 class="title"><strong>Categories</strong></h6>
+                        <ul class="filter-list">
+                            @foreach ($categories as $element)
+                                <li>
+                                    <div class="content">
+                                        <i class="fas fa-angle-double-right"></i> <a href="{{route('front.category', $element->slug)}} {{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
+                                           class="category-link">{{$element->name}}</a>
+                                        @if(!empty($cat) && $cat->id == $element->id && !empty($cat->subs))
+                                            @foreach ($cat->subs as $key => $subelement)
+                                                <div class="sub-content open">
+                                                    <i class="fas fa-angle-right"></i> <a href="{{route('front.category', [$cat->slug, $subelement->slug])}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
+                                                       class="subcategory-link">{{$subelement->name}}</a>
+                                                    @if(!empty($subcat) && $subcat->id == $subelement->id && !empty($subcat->childs))
+                                                        @foreach ($subcat->childs as $key => $childcat)
+                                                            <div class="child-content open">
+                                                                <i class="fas fa-caret-right"></i> <a href="{{route('front.category', [$cat->slug, $subcat->slug, $childcat->slug])}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
+                                                                   class="subcategory-link">{{$childcat->name}}</a>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            @endforeach
+
+                                    </div>
+                                    @endif
+
+                                </li>
+                            @endforeach
+
+                        </ul>
+
+                        <div class="price-range-block">
+                            <div id="slider-range" class="price-filter-range" name="rangeInput"></div>
+                            <div class="livecount">
+                                <input type="number" min=0 name="min" id="min_price" class="price-range-field"/>
+                                <span>{{$langg->lang62}}</span>
+                                <input type="number" min=0 name="max" id="max_price" class="price-range-field"/>
+                            </div>
+                        </div>
+
+                        <button class="filter-btn" type="submit">{{$langg->lang58}}</button>
+                    </form>
+                </div>
+
+                <div class="tags-area">
+                    <div class="header-area">
+                        <h4 class="title">
+                            {{$langg->lang63}}
+                        </h4>
+                    </div>
+                    <div class="body-area">
+                        <ul class="taglist">
+                            @foreach(App\Models\Product::showTags() as $tag)
+                                @if(!empty($tag))
+                                    <li>
+                                        <a class="{{ isset($tags) ? ($tag == $tags ? 'active' : '') : ''}}" href="{{ route('front.tag',$tag) }}">
+                                            {{ $tag }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @else
+                <div class="body-area">
+                    <h6 class="title"><strong>Categories</strong></h6>
+                    <form id="catalogForm" action="{{ route('front.category', [Request::route('category'), Request::route('subcategory'), Request::route('childcategory')]) }}"
                           method="GET">
                         @if (!empty(request()->input('search')))
                             <input type="hidden" name="search" value="{{ request()->input('search') }}">
@@ -17,12 +105,43 @@
                             <input type="hidden" name="sort" value="{{ request()->input('sort') }}">
                         @endif
                         <ul class="filter-list">
-                            <?php $brands = \App\Models\Partner::all() ?>
-                            @foreach ($brands as $brand)
+                            @foreach ($categories as $element)
                                 <li>
                                     <div class="content">
-                                        <a href="{{route('front.brand', $brand->id)}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
-                                           class="category-link"> <i class="fas fa-angle-double-right"></i> {{$brand->name}}</a>
+                                        <i class="fas fa-angle-double-right"></i> <a href="{{route('front.category', $element->slug)}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
+                                           class="category-link @if($element->slug == $cat->slug) active @endif">{{$element->name}}</a>
+                                        @if(!empty($cat) && $cat->id == $element->id && !empty($cat->subs))
+                                            @foreach ($cat->subs as $key => $subelement)
+                                                <div class="sub-content open">
+                                                    <i class="fas fa-angle-right"></i> <a href="{{route('front.category', [$cat->slug, $subelement->slug])}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
+                                                       class="subcategory-link @if(!empty($subcat) && ($subelement->slug == $subcat->slug)) active @endif">{{$subelement->name}}</a>
+                                                    @if(!empty($subcat) && $subcat->id == $subelement->id && !empty($subcat->childs))
+                                                        @foreach ($subcat->childs as $key => $childelement)
+                                                            <div class="child-content open">
+                                                                <i class="fas fa-caret-right"></i> <a href="{{route('front.category', [$cat->slug, $subelement->slug, $childelement->slug])}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
+                                                                   class="subcategory-link @if(!empty($childcat) && ($childelement->slug == $childcat->slug)) active @endif">{{$childelement->name}}</a>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            @endforeach
+
+                                    </div>
+                                    @endif
+
+                                </li>
+                            @endforeach
+
+                        </ul>
+
+                        <h6 class="title"><strong>Brands</strong></h6>
+                        <ul class="filter-list">
+                            <?php $brnds = \App\Models\Partner::all() ?>
+                            @foreach ($brnds as $brnd)
+                                <li>
+                                    <div class="content">
+                                        <i class="fas fa-angle-double-right"></i> <a href="{{route('front.brand', $brnd->slug)}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
+                                           class="category-link">{{$brnd->name}}</a>
                                     </div>
                                 </li>
                             @endforeach
@@ -41,58 +160,25 @@
                         <button class="filter-btn" type="submit">{{$langg->lang58}}</button>
                     </form>
                 </div>
-            @else
-                <div class="body-area">
-                    <form id="catalogForm" action="{{ route('front.category', [Request::route('category'), Request::route('subcategory'), Request::route('childcategory')]) }}"
-                          method="GET">
-                        @if (!empty(request()->input('search')))
-                            <input type="hidden" name="search" value="{{ request()->input('search') }}">
-                        @endif
-                        @if (!empty(request()->input('sort')))
-                            <input type="hidden" name="sort" value="{{ request()->input('sort') }}">
-                        @endif
-                        <ul class="filter-list">
-                            @foreach ($categories as $element)
-                                <li>
-                                    <div class="content">
-                                        <a href="{{route('front.category', $element->slug)}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
-                                           class="category-link"> <i class="fas fa-angle-double-right"></i> {{$element->name}}</a>
-                                        @if(!empty($cat) && $cat->id == $element->id && !empty($cat->subs))
-                                            @foreach ($cat->subs as $key => $subelement)
-                                                <div class="sub-content open">
-                                                    <a href="{{route('front.category', [$cat->slug, $subelement->slug])}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
-                                                       class="subcategory-link"><i class="fas fa-angle-right"></i>{{$subelement->name}}</a>
-                                                    @if(!empty($subcat) && $subcat->id == $subelement->id && !empty($subcat->childs))
-                                                        @foreach ($subcat->childs as $key => $childcat)
-                                                            <div class="child-content open">
-                                                                <a href="{{route('front.category', [$cat->slug, $subcat->slug, $childcat->slug])}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}"
-                                                                   class="subcategory-link"><i class="fas fa-caret-right"></i> {{$childcat->name}}</a>
-                                                            </div>
-                                                        @endforeach
-                                                    @endif
-                                                </div>
-                                            @endforeach
-
-                                    </div>
-                                    @endif
-
-
-                                </li>
+                <div class="tags-area">
+                    <div class="header-area">
+                        <h4 class="title">
+                            {{$langg->lang63}}
+                        </h4>
+                    </div>
+                    <div class="body-area">
+                        <ul class="taglist">
+                            @foreach(App\Models\Product::showTags() as $tag)
+                                @if(!empty($tag))
+                                    <li>
+                                        <a class="{{ isset($tags) ? ($tag == $tags ? 'active' : '') : ''}}" href="{{ route('front.tag',$tag) }}">
+                                            {{ $tag }}
+                                        </a>
+                                    </li>
+                                @endif
                             @endforeach
-
                         </ul>
-
-                        <div class="price-range-block">
-                            <div id="slider-range" class="price-filter-range" name="rangeInput"></div>
-                            <div class="livecount">
-                                <input type="number" min=0 name="min" id="min_price" class="price-range-field"/>
-                                <span>{{$langg->lang62}}</span>
-                                <input type="number" min=0 name="max" id="max_price" class="price-range-field"/>
-                            </div>
-                        </div>
-
-                        <button class="filter-btn" type="submit">{{$langg->lang58}}</button>
-                    </form>
+                    </div>
                 </div>
             @endif
         </div>

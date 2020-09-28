@@ -96,7 +96,6 @@ class CartController extends Controller
                 return redirect()->route('front.cart')->with('unsuccess', $lang->out_stock);
             }
         }
-
         if(!empty($prod['size_qty']) && $prod->size_qty[0] < 1){
             return redirect()->route('front.cart')->with('unsuccess', $lang->out_stock);
         }
@@ -190,7 +189,6 @@ class CartController extends Controller
     public function addcart($id)
     {
         $prod = Product::where('id', '=', $id)->first(['id', 'user_id', 'slug', 'name', 'photo', 'size', 'size_qty', 'size_price', 'color', 'price', 'stock', 'type', 'file', 'link', 'license', 'license_qty', 'measure', 'whole_sell_qty', 'whole_sell_discount', 'attributes']);
-
         if(!empty($prod['size_qty']) && $prod->size_qty[0] < 1){
             return 0;
         }

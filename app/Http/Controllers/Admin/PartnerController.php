@@ -79,6 +79,9 @@ class PartnerController extends Controller
             $input['meta_description'] = null;
         }
         $data->fill($input)->save();
+        $partner = Partner::find($data->id);
+        $partner->slug = str_slug($data->name, '-') . '-' . strtolower(str_random(3) . $data->id . str_random(3));
+        $partner->update();
         //--- Logic Section Ends
 
         //--- Redirect Section        

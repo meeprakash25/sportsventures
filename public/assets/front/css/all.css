@@ -15250,11 +15250,26 @@ button.navbar-toggler {
 }
 
 .mainmenu-area .navbar-collapse.collapse.show,
-.mainmenu-area .navbar-collapse.collapsing{
-    padding-left:10px;
-    padding-right:10px;
+.mainmenu-area .navbar-collapse.collapsing {
+    padding-left: 10px;
+    padding-right: 10px;
     z-index: 1000;
     position: relative !important;
+}
+
+#catalogForm .category-link.active {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+#catalogForm .subcategory-link.active  {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+#catalogForm a:hover  {
+    text-decoration: underline;
+    color:#dc3545;
 }
 
 

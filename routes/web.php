@@ -1263,11 +1263,11 @@ Route::group(['middleware' => 'maintenance'], function () {
     // CATEGORY SECTION ENDS
 
     // TAG SECTION
-    Route::get('/tag/{slug}', 'Front\CatalogController@tag')->name('front.tag');
+    Route::get('/tag/{tag}', 'Front\CatalogController@tag')->name('front.tag');
     // TAG SECTION ENDS
 
     // BRAND SECTION
-    Route::get('/brand/{id}', 'Front\CatalogController@brand')->name('front.brand');
+    Route::get('/brand/{slug}', 'Front\CatalogController@brand')->name('front.brand');
     // BRAND SECTION ENDS
 
     // TAG SECTION

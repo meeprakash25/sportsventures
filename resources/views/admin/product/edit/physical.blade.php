@@ -175,10 +175,10 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
-                                                <select name="partner_id">
+                                                <select name="partner_slug">
                                                     <option value="">{{ __('Select Brand') }}</option>
                                                     @foreach($brands as $brand)
-                                                        <option value="{{$brand->id}}" @if($brand->id == $data->partner_id) selected @endif>{{ $brand->name }}</option>
+                                                        <option value="{{$brand->slug}}" @if($brand->slug == $data->partner_slug) selected @endif>{{ $brand->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

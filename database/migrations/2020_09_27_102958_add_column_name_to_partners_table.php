@@ -16,6 +16,7 @@ class AddColumnNameToPartnersTable extends Migration
         Schema::table('partners', function (Blueprint $table) {
             //
             $table->string('name')->nullable()->default(null)->after('id');
+            $table->string('slug')->nullable()->default(null)->after('name');
         });
     }
 

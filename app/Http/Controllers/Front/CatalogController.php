@@ -179,7 +179,6 @@ class CatalogController extends Controller
         $prods = (new Collection(Product::filterProducts($prods)))->paginate(12);
 
         $data['prods'] = $prods;
-        $data['by_brand'] = false;
 
         if ($request->ajax()) {
 
@@ -190,9 +189,8 @@ class CatalogController extends Controller
         return view('front.category', $data);
     }
 
-    public function brand(Request $request, $id)
+    public function brand(Request $request, $slug)
     {
-        //dd($request->all(),$slug,$slug1,$slug2);
         if (Session::has('currency')) {
             $curr = Currency::find(Session::get('currency'));
         } else {
@@ -230,13 +228,66 @@ class CatalogController extends Controller
                 return $query->orderBy('id', 'DESC');
             });
 
-        $products         = $products->where(['partner_id' => $id, 'status' => 1])->get();
+        $products         = $products->where(['partner_slug' => $slug, 'status' => 1])->get();
         $products         = (new Collection(Product::filterProducts($products)))->paginate(12);
-        $brand            = Partner::findOrFail($id);
+        $brand            = Partner::where('slug',$slug)->firstOrFail();
         $data['products'] = $products;
         $data['brand']    = $brand;
         $data['by_brand'] = true;
-        return view('front.product-by-brands', $data);
+
+        if ($request->ajax()) {
+
+            $data['ajax_check'] = 1;
+
+            return view('includes.product.filtered-products', $data);
+        }
+        return view('front.brands', $data);
+    }
+
+    public function tag(Request $request, $tag)
+    {
+        if (Session::has('currency')) {
+            $curr = Currency::find(Session::get('currency'));
+        } else {
+            $curr = Currency::where('is_default', '=', 1)->first();
+        }
+
+        $minprice = $request->min;
+        $maxprice = $request->max;
+        $sort     = $request->sort;
+        $search   = $request->search;
+        $minprice = round(($minprice / $curr->value), 2);
+        $maxprice = round(($maxprice / $curr->value), 2);
+
+        $products = Product::when($search, function ($query, $search) {
+            return $query->whereRaw('MATCH (name) AGAINST (? IN BOOLEAN MODE)', array($search));
+        })
+            ->when($minprice, function ($query, $minprice) {
+                return $query->where('price', '>=', $minprice);
+            })
+            ->when($maxprice, function ($query, $maxprice) {
+                return $query->where('price', '<=', $maxprice);
+            })
+            ->when($sort, function ($query, $sort) {
+                if ($sort == 'date_desc') {
+                    return $query->orderBy('id', 'DESC');
+                } elseif ($sort == 'date_asc') {
+                    return $query->orderBy('id', 'ASC');
+                } elseif ($sort == 'price_desc') {
+                    return $query->orderBy('price', 'DESC');
+                } elseif ($sort == 'price_asc') {
+                    return $query->orderBy('price', 'ASC');
+                }
+            })
+            ->when(empty($sort), function ($query, $sort) {
+                return $query->orderBy('id', 'DESC');
+            });
+
+        $products         = $products->where('status', 1)->whereRaw("find_in_set('$tag', tags)")->get();
+        $products         = (new Collection(Product::filterProducts($products)))->paginate(12);
+        $data['products'] = $products;
+        $data['tags']     = $tag;
+        return view('front.tags', $data);
     }
 
     public function getsubs(Request $request)

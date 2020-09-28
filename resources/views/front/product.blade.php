@@ -243,7 +243,6 @@
                                                     </div>
                                                 </li>
                                             @endif
-
                                             @if (!empty($productt->attributes))
                                                 @php
                                                     $attrArr = json_decode($productt->attributes, true);
@@ -282,18 +281,21 @@
                                                         @endforeach
                                                     </div>
                                                 </div>
-                                            @endif
+                                                @endif
+                                                <p style="font-size: 14px;">
+                                                    Category: <a href="{{route('front.category', $productt->category->slug)}}">{{$productt->category->name}}</a><br>
+                                                    Brand: <a href="{{route('front.brand', $productt->brand->slug)}}">{{$productt->brand->name}}</a>
+                                                </p>
+                                                @if($productt->product_type == "affiliate")
 
-                                            @if($productt->product_type == "affiliate")
-
-                                                <li class="addtocart">
-                                                    <a href="{{ route('affiliate.product', $productt->slug) }}" target="_blank"><i
-                                                                class="icofont-cart"></i> {{ $langg->lang251 }}</a>
-                                                </li>
-                                            @else
-                                                @if($productt->emptyStock())
                                                     <li class="addtocart">
-                                                        <a href="javascript:;" class="cart-out-of-stock">
+                                                        <a href="{{ route('affiliate.product', $productt->slug) }}" target="_blank"><i
+                                                                    class="icofont-cart"></i> {{ $langg->lang251 }}</a>
+                                                    </li>
+                                                @else
+                                                    @if($productt->emptyStock())
+                                                        <li class="addtocart">
+                                                            <a href="javascript:;" class="cart-out-of-stock">
                                                             <i class="icofont-close-circled"></i>
                                                             {{ $langg->lang78 }}</a>
                                                     </li>

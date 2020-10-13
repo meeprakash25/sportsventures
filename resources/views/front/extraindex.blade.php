@@ -166,7 +166,7 @@
                     <div class="partner-slider">
                         @foreach($partners as $data)
                             <div class="item-slide">
-                                <a href="{{route('front.brand',$partner->slug)}}">
+                                <a href="{{route('front.brand',$data->slug)}}">
                                     <img src="{{asset('public/assets/images/partner/'.$data->photo)}}" alt="">
                                 </a>
                             </div>

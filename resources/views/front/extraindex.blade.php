@@ -93,7 +93,6 @@
                         <h2 class="section-title">
                             {{ $langg->lang26 }}
                         </h2>
-                        <a href="#" class="link">View All</a>
                     </div>
                 </div>
             </div>

@@ -422,7 +422,7 @@
                                             <div class="col-lg-12">
                                                 <div class="left-area">
                                                     <h4 class="heading">
-                                                        {{ __('Product Buy/Return Policy') }}*
+                                                        {{ __('Product Details') }}
                                                     </h4>
                                                 </div>
                                             </div>

@@ -198,8 +198,7 @@ class FrontendController extends Controller
     {
         if (mb_strlen($slug, 'utf-8') > 1) {
             $search = ' ' . $slug;
-            $prods  = Product::where('status', '=', 1)->where('name', 'like', '%' . $search . '%')->orWhere('name', 'like', $slug . '%')->take(10)->get()->reject(function ($item) {
-
+            $prods  = Product::where('status', '=', 1)->where('name', 'like', '%' . $search . '%')->orWhere('name', 'like', $slug . '%')->orWhere('sku', 'like', $slug . '%')->take(10)->get()->reject(function ($item) {
                 if ($item->user_id != 0) {
                     if ($item->user->is_vendor != 2) {
                         return true;
@@ -207,7 +206,6 @@ class FrontendController extends Controller
                 }
                 return false;
             });
-
             return view('load.suggest', compact('prods', 'slug'));
         }
         return "";

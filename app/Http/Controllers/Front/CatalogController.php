@@ -77,7 +77,7 @@ class CatalogController extends Controller
             $childcat         = Childcategory::where('slug', $slug2)->firstOrFail();
             $data['childcat'] = $childcat;
         }
-
+        //dd(array($search));
         $prods = Product::when($cat, function ($query, $cat) {
             return $query->where('category_id', $cat->id);
         })
@@ -88,7 +88,8 @@ class CatalogController extends Controller
                 return $query->where('childcategory_id', $childcat->id);
             })
             ->when($search, function ($query, $search) {
-                return $query->whereRaw('MATCH (name) AGAINST (? IN BOOLEAN MODE)', array($search));
+                return $query->whereRaw('MATCH (name) AGAINST (? IN BOOLEAN MODE)', array($search))
+                    ->orWhereRaw('MATCH (sku) AGAINST (? IN BOOLEAN MODE)', array($search));
             })
             ->when($minprice, function ($query, $minprice) {
                 return $query->where('price', '>=', $minprice);

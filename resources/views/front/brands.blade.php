@@ -82,9 +82,10 @@
 @section('scripts')
 
     <script type="text/javascript">
+
         $("#sortby").on('change',function () {
             var sort = $("#sortby").val();
-            window.location = "{{url('/brand')}}/{{$brand->id}}?sort="+sort;
+            window.location = "{{url('/brand')}}/{{$brand->slug}}?sort="+sort;
         });
 
         $(function () {
